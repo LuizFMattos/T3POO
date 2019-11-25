@@ -14,7 +14,10 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateEdit>
+<<<<<<< HEAD
 #include <QtWidgets/QGridLayout>
+=======
+>>>>>>> master
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
@@ -72,6 +75,7 @@ public:
     QPushButton *pushButton_5;
     QPushButton *pushButton_6;
     QWidget *Devolucao;
+<<<<<<< HEAD
     QGroupBox *groupBox_7;
     QGroupBox *groupBox_8;
     QWidget *layoutWidget_2;
@@ -108,6 +112,8 @@ public:
     QHBoxLayout *horizontalLayout_19;
     QLabel *label_20;
     QLineEdit *lineEdit_15;
+=======
+>>>>>>> master
     QWidget *usuarios;
     QGroupBox *groupBox;
     QWidget *layoutWidget2;
@@ -138,6 +144,7 @@ public:
     QPushButton *pushButton_3;
     QPushButton *pushButton_2;
     QWidget *acervo;
+<<<<<<< HEAD
     QGroupBox *groupBox_12;
     QGroupBox *groupBox_13;
     QWidget *widget6;
@@ -163,6 +170,8 @@ public:
     QHBoxLayout *horizontalLayout_24;
     QLabel *label_29;
     QLineEdit *lineEdit_19;
+=======
+>>>>>>> master
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -337,6 +346,7 @@ public:
         Menu->addTab(Emprestimo, QString());
         Devolucao = new QWidget();
         Devolucao->setObjectName(QString::fromUtf8("Devolucao"));
+<<<<<<< HEAD
         groupBox_7 = new QGroupBox(Devolucao);
         groupBox_7->setObjectName(QString::fromUtf8("groupBox_7"));
         groupBox_7->setGeometry(QRect(100, 240, 431, 91));
@@ -482,6 +492,8 @@ public:
 
         horizontalLayout_19->addWidget(lineEdit_15);
 
+=======
+>>>>>>> master
         Menu->addTab(Devolucao, QString());
         usuarios = new QWidget();
         usuarios->setObjectName(QString::fromUtf8("usuarios"));
@@ -610,6 +622,7 @@ public:
         Menu->addTab(usuarios, QString());
         acervo = new QWidget();
         acervo->setObjectName(QString::fromUtf8("acervo"));
+<<<<<<< HEAD
         groupBox_12 = new QGroupBox(acervo);
         groupBox_12->setObjectName(QString::fromUtf8("groupBox_12"));
         groupBox_12->setGeometry(QRect(50, 250, 411, 80));
@@ -714,6 +727,8 @@ public:
 
         horizontalLayout_24->addWidget(lineEdit_19);
 
+=======
+>>>>>>> master
         Menu->addTab(acervo, QString());
         BibliotecaDC->setCentralWidget(centralwidget);
         menubar = new QMenuBar(BibliotecaDC);
@@ -726,7 +741,11 @@ public:
 
         retranslateUi(BibliotecaDC);
 
+<<<<<<< HEAD
         Menu->setCurrentIndex(3);
+=======
+        Menu->setCurrentIndex(0);
+>>>>>>> master
 
 
         QMetaObject::connectSlotsByName(BibliotecaDC);
@@ -735,7 +754,11 @@ public:
     void retranslateUi(QMainWindow *BibliotecaDC)
     {
         BibliotecaDC->setWindowTitle(QCoreApplication::translate("BibliotecaDC", "BibliotecaDC", nullptr));
+<<<<<<< HEAD
         label->setText(QCoreApplication::translate("BibliotecaDC", "Biblioteca DC", nullptr));
+=======
+        label->setText(QCoreApplication::translate("BibliotecaDC", "Bibliotaca DC", nullptr));
+>>>>>>> master
         groupBox_3->setTitle(QCoreApplication::translate("BibliotecaDC", "Nome", nullptr));
         label_7->setText(QCoreApplication::translate("BibliotecaDC", "CPF", nullptr));
         label_8->setText(QCoreApplication::translate("BibliotecaDC", "Nome", nullptr));
@@ -750,6 +773,7 @@ public:
         pushButton_5->setText(QCoreApplication::translate("BibliotecaDC", "Emprestar", nullptr));
         pushButton_6->setText(QCoreApplication::translate("BibliotecaDC", "Emprestados", nullptr));
         Menu->setTabText(Menu->indexOf(Emprestimo), QCoreApplication::translate("BibliotecaDC", "Emprestimo", nullptr));
+<<<<<<< HEAD
         groupBox_7->setTitle(QCoreApplication::translate("BibliotecaDC", "Filtos de Reservas", nullptr));
         groupBox_8->setTitle(QCoreApplication::translate("BibliotecaDC", "Comandos", nullptr));
         pushButton_7->setText(QCoreApplication::translate("BibliotecaDC", "Devolver", nullptr));
@@ -763,6 +787,8 @@ public:
         label_18->setText(QCoreApplication::translate("BibliotecaDC", "Data da Devolu\303\247\303\243o", nullptr));
         label_19->setText(QCoreApplication::translate("BibliotecaDC", "Editora", nullptr));
         label_20->setText(QCoreApplication::translate("BibliotecaDC", "Edi\303\247\303\243o", nullptr));
+=======
+>>>>>>> master
         Menu->setTabText(Menu->indexOf(Devolucao), QCoreApplication::translate("BibliotecaDC", "Devolu\303\247\303\243o", nullptr));
         groupBox->setTitle(QCoreApplication::translate("BibliotecaDC", "Dados Pessoais", nullptr));
         label_2->setText(QCoreApplication::translate("BibliotecaDC", "Nome", nullptr));
@@ -780,6 +806,7 @@ public:
         pushButton_3->setText(QCoreApplication::translate("BibliotecaDC", "Editar", nullptr));
         pushButton_2->setText(QCoreApplication::translate("BibliotecaDC", "Remover", nullptr));
         Menu->setTabText(Menu->indexOf(usuarios), QCoreApplication::translate("BibliotecaDC", "Usu\303\241rios", nullptr));
+<<<<<<< HEAD
         groupBox_12->setTitle(QCoreApplication::translate("BibliotecaDC", "Pesquisa de Livros", nullptr));
         groupBox_13->setTitle(QCoreApplication::translate("BibliotecaDC", "Comandos", nullptr));
         pushButton_9->setText(QCoreApplication::translate("BibliotecaDC", "Cadastrar", nullptr));
@@ -791,6 +818,8 @@ public:
         label_26->setText(QCoreApplication::translate("BibliotecaDC", "T\303\255tulo", nullptr));
         label_28->setText(QCoreApplication::translate("BibliotecaDC", "Editora", nullptr));
         label_29->setText(QCoreApplication::translate("BibliotecaDC", "Edi\303\247\303\243o", nullptr));
+=======
+>>>>>>> master
         Menu->setTabText(Menu->indexOf(acervo), QCoreApplication::translate("BibliotecaDC", "Acervo", nullptr));
     } // retranslateUi
 
