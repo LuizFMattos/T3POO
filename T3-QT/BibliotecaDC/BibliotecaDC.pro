@@ -20,6 +20,8 @@ SOURCES += \
     bibliotecadc.cpp
 
 HEADERS += \
+    DAO.h \
+    Livro.h \
     bibliotecadc.h
 
 FORMS += \

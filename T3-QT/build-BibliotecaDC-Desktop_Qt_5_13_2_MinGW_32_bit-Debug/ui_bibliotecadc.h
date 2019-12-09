@@ -14,10 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateEdit>
-<<<<<<< HEAD
 #include <QtWidgets/QGridLayout>
-=======
->>>>>>> master
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
@@ -48,34 +45,33 @@ public:
     QLabel *label_8;
     QLineEdit *lineEdit_5;
     QGroupBox *groupBox_4;
-    QWidget *widget;
+    QWidget *layoutWidget2;
     QHBoxLayout *horizontalLayout_6;
     QLabel *label_9;
     QLineEdit *lineEdit_6;
-    QWidget *widget1;
+    QWidget *layoutWidget3;
     QHBoxLayout *horizontalLayout_7;
     QLabel *label_10;
     QLineEdit *lineEdit_7;
-    QWidget *widget2;
+    QWidget *layoutWidget4;
     QHBoxLayout *horizontalLayout_8;
     QLabel *label_11;
     QDateEdit *dateEdit_2;
-    QWidget *widget3;
+    QWidget *layoutWidget5;
     QHBoxLayout *horizontalLayout_9;
     QLabel *label_13;
     QLineEdit *lineEdit_9;
-    QWidget *widget4;
+    QWidget *layoutWidget6;
     QHBoxLayout *horizontalLayout_10;
     QLabel *label_12;
     QLineEdit *lineEdit_8;
     QGroupBox *groupBox_6;
     QGroupBox *groupBox_5;
-    QWidget *widget5;
+    QWidget *layoutWidget7;
     QHBoxLayout *horizontalLayout_11;
     QPushButton *pushButton_5;
     QPushButton *pushButton_6;
     QWidget *Devolucao;
-<<<<<<< HEAD
     QGroupBox *groupBox_7;
     QGroupBox *groupBox_8;
     QWidget *layoutWidget_2;
@@ -112,42 +108,39 @@ public:
     QHBoxLayout *horizontalLayout_19;
     QLabel *label_20;
     QLineEdit *lineEdit_15;
-=======
->>>>>>> master
     QWidget *usuarios;
     QGroupBox *groupBox;
-    QWidget *layoutWidget2;
+    QWidget *layoutWidget8;
     QHBoxLayout *Nome;
     QLabel *label_2;
     QLineEdit *lineEdit;
-    QWidget *layoutWidget3;
+    QWidget *layoutWidget9;
     QHBoxLayout *CPF;
     QLabel *label_4;
     QLineEdit *lineEdit_2;
-    QWidget *layoutWidget4;
+    QWidget *layoutWidget10;
     QHBoxLayout *Telefone;
     QLabel *label_3;
     QLineEdit *lineEdit_3;
-    QWidget *layoutWidget5;
+    QWidget *layoutWidget11;
     QHBoxLayout *horizontalLayout;
     QLabel *label_5;
     QDateEdit *dateEdit;
-    QWidget *layoutWidget6;
+    QWidget *layoutWidget12;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_6;
     QComboBox *comboBox;
     QGroupBox *groupBox_2;
-    QWidget *layoutWidget7;
+    QWidget *layoutWidget13;
     QHBoxLayout *horizontalLayout_3;
     QPushButton *pushButton;
     QPushButton *pushButton_4;
     QPushButton *pushButton_3;
     QPushButton *pushButton_2;
     QWidget *acervo;
-<<<<<<< HEAD
     QGroupBox *groupBox_12;
     QGroupBox *groupBox_13;
-    QWidget *widget6;
+    QWidget *layoutWidget14;
     QGridLayout *gridLayout;
     QPushButton *pushButton_9;
     QPushButton *pushButton_10;
@@ -170,8 +163,6 @@ public:
     QHBoxLayout *horizontalLayout_24;
     QLabel *label_29;
     QLineEdit *lineEdit_19;
-=======
->>>>>>> master
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -233,19 +224,19 @@ public:
         groupBox_4 = new QGroupBox(Emprestimo);
         groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
         groupBox_4->setGeometry(QRect(100, 100, 431, 131));
-        widget = new QWidget(groupBox_4);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(10, 30, 129, 24));
-        horizontalLayout_6 = new QHBoxLayout(widget);
+        layoutWidget2 = new QWidget(groupBox_4);
+        layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
+        layoutWidget2->setGeometry(QRect(10, 30, 129, 24));
+        horizontalLayout_6 = new QHBoxLayout(layoutWidget2);
         horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
         horizontalLayout_6->setSizeConstraint(QLayout::SetNoConstraint);
         horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
-        label_9 = new QLabel(widget);
+        label_9 = new QLabel(layoutWidget2);
         label_9->setObjectName(QString::fromUtf8("label_9"));
 
         horizontalLayout_6->addWidget(label_9);
 
-        lineEdit_6 = new QLineEdit(widget);
+        lineEdit_6 = new QLineEdit(layoutWidget2);
         lineEdit_6->setObjectName(QString::fromUtf8("lineEdit_6"));
         lineEdit_6->setEnabled(true);
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
@@ -257,66 +248,66 @@ public:
 
         horizontalLayout_6->addWidget(lineEdit_6);
 
-        widget1 = new QWidget(groupBox_4);
-        widget1->setObjectName(QString::fromUtf8("widget1"));
-        widget1->setGeometry(QRect(10, 60, 178, 24));
-        horizontalLayout_7 = new QHBoxLayout(widget1);
+        layoutWidget3 = new QWidget(groupBox_4);
+        layoutWidget3->setObjectName(QString::fromUtf8("layoutWidget3"));
+        layoutWidget3->setGeometry(QRect(10, 60, 178, 24));
+        horizontalLayout_7 = new QHBoxLayout(layoutWidget3);
         horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
         horizontalLayout_7->setContentsMargins(0, 0, 0, 0);
-        label_10 = new QLabel(widget1);
+        label_10 = new QLabel(layoutWidget3);
         label_10->setObjectName(QString::fromUtf8("label_10"));
 
         horizontalLayout_7->addWidget(label_10);
 
-        lineEdit_7 = new QLineEdit(widget1);
+        lineEdit_7 = new QLineEdit(layoutWidget3);
         lineEdit_7->setObjectName(QString::fromUtf8("lineEdit_7"));
 
         horizontalLayout_7->addWidget(lineEdit_7);
 
-        widget2 = new QWidget(groupBox_4);
-        widget2->setObjectName(QString::fromUtf8("widget2"));
-        widget2->setGeometry(QRect(150, 30, 216, 24));
-        horizontalLayout_8 = new QHBoxLayout(widget2);
+        layoutWidget4 = new QWidget(groupBox_4);
+        layoutWidget4->setObjectName(QString::fromUtf8("layoutWidget4"));
+        layoutWidget4->setGeometry(QRect(150, 30, 219, 24));
+        horizontalLayout_8 = new QHBoxLayout(layoutWidget4);
         horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
         horizontalLayout_8->setContentsMargins(0, 0, 0, 0);
-        label_11 = new QLabel(widget2);
+        label_11 = new QLabel(layoutWidget4);
         label_11->setObjectName(QString::fromUtf8("label_11"));
 
         horizontalLayout_8->addWidget(label_11);
 
-        dateEdit_2 = new QDateEdit(widget2);
+        dateEdit_2 = new QDateEdit(layoutWidget4);
         dateEdit_2->setObjectName(QString::fromUtf8("dateEdit_2"));
 
         horizontalLayout_8->addWidget(dateEdit_2);
 
-        widget3 = new QWidget(groupBox_4);
-        widget3->setObjectName(QString::fromUtf8("widget3"));
-        widget3->setGeometry(QRect(230, 80, 131, 24));
-        horizontalLayout_9 = new QHBoxLayout(widget3);
+        layoutWidget5 = new QWidget(groupBox_4);
+        layoutWidget5->setObjectName(QString::fromUtf8("layoutWidget5"));
+        layoutWidget5->setGeometry(QRect(230, 80, 131, 24));
+        horizontalLayout_9 = new QHBoxLayout(layoutWidget5);
         horizontalLayout_9->setObjectName(QString::fromUtf8("horizontalLayout_9"));
         horizontalLayout_9->setContentsMargins(0, 0, 0, 0);
-        label_13 = new QLabel(widget3);
+        label_13 = new QLabel(layoutWidget5);
         label_13->setObjectName(QString::fromUtf8("label_13"));
 
         horizontalLayout_9->addWidget(label_13);
 
-        lineEdit_9 = new QLineEdit(widget3);
+        lineEdit_9 = new QLineEdit(layoutWidget5);
         lineEdit_9->setObjectName(QString::fromUtf8("lineEdit_9"));
 
         horizontalLayout_9->addWidget(lineEdit_9);
 
-        widget4 = new QWidget(groupBox_4);
-        widget4->setObjectName(QString::fromUtf8("widget4"));
-        widget4->setGeometry(QRect(10, 90, 141, 24));
-        horizontalLayout_10 = new QHBoxLayout(widget4);
+        layoutWidget6 = new QWidget(groupBox_4);
+        layoutWidget6->setObjectName(QString::fromUtf8("layoutWidget6"));
+        layoutWidget6->setGeometry(QRect(10, 90, 141, 24));
+        horizontalLayout_10 = new QHBoxLayout(layoutWidget6);
         horizontalLayout_10->setObjectName(QString::fromUtf8("horizontalLayout_10"));
         horizontalLayout_10->setContentsMargins(0, 0, 0, 0);
-        label_12 = new QLabel(widget4);
+        label_12 = new QLabel(layoutWidget6);
         label_12->setObjectName(QString::fromUtf8("label_12"));
 
         horizontalLayout_10->addWidget(label_12);
 
-        lineEdit_8 = new QLineEdit(widget4);
+        lineEdit_8 = new QLineEdit(layoutWidget6);
         lineEdit_8->setObjectName(QString::fromUtf8("lineEdit_8"));
 
         horizontalLayout_10->addWidget(lineEdit_8);
@@ -327,18 +318,18 @@ public:
         groupBox_5 = new QGroupBox(Emprestimo);
         groupBox_5->setObjectName(QString::fromUtf8("groupBox_5"));
         groupBox_5->setGeometry(QRect(180, 330, 231, 61));
-        widget5 = new QWidget(groupBox_5);
-        widget5->setObjectName(QString::fromUtf8("widget5"));
-        widget5->setGeometry(QRect(11, 21, 195, 30));
-        horizontalLayout_11 = new QHBoxLayout(widget5);
+        layoutWidget7 = new QWidget(groupBox_5);
+        layoutWidget7->setObjectName(QString::fromUtf8("layoutWidget7"));
+        layoutWidget7->setGeometry(QRect(11, 21, 195, 30));
+        horizontalLayout_11 = new QHBoxLayout(layoutWidget7);
         horizontalLayout_11->setObjectName(QString::fromUtf8("horizontalLayout_11"));
         horizontalLayout_11->setContentsMargins(0, 0, 0, 0);
-        pushButton_5 = new QPushButton(widget5);
+        pushButton_5 = new QPushButton(layoutWidget7);
         pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
 
         horizontalLayout_11->addWidget(pushButton_5);
 
-        pushButton_6 = new QPushButton(widget5);
+        pushButton_6 = new QPushButton(layoutWidget7);
         pushButton_6->setObjectName(QString::fromUtf8("pushButton_6"));
 
         horizontalLayout_11->addWidget(pushButton_6);
@@ -346,7 +337,6 @@ public:
         Menu->addTab(Emprestimo, QString());
         Devolucao = new QWidget();
         Devolucao->setObjectName(QString::fromUtf8("Devolucao"));
-<<<<<<< HEAD
         groupBox_7 = new QGroupBox(Devolucao);
         groupBox_7->setObjectName(QString::fromUtf8("groupBox_7"));
         groupBox_7->setGeometry(QRect(100, 240, 431, 91));
@@ -492,8 +482,6 @@ public:
 
         horizontalLayout_19->addWidget(lineEdit_15);
 
-=======
->>>>>>> master
         Menu->addTab(Devolucao, QString());
         usuarios = new QWidget();
         usuarios->setObjectName(QString::fromUtf8("usuarios"));
@@ -501,88 +489,88 @@ public:
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
         groupBox->setGeometry(QRect(110, 20, 441, 141));
         groupBox->setAutoFillBackground(false);
-        layoutWidget2 = new QWidget(groupBox);
-        layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
-        layoutWidget2->setGeometry(QRect(0, 30, 221, 27));
-        Nome = new QHBoxLayout(layoutWidget2);
+        layoutWidget8 = new QWidget(groupBox);
+        layoutWidget8->setObjectName(QString::fromUtf8("layoutWidget8"));
+        layoutWidget8->setGeometry(QRect(0, 30, 221, 27));
+        Nome = new QHBoxLayout(layoutWidget8);
         Nome->setObjectName(QString::fromUtf8("Nome"));
         Nome->setSizeConstraint(QLayout::SetNoConstraint);
         Nome->setContentsMargins(0, 0, 0, 0);
-        label_2 = new QLabel(layoutWidget2);
+        label_2 = new QLabel(layoutWidget8);
         label_2->setObjectName(QString::fromUtf8("label_2"));
 
         Nome->addWidget(label_2);
 
-        lineEdit = new QLineEdit(layoutWidget2);
+        lineEdit = new QLineEdit(layoutWidget8);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
 
         Nome->addWidget(lineEdit);
 
-        layoutWidget3 = new QWidget(groupBox);
-        layoutWidget3->setObjectName(QString::fromUtf8("layoutWidget3"));
-        layoutWidget3->setGeometry(QRect(250, 30, 177, 27));
-        CPF = new QHBoxLayout(layoutWidget3);
+        layoutWidget9 = new QWidget(groupBox);
+        layoutWidget9->setObjectName(QString::fromUtf8("layoutWidget9"));
+        layoutWidget9->setGeometry(QRect(250, 30, 177, 27));
+        CPF = new QHBoxLayout(layoutWidget9);
         CPF->setObjectName(QString::fromUtf8("CPF"));
         CPF->setContentsMargins(0, 0, 0, 0);
-        label_4 = new QLabel(layoutWidget3);
+        label_4 = new QLabel(layoutWidget9);
         label_4->setObjectName(QString::fromUtf8("label_4"));
 
         CPF->addWidget(label_4);
 
-        lineEdit_2 = new QLineEdit(layoutWidget3);
+        lineEdit_2 = new QLineEdit(layoutWidget9);
         lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
 
         CPF->addWidget(lineEdit_2);
 
-        layoutWidget4 = new QWidget(groupBox);
-        layoutWidget4->setObjectName(QString::fromUtf8("layoutWidget4"));
-        layoutWidget4->setGeometry(QRect(0, 60, 221, 27));
-        Telefone = new QHBoxLayout(layoutWidget4);
+        layoutWidget10 = new QWidget(groupBox);
+        layoutWidget10->setObjectName(QString::fromUtf8("layoutWidget10"));
+        layoutWidget10->setGeometry(QRect(0, 60, 221, 27));
+        Telefone = new QHBoxLayout(layoutWidget10);
         Telefone->setObjectName(QString::fromUtf8("Telefone"));
         Telefone->setSizeConstraint(QLayout::SetNoConstraint);
         Telefone->setContentsMargins(0, 0, 0, 0);
-        label_3 = new QLabel(layoutWidget4);
+        label_3 = new QLabel(layoutWidget10);
         label_3->setObjectName(QString::fromUtf8("label_3"));
 
         Telefone->addWidget(label_3);
 
-        lineEdit_3 = new QLineEdit(layoutWidget4);
+        lineEdit_3 = new QLineEdit(layoutWidget10);
         lineEdit_3->setObjectName(QString::fromUtf8("lineEdit_3"));
 
         Telefone->addWidget(lineEdit_3);
 
-        layoutWidget5 = new QWidget(groupBox);
-        layoutWidget5->setObjectName(QString::fromUtf8("layoutWidget5"));
-        layoutWidget5->setGeometry(QRect(0, 100, 258, 28));
-        horizontalLayout = new QHBoxLayout(layoutWidget5);
+        layoutWidget11 = new QWidget(groupBox);
+        layoutWidget11->setObjectName(QString::fromUtf8("layoutWidget11"));
+        layoutWidget11->setGeometry(QRect(0, 100, 258, 28));
+        horizontalLayout = new QHBoxLayout(layoutWidget11);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        label_5 = new QLabel(layoutWidget5);
+        label_5 = new QLabel(layoutWidget11);
         label_5->setObjectName(QString::fromUtf8("label_5"));
 
         horizontalLayout->addWidget(label_5);
 
-        dateEdit = new QDateEdit(layoutWidget5);
+        dateEdit = new QDateEdit(layoutWidget11);
         dateEdit->setObjectName(QString::fromUtf8("dateEdit"));
-        dateEdit->setDateTime(QDateTime(QDate(2019, 1, 1), QTime(6, 0, 0)));
+        dateEdit->setDateTime(QDateTime(QDate(2019, 1, 1), QTime(8, 0, 0)));
         dateEdit->setCalendarPopup(true);
         dateEdit->setTimeSpec(Qt::UTC);
         dateEdit->setDate(QDate(2019, 1, 1));
 
         horizontalLayout->addWidget(dateEdit);
 
-        layoutWidget6 = new QWidget(groupBox);
-        layoutWidget6->setObjectName(QString::fromUtf8("layoutWidget6"));
-        layoutWidget6->setGeometry(QRect(250, 70, 105, 27));
-        horizontalLayout_2 = new QHBoxLayout(layoutWidget6);
+        layoutWidget12 = new QWidget(groupBox);
+        layoutWidget12->setObjectName(QString::fromUtf8("layoutWidget12"));
+        layoutWidget12->setGeometry(QRect(250, 70, 105, 27));
+        horizontalLayout_2 = new QHBoxLayout(layoutWidget12);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        label_6 = new QLabel(layoutWidget6);
+        label_6 = new QLabel(layoutWidget12);
         label_6->setObjectName(QString::fromUtf8("label_6"));
 
         horizontalLayout_2->addWidget(label_6);
 
-        comboBox = new QComboBox(layoutWidget6);
+        comboBox = new QComboBox(layoutWidget12);
         comboBox->addItem(QString());
         comboBox->addItem(QString());
         comboBox->addItem(QString());
@@ -593,28 +581,28 @@ public:
         groupBox_2 = new QGroupBox(usuarios);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
         groupBox_2->setGeometry(QRect(110, 180, 441, 121));
-        layoutWidget7 = new QWidget(usuarios);
-        layoutWidget7->setObjectName(QString::fromUtf8("layoutWidget7"));
-        layoutWidget7->setGeometry(QRect(110, 330, 441, 30));
-        horizontalLayout_3 = new QHBoxLayout(layoutWidget7);
+        layoutWidget13 = new QWidget(usuarios);
+        layoutWidget13->setObjectName(QString::fromUtf8("layoutWidget13"));
+        layoutWidget13->setGeometry(QRect(110, 330, 441, 30));
+        horizontalLayout_3 = new QHBoxLayout(layoutWidget13);
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
-        pushButton = new QPushButton(layoutWidget7);
+        pushButton = new QPushButton(layoutWidget13);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
 
         horizontalLayout_3->addWidget(pushButton);
 
-        pushButton_4 = new QPushButton(layoutWidget7);
+        pushButton_4 = new QPushButton(layoutWidget13);
         pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
 
         horizontalLayout_3->addWidget(pushButton_4);
 
-        pushButton_3 = new QPushButton(layoutWidget7);
+        pushButton_3 = new QPushButton(layoutWidget13);
         pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
 
         horizontalLayout_3->addWidget(pushButton_3);
 
-        pushButton_2 = new QPushButton(layoutWidget7);
+        pushButton_2 = new QPushButton(layoutWidget13);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
 
         horizontalLayout_3->addWidget(pushButton_2);
@@ -622,35 +610,34 @@ public:
         Menu->addTab(usuarios, QString());
         acervo = new QWidget();
         acervo->setObjectName(QString::fromUtf8("acervo"));
-<<<<<<< HEAD
         groupBox_12 = new QGroupBox(acervo);
         groupBox_12->setObjectName(QString::fromUtf8("groupBox_12"));
         groupBox_12->setGeometry(QRect(50, 250, 411, 80));
         groupBox_13 = new QGroupBox(acervo);
         groupBox_13->setObjectName(QString::fromUtf8("groupBox_13"));
         groupBox_13->setGeometry(QRect(419, 79, 211, 141));
-        widget6 = new QWidget(groupBox_13);
-        widget6->setObjectName(QString::fromUtf8("widget6"));
-        widget6->setGeometry(QRect(10, 30, 195, 101));
-        gridLayout = new QGridLayout(widget6);
+        layoutWidget14 = new QWidget(groupBox_13);
+        layoutWidget14->setObjectName(QString::fromUtf8("layoutWidget14"));
+        layoutWidget14->setGeometry(QRect(10, 30, 195, 101));
+        gridLayout = new QGridLayout(layoutWidget14);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
-        pushButton_9 = new QPushButton(widget6);
+        pushButton_9 = new QPushButton(layoutWidget14);
         pushButton_9->setObjectName(QString::fromUtf8("pushButton_9"));
 
         gridLayout->addWidget(pushButton_9, 0, 0, 1, 1);
 
-        pushButton_10 = new QPushButton(widget6);
+        pushButton_10 = new QPushButton(layoutWidget14);
         pushButton_10->setObjectName(QString::fromUtf8("pushButton_10"));
 
         gridLayout->addWidget(pushButton_10, 0, 1, 1, 1);
 
-        pushButton_11 = new QPushButton(widget6);
+        pushButton_11 = new QPushButton(layoutWidget14);
         pushButton_11->setObjectName(QString::fromUtf8("pushButton_11"));
 
         gridLayout->addWidget(pushButton_11, 1, 0, 1, 1);
 
-        pushButton_12 = new QPushButton(widget6);
+        pushButton_12 = new QPushButton(layoutWidget14);
         pushButton_12->setObjectName(QString::fromUtf8("pushButton_12"));
 
         gridLayout->addWidget(pushButton_12, 1, 1, 1, 1);
@@ -727,8 +714,6 @@ public:
 
         horizontalLayout_24->addWidget(lineEdit_19);
 
-=======
->>>>>>> master
         Menu->addTab(acervo, QString());
         BibliotecaDC->setCentralWidget(centralwidget);
         menubar = new QMenuBar(BibliotecaDC);
@@ -741,11 +726,7 @@ public:
 
         retranslateUi(BibliotecaDC);
 
-<<<<<<< HEAD
-        Menu->setCurrentIndex(3);
-=======
         Menu->setCurrentIndex(0);
->>>>>>> master
 
 
         QMetaObject::connectSlotsByName(BibliotecaDC);
@@ -754,11 +735,7 @@ public:
     void retranslateUi(QMainWindow *BibliotecaDC)
     {
         BibliotecaDC->setWindowTitle(QCoreApplication::translate("BibliotecaDC", "BibliotecaDC", nullptr));
-<<<<<<< HEAD
         label->setText(QCoreApplication::translate("BibliotecaDC", "Biblioteca DC", nullptr));
-=======
-        label->setText(QCoreApplication::translate("BibliotecaDC", "Bibliotaca DC", nullptr));
->>>>>>> master
         groupBox_3->setTitle(QCoreApplication::translate("BibliotecaDC", "Nome", nullptr));
         label_7->setText(QCoreApplication::translate("BibliotecaDC", "CPF", nullptr));
         label_8->setText(QCoreApplication::translate("BibliotecaDC", "Nome", nullptr));
@@ -773,7 +750,6 @@ public:
         pushButton_5->setText(QCoreApplication::translate("BibliotecaDC", "Emprestar", nullptr));
         pushButton_6->setText(QCoreApplication::translate("BibliotecaDC", "Emprestados", nullptr));
         Menu->setTabText(Menu->indexOf(Emprestimo), QCoreApplication::translate("BibliotecaDC", "Emprestimo", nullptr));
-<<<<<<< HEAD
         groupBox_7->setTitle(QCoreApplication::translate("BibliotecaDC", "Filtos de Reservas", nullptr));
         groupBox_8->setTitle(QCoreApplication::translate("BibliotecaDC", "Comandos", nullptr));
         pushButton_7->setText(QCoreApplication::translate("BibliotecaDC", "Devolver", nullptr));
@@ -787,8 +763,6 @@ public:
         label_18->setText(QCoreApplication::translate("BibliotecaDC", "Data da Devolu\303\247\303\243o", nullptr));
         label_19->setText(QCoreApplication::translate("BibliotecaDC", "Editora", nullptr));
         label_20->setText(QCoreApplication::translate("BibliotecaDC", "Edi\303\247\303\243o", nullptr));
-=======
->>>>>>> master
         Menu->setTabText(Menu->indexOf(Devolucao), QCoreApplication::translate("BibliotecaDC", "Devolu\303\247\303\243o", nullptr));
         groupBox->setTitle(QCoreApplication::translate("BibliotecaDC", "Dados Pessoais", nullptr));
         label_2->setText(QCoreApplication::translate("BibliotecaDC", "Nome", nullptr));
@@ -806,7 +780,6 @@ public:
         pushButton_3->setText(QCoreApplication::translate("BibliotecaDC", "Editar", nullptr));
         pushButton_2->setText(QCoreApplication::translate("BibliotecaDC", "Remover", nullptr));
         Menu->setTabText(Menu->indexOf(usuarios), QCoreApplication::translate("BibliotecaDC", "Usu\303\241rios", nullptr));
-<<<<<<< HEAD
         groupBox_12->setTitle(QCoreApplication::translate("BibliotecaDC", "Pesquisa de Livros", nullptr));
         groupBox_13->setTitle(QCoreApplication::translate("BibliotecaDC", "Comandos", nullptr));
         pushButton_9->setText(QCoreApplication::translate("BibliotecaDC", "Cadastrar", nullptr));
@@ -818,8 +791,6 @@ public:
         label_26->setText(QCoreApplication::translate("BibliotecaDC", "T\303\255tulo", nullptr));
         label_28->setText(QCoreApplication::translate("BibliotecaDC", "Editora", nullptr));
         label_29->setText(QCoreApplication::translate("BibliotecaDC", "Edi\303\247\303\243o", nullptr));
-=======
->>>>>>> master
         Menu->setTabText(Menu->indexOf(acervo), QCoreApplication::translate("BibliotecaDC", "Acervo", nullptr));
     } // retranslateUi
 
