@@ -21,8 +21,10 @@ SOURCES += \
 
 HEADERS += \
     DAO.h \
+    Emprestimo.h \
     Livro.h \
-    bibliotecadc.h
+    bibliotecadc.h \
+    data.h
 
 FORMS += \
     bibliotecadc.ui

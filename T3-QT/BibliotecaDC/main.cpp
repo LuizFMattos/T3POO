@@ -10,14 +10,12 @@
 
 int main(int argc, char *argv[])
 {
-    Livro l1(1, "Mochileiro das Galáxias1");
-    Livro l2(2, "Mochileiro das Galáxias2");
-    Livro l3(3, "Mochileiro das Galáxias3");
-    Livro l4(4, "Mochileiro das Galáxias4");
-    Livro l5(5, "Mochileiro das Galáxias5");
     DAO<Livro> d(LIVRO);
-
-//    d.salvar(l1);
+    char titulo[30] = "Sistemas digitais";
+    char autor[30] = "Emerson";
+    char editora[30] = "UFSCar";
+    Livro l1(1, titulo, autor, editora, 2, 1, 1, 1);
+    d.salvar(l1);
 //    d.salvar(l2);
 //    d.salvar(l3);
 //    d.salvar(l4);

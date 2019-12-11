@@ -2,7 +2,7 @@
 #define DAO_H
 
 #include <vector>
-#include <string>
+#include <string.h>
 #include <fstream>
 #include <iostream>
 
@@ -20,41 +20,38 @@ class DAO
     public:
         DAO(int classe){
             this->classe = classe;
-            if(classe == PESSOA) this->nomeArquivo = "pessoa.dat";else
-            if(classe == LIVRO) this->nomeArquivo = "livro.dat";  else
-            if(classe == EMPRESTIMO) this->nomeArquivo = "emprestimo.dat";
+            if(classe == PESSOA)     strcpy( this->nomeArquivo, "pessoa.dat"); else
+            if(classe == LIVRO)      strcpy( this->nomeArquivo, "livro.dat"); else
+            if(classe == EMPRESTIMO) strcpy( this->nomeArquivo, "emprestimo.dat");
 
-            ifstream ifs(nomeArquivo.c_str(), ios::binary);
+            ifstream ifs(nomeArquivo, ios::binary);
 
             T obj;
 
-            if( !ifs.is_open() ){
-                ofstream ofs(this->nomeArquivo, ios::binary);
-                ofs.close();
-            }
-
-            if( ifs.is_open() ){
+            if( ifs.is_open()){
                 while( !ifs.eof() ){
                     ifs.read(reinterpret_cast<char*>(&obj), sizeof (T) );
+                    obj.imprime();
                     this->objetos.push_back(obj);
                 }
             }else{
-                ofstream ofs(this->nomeArquivo, ios::binary);
-                ofs.close();
-                cout << "Erro na abertura do arquivo: " + this->nomeArquivo;
+                cout << "Erro na abertura do arquivo: ";
+                cout << this->nomeArquivo << endl;
             }
             ifs.close();
         }
         ~DAO(){
+            cout << "Linha 45:" <<this->objetos.size()<< endl;
             ofstream ofs(this->nomeArquivo, ios::binary);
             if( ofs.is_open() ){
-                for( int i = 0; i < this->objetos.size(); i++){
+                for( unsigned int i = 0; i < this->objetos.size(); i++){
                     ofs.write(reinterpret_cast<char*>(&this->objetos[i]), sizeof(T));
                 }
             }else{
-                cout << "Erro na abertura do arquivo: " + this->nomeArquivo;
+                cout << "Erro na abertura do arquivo: ";
+                cout << this->nomeArquivo << endl;
             }
-
+            ofs.close();
         }
         int salvar(T obj){
             this->objetos.push_back(obj);
@@ -66,7 +63,6 @@ class DAO
                     this->objetos[i] = obj;
                     return 1;
                 }
-
             }
             return 0;
         }
@@ -93,7 +89,7 @@ class DAO
     private:
         vector<T> objetos;
         int classe;
-        string nomeArquivo;
+        char nomeArquivo[20];
 };
 
 #endif // DAO_H
