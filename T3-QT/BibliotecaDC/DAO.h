@@ -39,11 +39,11 @@ class DAO
         }
         void listar(){
             vector<T> vec = this->getObjetos();
-            for( int i = 0; i < vec.size()-1; i++){
+            for( unsigned int i = 0; i < vec.size()-1; i++){
                 vec[i].imprime();
             }
         }
-        int cadastrar(T obj){
+        void cadastrar(T obj){
             ofstream ofs(nomeArquivo, ios::binary | ios::app);
             if( ofs.is_open()){
                 ofs.write(reinterpret_cast<char*>(&obj), sizeof (T) );
@@ -52,31 +52,31 @@ class DAO
             }
             ofs.close();
         }
-        int editar( T obj ){
+        void editar( T obj ){
             vector<T> vec;
             vec = this->getObjetos();
-            for(int i = 0; i < vec.size() - 1; i++){
+            for( unsigned int i = 0; i < vec.size() - 1; i++){
                 if(vec[i].getId() == obj.getId() ){
                     vec[i] = obj;
                     break;
                 }
             }
             ofstream ofs(nomeArquivo, ios::binary | ios::trunc);
-            for(int i = 0; i < vec.size() - 1; i++){
+            for(unsigned int i = 0; i < vec.size() - 1; i++){
                 ofs.write(reinterpret_cast<char*>(&vec[i]), sizeof (T) );
             }
         }
-        int excluir(double id){
+        void excluir(double id){
             vector<T> vec;
             vector<T> vecAposExclusao;
             vec = this->getObjetos();
-            for(int i = 0; i < vec.size() - 1; i++){
+            for(unsigned int i = 0; i < vec.size() - 1; i++){
                 if(vec[i].getId() != id){
                     vecAposExclusao.push_back(vec[i]);
                 }
             }
             ofstream ofs(nomeArquivo, ios::binary | ios::trunc);
-            for(int i = 0; i < vecAposExclusao.size(); i++){
+            for(unsigned int i = 0; i < vecAposExclusao.size(); i++){
                 ofs.write(reinterpret_cast<char*>(&vecAposExclusao[i]), sizeof (T) );
             }
         }
@@ -95,13 +95,12 @@ class DAO
                 cout << "Erro na abertura do arquivo" << endl;
             }
             ifs.close();
+            return vec;
         }
         double getNextId(){
             vector<T> vec;
             vec = getObjetos();
             return vec[ vec.size() - 2 ].getId() + 1;
-        }
-        T getObjeto(int id){
         }
     private:
         vector<T> objetos;

@@ -24,6 +24,8 @@ private slots:
 
     void on_btnAcervoLimpar_clicked();
 
+    void on_btnAcervoExcluir_clicked();
+
 private:
     Ui::BibliotecaDC *ui;
 };

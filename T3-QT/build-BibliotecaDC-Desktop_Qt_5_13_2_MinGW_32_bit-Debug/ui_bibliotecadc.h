@@ -11,6 +11,7 @@
 
 #include <QtCore/QDate>
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateEdit>
@@ -40,38 +41,43 @@ public:
     QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_7;
-    QLineEdit *lineEdit_4;
+    QLineEdit *txtEmprestimoCpf;
     QWidget *layoutWidget1;
     QHBoxLayout *horizontalLayout_5;
     QLabel *label_8;
-    QLineEdit *lineEdit_5;
-    QGroupBox *groupBox_4;
-    QWidget *layoutWidget2;
-    QHBoxLayout *horizontalLayout_6;
-    QLabel *label_9;
-    QLineEdit *lineEdit_6;
-    QWidget *layoutWidget3;
-    QHBoxLayout *horizontalLayout_7;
-    QLabel *label_10;
-    QLineEdit *lineEdit_7;
-    QWidget *layoutWidget4;
-    QHBoxLayout *horizontalLayout_8;
-    QLabel *label_11;
-    QDateEdit *dateEdit_2;
-    QWidget *layoutWidget5;
-    QHBoxLayout *horizontalLayout_9;
-    QLabel *label_13;
-    QLineEdit *lineEdit_9;
-    QWidget *layoutWidget6;
-    QHBoxLayout *horizontalLayout_10;
-    QLabel *label_12;
-    QLineEdit *lineEdit_8;
-    QGroupBox *groupBox_6;
+    QLineEdit *txtEmprestimoNome;
     QGroupBox *groupBox_5;
-    QWidget *layoutWidget7;
+    QWidget *layoutWidget2;
     QHBoxLayout *horizontalLayout_11;
     QPushButton *pushButton_5;
+    QGroupBox *groupBox_15;
+    QWidget *layoutWidget_16;
+    QHBoxLayout *horizontalLayout_27;
+    QLabel *label_31;
+    QLineEdit *txtAcervoIdLivro_2;
+    QWidget *layoutWidget_17;
+    QHBoxLayout *horizontalLayout_28;
+    QLabel *label_32;
+    QLineEdit *txtAcervoTitulo_2;
+    QWidget *layoutWidget_18;
+    QHBoxLayout *horizontalLayout_29;
+    QLabel *label_33;
+    QLineEdit *txtAcervoEdicao_2;
+    QWidget *layoutWidget_19;
+    QHBoxLayout *horizontalLayout_30;
+    QLabel *label_34;
+    QLineEdit *txtAcervoAutor_2;
+    QWidget *layoutWidget_20;
+    QHBoxLayout *horizontalLayout_31;
+    QLabel *label_35;
+    QDateEdit *dtAcervoDataAquiscao_2;
+    QWidget *layoutWidget_21;
+    QHBoxLayout *horizontalLayout_32;
+    QLabel *label_36;
+    QLineEdit *txtAcervoEditora_2;
     QPushButton *pushButton_6;
+    QGroupBox *groupBox_16;
+    QTableWidget *tblEmprestimoEmprestimo;
     QWidget *Devolucao;
     QGroupBox *groupBox_7;
     QGroupBox *groupBox_8;
@@ -111,28 +117,28 @@ public:
     QLineEdit *lineEdit_15;
     QWidget *usuarios;
     QGroupBox *groupBox;
-    QWidget *layoutWidget8;
+    QWidget *layoutWidget3;
     QHBoxLayout *Nome;
     QLabel *label_2;
     QLineEdit *lineEdit;
-    QWidget *layoutWidget9;
+    QWidget *layoutWidget4;
     QHBoxLayout *CPF;
     QLabel *label_4;
     QLineEdit *lineEdit_2;
-    QWidget *layoutWidget10;
+    QWidget *layoutWidget5;
     QHBoxLayout *Telefone;
     QLabel *label_3;
     QLineEdit *lineEdit_3;
-    QWidget *layoutWidget11;
+    QWidget *layoutWidget6;
     QHBoxLayout *horizontalLayout;
     QLabel *label_5;
     QDateEdit *dateEdit;
-    QWidget *layoutWidget12;
+    QWidget *layoutWidget7;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_6;
     QComboBox *comboBox;
     QGroupBox *groupBox_2;
-    QWidget *layoutWidget13;
+    QWidget *layoutWidget8;
     QHBoxLayout *horizontalLayout_3;
     QPushButton *pushButton;
     QPushButton *pushButton_4;
@@ -148,6 +154,7 @@ public:
     QPushButton *btnAcervoEditar;
     QPushButton *btnAcervoExcluir;
     QPushButton *btnAcervoLimpar;
+    QPushButton *btnAcervoPesquisar;
     QGroupBox *groupBox_14;
     QWidget *layoutWidget_10;
     QHBoxLayout *horizontalLayout_20;
@@ -180,7 +187,7 @@ public:
     {
         if (BibliotecaDC->objectName().isEmpty())
             BibliotecaDC->setObjectName(QString::fromUtf8("BibliotecaDC"));
-        BibliotecaDC->resize(853, 845);
+        BibliotecaDC->resize(882, 845);
         centralwidget = new QWidget(BibliotecaDC);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         label = new QLabel(centralwidget);
@@ -192,17 +199,17 @@ public:
         label->setAlignment(Qt::AlignCenter);
         Menu = new QTabWidget(centralwidget);
         Menu->setObjectName(QString::fromUtf8("Menu"));
-        Menu->setGeometry(QRect(10, 130, 831, 681));
+        Menu->setGeometry(QRect(20, 130, 841, 681));
         Menu->setLayoutDirection(Qt::LeftToRight);
         Menu->setAutoFillBackground(false);
         Emprestimo = new QWidget();
         Emprestimo->setObjectName(QString::fromUtf8("Emprestimo"));
         groupBox_3 = new QGroupBox(Emprestimo);
         groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
-        groupBox_3->setGeometry(QRect(20, 20, 621, 71));
+        groupBox_3->setGeometry(QRect(20, 20, 791, 71));
         layoutWidget = new QWidget(groupBox_3);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(10, 30, 177, 27));
+        layoutWidget->setGeometry(QRect(20, 30, 161, 30));
         horizontalLayout_4 = new QHBoxLayout(layoutWidget);
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
         horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
@@ -211,14 +218,14 @@ public:
 
         horizontalLayout_4->addWidget(label_7);
 
-        lineEdit_4 = new QLineEdit(layoutWidget);
-        lineEdit_4->setObjectName(QString::fromUtf8("lineEdit_4"));
+        txtEmprestimoCpf = new QLineEdit(layoutWidget);
+        txtEmprestimoCpf->setObjectName(QString::fromUtf8("txtEmprestimoCpf"));
 
-        horizontalLayout_4->addWidget(lineEdit_4);
+        horizontalLayout_4->addWidget(txtEmprestimoCpf);
 
         layoutWidget1 = new QWidget(groupBox_3);
         layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(200, 30, 192, 27));
+        layoutWidget1->setGeometry(QRect(250, 30, 192, 27));
         horizontalLayout_5 = new QHBoxLayout(layoutWidget1);
         horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
         horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
@@ -227,124 +234,162 @@ public:
 
         horizontalLayout_5->addWidget(label_8);
 
-        lineEdit_5 = new QLineEdit(layoutWidget1);
-        lineEdit_5->setObjectName(QString::fromUtf8("lineEdit_5"));
+        txtEmprestimoNome = new QLineEdit(layoutWidget1);
+        txtEmprestimoNome->setObjectName(QString::fromUtf8("txtEmprestimoNome"));
+        txtEmprestimoNome->setEnabled(false);
+        txtEmprestimoNome->setReadOnly(true);
 
-        horizontalLayout_5->addWidget(lineEdit_5);
+        horizontalLayout_5->addWidget(txtEmprestimoNome);
 
-        groupBox_4 = new QGroupBox(Emprestimo);
-        groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
-        groupBox_4->setGeometry(QRect(20, 100, 621, 131));
-        layoutWidget2 = new QWidget(groupBox_4);
-        layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
-        layoutWidget2->setGeometry(QRect(10, 30, 129, 24));
-        horizontalLayout_6 = new QHBoxLayout(layoutWidget2);
-        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
-        horizontalLayout_6->setSizeConstraint(QLayout::SetNoConstraint);
-        horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
-        label_9 = new QLabel(layoutWidget2);
-        label_9->setObjectName(QString::fromUtf8("label_9"));
-
-        horizontalLayout_6->addWidget(label_9);
-
-        lineEdit_6 = new QLineEdit(layoutWidget2);
-        lineEdit_6->setObjectName(QString::fromUtf8("lineEdit_6"));
-        lineEdit_6->setEnabled(true);
-        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(lineEdit_6->sizePolicy().hasHeightForWidth());
-        lineEdit_6->setSizePolicy(sizePolicy);
-        lineEdit_6->setMaximumSize(QSize(16777205, 16777215));
-
-        horizontalLayout_6->addWidget(lineEdit_6);
-
-        layoutWidget3 = new QWidget(groupBox_4);
-        layoutWidget3->setObjectName(QString::fromUtf8("layoutWidget3"));
-        layoutWidget3->setGeometry(QRect(10, 60, 178, 24));
-        horizontalLayout_7 = new QHBoxLayout(layoutWidget3);
-        horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
-        horizontalLayout_7->setContentsMargins(0, 0, 0, 0);
-        label_10 = new QLabel(layoutWidget3);
-        label_10->setObjectName(QString::fromUtf8("label_10"));
-
-        horizontalLayout_7->addWidget(label_10);
-
-        lineEdit_7 = new QLineEdit(layoutWidget3);
-        lineEdit_7->setObjectName(QString::fromUtf8("lineEdit_7"));
-
-        horizontalLayout_7->addWidget(lineEdit_7);
-
-        layoutWidget4 = new QWidget(groupBox_4);
-        layoutWidget4->setObjectName(QString::fromUtf8("layoutWidget4"));
-        layoutWidget4->setGeometry(QRect(150, 30, 219, 24));
-        horizontalLayout_8 = new QHBoxLayout(layoutWidget4);
-        horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
-        horizontalLayout_8->setContentsMargins(0, 0, 0, 0);
-        label_11 = new QLabel(layoutWidget4);
-        label_11->setObjectName(QString::fromUtf8("label_11"));
-
-        horizontalLayout_8->addWidget(label_11);
-
-        dateEdit_2 = new QDateEdit(layoutWidget4);
-        dateEdit_2->setObjectName(QString::fromUtf8("dateEdit_2"));
-
-        horizontalLayout_8->addWidget(dateEdit_2);
-
-        layoutWidget5 = new QWidget(groupBox_4);
-        layoutWidget5->setObjectName(QString::fromUtf8("layoutWidget5"));
-        layoutWidget5->setGeometry(QRect(230, 80, 131, 24));
-        horizontalLayout_9 = new QHBoxLayout(layoutWidget5);
-        horizontalLayout_9->setObjectName(QString::fromUtf8("horizontalLayout_9"));
-        horizontalLayout_9->setContentsMargins(0, 0, 0, 0);
-        label_13 = new QLabel(layoutWidget5);
-        label_13->setObjectName(QString::fromUtf8("label_13"));
-
-        horizontalLayout_9->addWidget(label_13);
-
-        lineEdit_9 = new QLineEdit(layoutWidget5);
-        lineEdit_9->setObjectName(QString::fromUtf8("lineEdit_9"));
-
-        horizontalLayout_9->addWidget(lineEdit_9);
-
-        layoutWidget6 = new QWidget(groupBox_4);
-        layoutWidget6->setObjectName(QString::fromUtf8("layoutWidget6"));
-        layoutWidget6->setGeometry(QRect(10, 90, 141, 24));
-        horizontalLayout_10 = new QHBoxLayout(layoutWidget6);
-        horizontalLayout_10->setObjectName(QString::fromUtf8("horizontalLayout_10"));
-        horizontalLayout_10->setContentsMargins(0, 0, 0, 0);
-        label_12 = new QLabel(layoutWidget6);
-        label_12->setObjectName(QString::fromUtf8("label_12"));
-
-        horizontalLayout_10->addWidget(label_12);
-
-        lineEdit_8 = new QLineEdit(layoutWidget6);
-        lineEdit_8->setObjectName(QString::fromUtf8("lineEdit_8"));
-
-        horizontalLayout_10->addWidget(lineEdit_8);
-
-        groupBox_6 = new QGroupBox(Emprestimo);
-        groupBox_6->setObjectName(QString::fromUtf8("groupBox_6"));
-        groupBox_6->setGeometry(QRect(100, 240, 431, 91));
         groupBox_5 = new QGroupBox(Emprestimo);
         groupBox_5->setObjectName(QString::fromUtf8("groupBox_5"));
-        groupBox_5->setGeometry(QRect(180, 330, 231, 61));
-        layoutWidget7 = new QWidget(groupBox_5);
-        layoutWidget7->setObjectName(QString::fromUtf8("layoutWidget7"));
-        layoutWidget7->setGeometry(QRect(11, 21, 195, 30));
-        horizontalLayout_11 = new QHBoxLayout(layoutWidget7);
+        groupBox_5->setGeometry(QRect(20, 230, 791, 61));
+        layoutWidget2 = new QWidget(groupBox_5);
+        layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
+        layoutWidget2->setGeometry(QRect(11, 21, 151, 30));
+        horizontalLayout_11 = new QHBoxLayout(layoutWidget2);
         horizontalLayout_11->setObjectName(QString::fromUtf8("horizontalLayout_11"));
         horizontalLayout_11->setContentsMargins(0, 0, 0, 0);
-        pushButton_5 = new QPushButton(layoutWidget7);
+        pushButton_5 = new QPushButton(layoutWidget2);
         pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
 
         horizontalLayout_11->addWidget(pushButton_5);
 
-        pushButton_6 = new QPushButton(layoutWidget7);
+        groupBox_15 = new QGroupBox(Emprestimo);
+        groupBox_15->setObjectName(QString::fromUtf8("groupBox_15"));
+        groupBox_15->setGeometry(QRect(20, 100, 791, 121));
+        layoutWidget_16 = new QWidget(groupBox_15);
+        layoutWidget_16->setObjectName(QString::fromUtf8("layoutWidget_16"));
+        layoutWidget_16->setGeometry(QRect(20, 30, 129, 24));
+        horizontalLayout_27 = new QHBoxLayout(layoutWidget_16);
+        horizontalLayout_27->setObjectName(QString::fromUtf8("horizontalLayout_27"));
+        horizontalLayout_27->setSizeConstraint(QLayout::SetNoConstraint);
+        horizontalLayout_27->setContentsMargins(0, 0, 0, 0);
+        label_31 = new QLabel(layoutWidget_16);
+        label_31->setObjectName(QString::fromUtf8("label_31"));
+
+        horizontalLayout_27->addWidget(label_31);
+
+        txtAcervoIdLivro_2 = new QLineEdit(layoutWidget_16);
+        txtAcervoIdLivro_2->setObjectName(QString::fromUtf8("txtAcervoIdLivro_2"));
+        txtAcervoIdLivro_2->setEnabled(true);
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(txtAcervoIdLivro_2->sizePolicy().hasHeightForWidth());
+        txtAcervoIdLivro_2->setSizePolicy(sizePolicy);
+        txtAcervoIdLivro_2->setMaximumSize(QSize(16777205, 16777215));
+
+        horizontalLayout_27->addWidget(txtAcervoIdLivro_2);
+
+        layoutWidget_17 = new QWidget(groupBox_15);
+        layoutWidget_17->setObjectName(QString::fromUtf8("layoutWidget_17"));
+        layoutWidget_17->setGeometry(QRect(190, 30, 291, 24));
+        horizontalLayout_28 = new QHBoxLayout(layoutWidget_17);
+        horizontalLayout_28->setObjectName(QString::fromUtf8("horizontalLayout_28"));
+        horizontalLayout_28->setContentsMargins(0, 0, 0, 0);
+        label_32 = new QLabel(layoutWidget_17);
+        label_32->setObjectName(QString::fromUtf8("label_32"));
+
+        horizontalLayout_28->addWidget(label_32);
+
+        txtAcervoTitulo_2 = new QLineEdit(layoutWidget_17);
+        txtAcervoTitulo_2->setObjectName(QString::fromUtf8("txtAcervoTitulo_2"));
+        txtAcervoTitulo_2->setEnabled(false);
+        txtAcervoTitulo_2->setReadOnly(false);
+
+        horizontalLayout_28->addWidget(txtAcervoTitulo_2);
+
+        layoutWidget_18 = new QWidget(groupBox_15);
+        layoutWidget_18->setObjectName(QString::fromUtf8("layoutWidget_18"));
+        layoutWidget_18->setGeometry(QRect(400, 80, 131, 24));
+        horizontalLayout_29 = new QHBoxLayout(layoutWidget_18);
+        horizontalLayout_29->setObjectName(QString::fromUtf8("horizontalLayout_29"));
+        horizontalLayout_29->setContentsMargins(0, 0, 0, 0);
+        label_33 = new QLabel(layoutWidget_18);
+        label_33->setObjectName(QString::fromUtf8("label_33"));
+
+        horizontalLayout_29->addWidget(label_33);
+
+        txtAcervoEdicao_2 = new QLineEdit(layoutWidget_18);
+        txtAcervoEdicao_2->setObjectName(QString::fromUtf8("txtAcervoEdicao_2"));
+        txtAcervoEdicao_2->setEnabled(false);
+
+        horizontalLayout_29->addWidget(txtAcervoEdicao_2);
+
+        layoutWidget_19 = new QWidget(groupBox_15);
+        layoutWidget_19->setObjectName(QString::fromUtf8("layoutWidget_19"));
+        layoutWidget_19->setGeometry(QRect(520, 30, 251, 24));
+        horizontalLayout_30 = new QHBoxLayout(layoutWidget_19);
+        horizontalLayout_30->setObjectName(QString::fromUtf8("horizontalLayout_30"));
+        horizontalLayout_30->setContentsMargins(0, 0, 0, 0);
+        label_34 = new QLabel(layoutWidget_19);
+        label_34->setObjectName(QString::fromUtf8("label_34"));
+
+        horizontalLayout_30->addWidget(label_34);
+
+        txtAcervoAutor_2 = new QLineEdit(layoutWidget_19);
+        txtAcervoAutor_2->setObjectName(QString::fromUtf8("txtAcervoAutor_2"));
+        txtAcervoAutor_2->setEnabled(false);
+        txtAcervoAutor_2->setReadOnly(false);
+
+        horizontalLayout_30->addWidget(txtAcervoAutor_2);
+
+        layoutWidget_20 = new QWidget(groupBox_15);
+        layoutWidget_20->setObjectName(QString::fromUtf8("layoutWidget_20"));
+        layoutWidget_20->setGeometry(QRect(570, 80, 201, 24));
+        horizontalLayout_31 = new QHBoxLayout(layoutWidget_20);
+        horizontalLayout_31->setObjectName(QString::fromUtf8("horizontalLayout_31"));
+        horizontalLayout_31->setContentsMargins(0, 0, 0, 0);
+        label_35 = new QLabel(layoutWidget_20);
+        label_35->setObjectName(QString::fromUtf8("label_35"));
+        label_35->setLayoutDirection(Qt::RightToLeft);
+
+        horizontalLayout_31->addWidget(label_35);
+
+        dtAcervoDataAquiscao_2 = new QDateEdit(layoutWidget_20);
+        dtAcervoDataAquiscao_2->setObjectName(QString::fromUtf8("dtAcervoDataAquiscao_2"));
+        dtAcervoDataAquiscao_2->setEnabled(false);
+        dtAcervoDataAquiscao_2->setLayoutDirection(Qt::LeftToRight);
+        dtAcervoDataAquiscao_2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        dtAcervoDataAquiscao_2->setMinimumDateTime(QDateTime(QDate(2000, 1, 1), QTime(0, 0, 0)));
+        dtAcervoDataAquiscao_2->setMinimumDate(QDate(2000, 1, 1));
+        dtAcervoDataAquiscao_2->setCalendarPopup(true);
+
+        horizontalLayout_31->addWidget(dtAcervoDataAquiscao_2);
+
+        layoutWidget_21 = new QWidget(groupBox_15);
+        layoutWidget_21->setObjectName(QString::fromUtf8("layoutWidget_21"));
+        layoutWidget_21->setGeometry(QRect(20, 80, 341, 24));
+        horizontalLayout_32 = new QHBoxLayout(layoutWidget_21);
+        horizontalLayout_32->setObjectName(QString::fromUtf8("horizontalLayout_32"));
+        horizontalLayout_32->setContentsMargins(0, 0, 0, 0);
+        label_36 = new QLabel(layoutWidget_21);
+        label_36->setObjectName(QString::fromUtf8("label_36"));
+
+        horizontalLayout_32->addWidget(label_36);
+
+        txtAcervoEditora_2 = new QLineEdit(layoutWidget_21);
+        txtAcervoEditora_2->setObjectName(QString::fromUtf8("txtAcervoEditora_2"));
+        txtAcervoEditora_2->setEnabled(false);
+
+        horizontalLayout_32->addWidget(txtAcervoEditora_2);
+
+        pushButton_6 = new QPushButton(groupBox_15);
         pushButton_6->setObjectName(QString::fromUtf8("pushButton_6"));
-
-        horizontalLayout_11->addWidget(pushButton_6);
-
+        pushButton_6->setGeometry(QRect(160, 30, 22, 22));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8("lupa.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QString::fromUtf8("lupa.png"), QSize(), QIcon::Normal, QIcon::On);
+        pushButton_6->setIcon(icon);
+        groupBox_16 = new QGroupBox(Emprestimo);
+        groupBox_16->setObjectName(QString::fromUtf8("groupBox_16"));
+        groupBox_16->setGeometry(QRect(20, 300, 781, 341));
+        tblEmprestimoEmprestimo = new QTableWidget(groupBox_16);
+        tblEmprestimoEmprestimo->setObjectName(QString::fromUtf8("tblEmprestimoEmprestimo"));
+        tblEmprestimoEmprestimo->setGeometry(QRect(20, 30, 741, 291));
+        tblEmprestimoEmprestimo->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        tblEmprestimoEmprestimo->horizontalHeader()->setCascadingSectionResizes(true);
         Menu->addTab(Emprestimo, QString());
         Devolucao = new QWidget();
         Devolucao->setObjectName(QString::fromUtf8("Devolucao"));
@@ -500,88 +545,88 @@ public:
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
         groupBox->setGeometry(QRect(110, 20, 441, 141));
         groupBox->setAutoFillBackground(false);
-        layoutWidget8 = new QWidget(groupBox);
-        layoutWidget8->setObjectName(QString::fromUtf8("layoutWidget8"));
-        layoutWidget8->setGeometry(QRect(0, 30, 221, 27));
-        Nome = new QHBoxLayout(layoutWidget8);
+        layoutWidget3 = new QWidget(groupBox);
+        layoutWidget3->setObjectName(QString::fromUtf8("layoutWidget3"));
+        layoutWidget3->setGeometry(QRect(0, 30, 221, 27));
+        Nome = new QHBoxLayout(layoutWidget3);
         Nome->setObjectName(QString::fromUtf8("Nome"));
         Nome->setSizeConstraint(QLayout::SetNoConstraint);
         Nome->setContentsMargins(0, 0, 0, 0);
-        label_2 = new QLabel(layoutWidget8);
+        label_2 = new QLabel(layoutWidget3);
         label_2->setObjectName(QString::fromUtf8("label_2"));
 
         Nome->addWidget(label_2);
 
-        lineEdit = new QLineEdit(layoutWidget8);
+        lineEdit = new QLineEdit(layoutWidget3);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
 
         Nome->addWidget(lineEdit);
 
-        layoutWidget9 = new QWidget(groupBox);
-        layoutWidget9->setObjectName(QString::fromUtf8("layoutWidget9"));
-        layoutWidget9->setGeometry(QRect(250, 30, 177, 27));
-        CPF = new QHBoxLayout(layoutWidget9);
+        layoutWidget4 = new QWidget(groupBox);
+        layoutWidget4->setObjectName(QString::fromUtf8("layoutWidget4"));
+        layoutWidget4->setGeometry(QRect(250, 30, 177, 27));
+        CPF = new QHBoxLayout(layoutWidget4);
         CPF->setObjectName(QString::fromUtf8("CPF"));
         CPF->setContentsMargins(0, 0, 0, 0);
-        label_4 = new QLabel(layoutWidget9);
+        label_4 = new QLabel(layoutWidget4);
         label_4->setObjectName(QString::fromUtf8("label_4"));
 
         CPF->addWidget(label_4);
 
-        lineEdit_2 = new QLineEdit(layoutWidget9);
+        lineEdit_2 = new QLineEdit(layoutWidget4);
         lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
 
         CPF->addWidget(lineEdit_2);
 
-        layoutWidget10 = new QWidget(groupBox);
-        layoutWidget10->setObjectName(QString::fromUtf8("layoutWidget10"));
-        layoutWidget10->setGeometry(QRect(0, 60, 221, 27));
-        Telefone = new QHBoxLayout(layoutWidget10);
+        layoutWidget5 = new QWidget(groupBox);
+        layoutWidget5->setObjectName(QString::fromUtf8("layoutWidget5"));
+        layoutWidget5->setGeometry(QRect(0, 60, 221, 27));
+        Telefone = new QHBoxLayout(layoutWidget5);
         Telefone->setObjectName(QString::fromUtf8("Telefone"));
         Telefone->setSizeConstraint(QLayout::SetNoConstraint);
         Telefone->setContentsMargins(0, 0, 0, 0);
-        label_3 = new QLabel(layoutWidget10);
+        label_3 = new QLabel(layoutWidget5);
         label_3->setObjectName(QString::fromUtf8("label_3"));
 
         Telefone->addWidget(label_3);
 
-        lineEdit_3 = new QLineEdit(layoutWidget10);
+        lineEdit_3 = new QLineEdit(layoutWidget5);
         lineEdit_3->setObjectName(QString::fromUtf8("lineEdit_3"));
 
         Telefone->addWidget(lineEdit_3);
 
-        layoutWidget11 = new QWidget(groupBox);
-        layoutWidget11->setObjectName(QString::fromUtf8("layoutWidget11"));
-        layoutWidget11->setGeometry(QRect(0, 100, 258, 28));
-        horizontalLayout = new QHBoxLayout(layoutWidget11);
+        layoutWidget6 = new QWidget(groupBox);
+        layoutWidget6->setObjectName(QString::fromUtf8("layoutWidget6"));
+        layoutWidget6->setGeometry(QRect(0, 100, 258, 28));
+        horizontalLayout = new QHBoxLayout(layoutWidget6);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        label_5 = new QLabel(layoutWidget11);
+        label_5 = new QLabel(layoutWidget6);
         label_5->setObjectName(QString::fromUtf8("label_5"));
 
         horizontalLayout->addWidget(label_5);
 
-        dateEdit = new QDateEdit(layoutWidget11);
+        dateEdit = new QDateEdit(layoutWidget6);
         dateEdit->setObjectName(QString::fromUtf8("dateEdit"));
-        dateEdit->setDateTime(QDateTime(QDate(2019, 1, 1), QTime(12, 0, 0)));
+        dateEdit->setDateTime(QDateTime(QDate(2019, 1, 1), QTime(18, 0, 0)));
         dateEdit->setCalendarPopup(true);
         dateEdit->setTimeSpec(Qt::UTC);
         dateEdit->setDate(QDate(2019, 1, 1));
 
         horizontalLayout->addWidget(dateEdit);
 
-        layoutWidget12 = new QWidget(groupBox);
-        layoutWidget12->setObjectName(QString::fromUtf8("layoutWidget12"));
-        layoutWidget12->setGeometry(QRect(250, 70, 105, 27));
-        horizontalLayout_2 = new QHBoxLayout(layoutWidget12);
+        layoutWidget7 = new QWidget(groupBox);
+        layoutWidget7->setObjectName(QString::fromUtf8("layoutWidget7"));
+        layoutWidget7->setGeometry(QRect(250, 70, 105, 27));
+        horizontalLayout_2 = new QHBoxLayout(layoutWidget7);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        label_6 = new QLabel(layoutWidget12);
+        label_6 = new QLabel(layoutWidget7);
         label_6->setObjectName(QString::fromUtf8("label_6"));
 
         horizontalLayout_2->addWidget(label_6);
 
-        comboBox = new QComboBox(layoutWidget12);
+        comboBox = new QComboBox(layoutWidget7);
         comboBox->addItem(QString());
         comboBox->addItem(QString());
         comboBox->addItem(QString());
@@ -592,28 +637,28 @@ public:
         groupBox_2 = new QGroupBox(usuarios);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
         groupBox_2->setGeometry(QRect(110, 180, 441, 121));
-        layoutWidget13 = new QWidget(usuarios);
-        layoutWidget13->setObjectName(QString::fromUtf8("layoutWidget13"));
-        layoutWidget13->setGeometry(QRect(110, 330, 441, 30));
-        horizontalLayout_3 = new QHBoxLayout(layoutWidget13);
+        layoutWidget8 = new QWidget(usuarios);
+        layoutWidget8->setObjectName(QString::fromUtf8("layoutWidget8"));
+        layoutWidget8->setGeometry(QRect(110, 330, 441, 30));
+        horizontalLayout_3 = new QHBoxLayout(layoutWidget8);
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
-        pushButton = new QPushButton(layoutWidget13);
+        pushButton = new QPushButton(layoutWidget8);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
 
         horizontalLayout_3->addWidget(pushButton);
 
-        pushButton_4 = new QPushButton(layoutWidget13);
+        pushButton_4 = new QPushButton(layoutWidget8);
         pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
 
         horizontalLayout_3->addWidget(pushButton_4);
 
-        pushButton_3 = new QPushButton(layoutWidget13);
+        pushButton_3 = new QPushButton(layoutWidget8);
         pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
 
         horizontalLayout_3->addWidget(pushButton_3);
 
-        pushButton_2 = new QPushButton(layoutWidget13);
+        pushButton_2 = new QPushButton(layoutWidget8);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
 
         horizontalLayout_3->addWidget(pushButton_2);
@@ -634,7 +679,7 @@ public:
         groupBox_13->setGeometry(QRect(20, 140, 791, 91));
         horizontalLayoutWidget = new QWidget(groupBox_13);
         horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(20, 30, 651, 41));
+        horizontalLayoutWidget->setGeometry(QRect(20, 30, 751, 41));
         horizontalLayout_26 = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout_26->setObjectName(QString::fromUtf8("horizontalLayout_26"));
         horizontalLayout_26->setContentsMargins(0, 0, 0, 0);
@@ -658,6 +703,11 @@ public:
         btnAcervoLimpar->setObjectName(QString::fromUtf8("btnAcervoLimpar"));
 
         horizontalLayout_26->addWidget(btnAcervoLimpar);
+
+        btnAcervoPesquisar = new QPushButton(horizontalLayoutWidget);
+        btnAcervoPesquisar->setObjectName(QString::fromUtf8("btnAcervoPesquisar"));
+
+        horizontalLayout_26->addWidget(btnAcervoPesquisar);
 
         groupBox_14 = new QGroupBox(acervo);
         groupBox_14->setObjectName(QString::fromUtf8("groupBox_14"));
@@ -685,7 +735,7 @@ public:
 
         layoutWidget_11 = new QWidget(groupBox_14);
         layoutWidget_11->setObjectName(QString::fromUtf8("layoutWidget_11"));
-        layoutWidget_11->setGeometry(QRect(190, 30, 221, 24));
+        layoutWidget_11->setGeometry(QRect(190, 30, 291, 24));
         horizontalLayout_21 = new QHBoxLayout(layoutWidget_11);
         horizontalLayout_21->setObjectName(QString::fromUtf8("horizontalLayout_21"));
         horizontalLayout_21->setContentsMargins(0, 0, 0, 0);
@@ -702,7 +752,7 @@ public:
 
         layoutWidget_14 = new QWidget(groupBox_14);
         layoutWidget_14->setObjectName(QString::fromUtf8("layoutWidget_14"));
-        layoutWidget_14->setGeometry(QRect(20, 80, 121, 24));
+        layoutWidget_14->setGeometry(QRect(400, 80, 131, 24));
         horizontalLayout_24 = new QHBoxLayout(layoutWidget_14);
         horizontalLayout_24->setObjectName(QString::fromUtf8("horizontalLayout_24"));
         horizontalLayout_24->setContentsMargins(0, 0, 0, 0);
@@ -718,7 +768,7 @@ public:
 
         layoutWidget_12 = new QWidget(groupBox_14);
         layoutWidget_12->setObjectName(QString::fromUtf8("layoutWidget_12"));
-        layoutWidget_12->setGeometry(QRect(460, 30, 201, 24));
+        layoutWidget_12->setGeometry(QRect(520, 30, 251, 24));
         horizontalLayout_22 = new QHBoxLayout(layoutWidget_12);
         horizontalLayout_22->setObjectName(QString::fromUtf8("horizontalLayout_22"));
         horizontalLayout_22->setContentsMargins(0, 0, 0, 0);
@@ -735,7 +785,7 @@ public:
 
         layoutWidget_15 = new QWidget(groupBox_14);
         layoutWidget_15->setObjectName(QString::fromUtf8("layoutWidget_15"));
-        layoutWidget_15->setGeometry(QRect(460, 80, 201, 24));
+        layoutWidget_15->setGeometry(QRect(570, 80, 201, 24));
         horizontalLayout_25 = new QHBoxLayout(layoutWidget_15);
         horizontalLayout_25->setObjectName(QString::fromUtf8("horizontalLayout_25"));
         horizontalLayout_25->setContentsMargins(0, 0, 0, 0);
@@ -749,14 +799,15 @@ public:
         dtAcervoDataAquiscao->setObjectName(QString::fromUtf8("dtAcervoDataAquiscao"));
         dtAcervoDataAquiscao->setLayoutDirection(Qt::LeftToRight);
         dtAcervoDataAquiscao->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        dtAcervoDataAquiscao->setMinimumDate(QDate(1752, 9, 16));
+        dtAcervoDataAquiscao->setMinimumDateTime(QDateTime(QDate(2000, 1, 1), QTime(0, 0, 0)));
+        dtAcervoDataAquiscao->setMinimumDate(QDate(2000, 1, 1));
         dtAcervoDataAquiscao->setCalendarPopup(true);
 
         horizontalLayout_25->addWidget(dtAcervoDataAquiscao);
 
         layoutWidget_13 = new QWidget(groupBox_14);
         layoutWidget_13->setObjectName(QString::fromUtf8("layoutWidget_13"));
-        layoutWidget_13->setGeometry(QRect(190, 80, 221, 24));
+        layoutWidget_13->setGeometry(QRect(20, 80, 341, 24));
         horizontalLayout_23 = new QHBoxLayout(layoutWidget_13);
         horizontalLayout_23->setObjectName(QString::fromUtf8("horizontalLayout_23"));
         horizontalLayout_23->setContentsMargins(0, 0, 0, 0);
@@ -774,21 +825,15 @@ public:
         BibliotecaDC->setCentralWidget(centralwidget);
         menubar = new QMenuBar(BibliotecaDC);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 853, 26));
+        menubar->setGeometry(QRect(0, 0, 882, 26));
         BibliotecaDC->setMenuBar(menubar);
         statusbar = new QStatusBar(BibliotecaDC);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         BibliotecaDC->setStatusBar(statusbar);
-        QWidget::setTabOrder(Menu, lineEdit_4);
-        QWidget::setTabOrder(lineEdit_4, lineEdit_5);
-        QWidget::setTabOrder(lineEdit_5, lineEdit_6);
-        QWidget::setTabOrder(lineEdit_6, dateEdit_2);
-        QWidget::setTabOrder(dateEdit_2, lineEdit_7);
-        QWidget::setTabOrder(lineEdit_7, lineEdit_8);
-        QWidget::setTabOrder(lineEdit_8, lineEdit_9);
-        QWidget::setTabOrder(lineEdit_9, pushButton_5);
-        QWidget::setTabOrder(pushButton_5, pushButton_6);
-        QWidget::setTabOrder(pushButton_6, lineEdit_10);
+        QWidget::setTabOrder(Menu, txtEmprestimoCpf);
+        QWidget::setTabOrder(txtEmprestimoCpf, txtEmprestimoNome);
+        QWidget::setTabOrder(txtEmprestimoNome, pushButton_5);
+        QWidget::setTabOrder(pushButton_5, lineEdit_10);
         QWidget::setTabOrder(lineEdit_10, lineEdit_11);
         QWidget::setTabOrder(lineEdit_11, lineEdit_12);
         QWidget::setTabOrder(lineEdit_12, dateEdit_3);
@@ -809,18 +854,19 @@ public:
         QWidget::setTabOrder(pushButton_2, txtAcervoIdLivro);
         QWidget::setTabOrder(txtAcervoIdLivro, txtAcervoTitulo);
         QWidget::setTabOrder(txtAcervoTitulo, txtAcervoAutor);
-        QWidget::setTabOrder(txtAcervoAutor, txtAcervoEdicao);
-        QWidget::setTabOrder(txtAcervoEdicao, txtAcervoEditora);
-        QWidget::setTabOrder(txtAcervoEditora, dtAcervoDataAquiscao);
+        QWidget::setTabOrder(txtAcervoAutor, txtAcervoEditora);
+        QWidget::setTabOrder(txtAcervoEditora, txtAcervoEdicao);
+        QWidget::setTabOrder(txtAcervoEdicao, dtAcervoDataAquiscao);
         QWidget::setTabOrder(dtAcervoDataAquiscao, btnAcervoCadastrar);
         QWidget::setTabOrder(btnAcervoCadastrar, btnAcervoEditar);
         QWidget::setTabOrder(btnAcervoEditar, btnAcervoExcluir);
         QWidget::setTabOrder(btnAcervoExcluir, btnAcervoLimpar);
         QWidget::setTabOrder(btnAcervoLimpar, tblAcervoLivros);
+        QWidget::setTabOrder(tblAcervoLivros, btnAcervoPesquisar);
 
         retranslateUi(BibliotecaDC);
 
-        Menu->setCurrentIndex(3);
+        Menu->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(BibliotecaDC);
@@ -833,16 +879,17 @@ public:
         groupBox_3->setTitle(QCoreApplication::translate("BibliotecaDC", "Usu\303\241rio", nullptr));
         label_7->setText(QCoreApplication::translate("BibliotecaDC", "CPF", nullptr));
         label_8->setText(QCoreApplication::translate("BibliotecaDC", "Nome", nullptr));
-        groupBox_4->setTitle(QCoreApplication::translate("BibliotecaDC", "Livro", nullptr));
-        label_9->setText(QCoreApplication::translate("BibliotecaDC", "Cod. Livro", nullptr));
-        label_10->setText(QCoreApplication::translate("BibliotecaDC", "T\303\255tulo", nullptr));
-        label_11->setText(QCoreApplication::translate("BibliotecaDC", "Data do Emprestimo", nullptr));
-        label_13->setText(QCoreApplication::translate("BibliotecaDC", "Editora", nullptr));
-        label_12->setText(QCoreApplication::translate("BibliotecaDC", "Edi\303\247\303\243o", nullptr));
-        groupBox_6->setTitle(QCoreApplication::translate("BibliotecaDC", "Filtos de Livros", nullptr));
-        groupBox_5->setTitle(QCoreApplication::translate("BibliotecaDC", "Comandos", nullptr));
+        groupBox_5->setTitle(QCoreApplication::translate("BibliotecaDC", "Opera\303\247\303\265es", nullptr));
         pushButton_5->setText(QCoreApplication::translate("BibliotecaDC", "Emprestar", nullptr));
-        pushButton_6->setText(QCoreApplication::translate("BibliotecaDC", "Emprestados", nullptr));
+        groupBox_15->setTitle(QCoreApplication::translate("BibliotecaDC", "Livro", nullptr));
+        label_31->setText(QCoreApplication::translate("BibliotecaDC", "Cod. Livro", nullptr));
+        label_32->setText(QCoreApplication::translate("BibliotecaDC", "T\303\255tulo", nullptr));
+        label_33->setText(QCoreApplication::translate("BibliotecaDC", "Edi\303\247\303\243o", nullptr));
+        label_34->setText(QCoreApplication::translate("BibliotecaDC", "Autor", nullptr));
+        label_35->setText(QCoreApplication::translate("BibliotecaDC", "Data Aquisi\303\247\303\243o", nullptr));
+        label_36->setText(QCoreApplication::translate("BibliotecaDC", "Editora", nullptr));
+        pushButton_6->setText(QString());
+        groupBox_16->setTitle(QCoreApplication::translate("BibliotecaDC", "Empr\303\251stimos", nullptr));
         Menu->setTabText(Menu->indexOf(Emprestimo), QCoreApplication::translate("BibliotecaDC", "Emprestimo", nullptr));
         groupBox_7->setTitle(QCoreApplication::translate("BibliotecaDC", "Filtos de Reservas", nullptr));
         groupBox_8->setTitle(QCoreApplication::translate("BibliotecaDC", "Comandos", nullptr));
@@ -875,11 +922,12 @@ public:
         pushButton_2->setText(QCoreApplication::translate("BibliotecaDC", "Remover", nullptr));
         Menu->setTabText(Menu->indexOf(usuarios), QCoreApplication::translate("BibliotecaDC", "Usu\303\241rios", nullptr));
         groupBox_12->setTitle(QCoreApplication::translate("BibliotecaDC", "Acervo", nullptr));
-        groupBox_13->setTitle(QCoreApplication::translate("BibliotecaDC", "Comandos", nullptr));
+        groupBox_13->setTitle(QCoreApplication::translate("BibliotecaDC", "Opera\303\247\303\265es", nullptr));
         btnAcervoCadastrar->setText(QCoreApplication::translate("BibliotecaDC", "Cadastrar", nullptr));
         btnAcervoEditar->setText(QCoreApplication::translate("BibliotecaDC", "Editar", nullptr));
         btnAcervoExcluir->setText(QCoreApplication::translate("BibliotecaDC", "Excluir", nullptr));
         btnAcervoLimpar->setText(QCoreApplication::translate("BibliotecaDC", "Limpar", nullptr));
+        btnAcervoPesquisar->setText(QCoreApplication::translate("BibliotecaDC", "Pesquisar", nullptr));
         groupBox_14->setTitle(QCoreApplication::translate("BibliotecaDC", "Livro", nullptr));
         label_25->setText(QCoreApplication::translate("BibliotecaDC", "Cod. Livro", nullptr));
         label_26->setText(QCoreApplication::translate("BibliotecaDC", "T\303\255tulo", nullptr));
