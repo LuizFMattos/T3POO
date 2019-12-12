@@ -24,13 +24,22 @@ class DAO
             if(classe == LIVRO)      strcpy( this->nomeArquivo, "livro.dat"); else
             if(classe == EMPRESTIMO) strcpy( this->nomeArquivo, "emprestimo.dat");
 
-            ifstream ifs(nomeArquivo, ios::binary);
+            ifstream ifs1(nomeArquivo, ios::binary);
 
             T obj;
 
+            if( !ifs1.is_open() ){ // se o arquivo ainda nao exisir, ele será criado!
+                ofstream ofs(nomeArquivo, ios::binary);
+                ofs.write(reinterpret_cast<char*>(&obj), sizeof(T));
+                ofs.close();
+            }
+            ifs1.close();
+
+            ifstream ifs(nomeArquivo, ios::binary);
             if( ifs.is_open()){
                 while( !ifs.eof() ){
                     ifs.read(reinterpret_cast<char*>(&obj), sizeof (T) );
+                    cout << "Lendo do arquivo:" << endl;
                     obj.imprime();
                     this->objetos.push_back(obj);
                 }
@@ -41,11 +50,12 @@ class DAO
             ifs.close();
         }
         ~DAO(){
-            cout << "Linha 45:" <<this->objetos.size()<< endl;
-            ofstream ofs(this->nomeArquivo, ios::binary);
+            ofstream ofs(this->nomeArquivo, ios::binary, ios::trunc);
             if( ofs.is_open() ){
                 for( unsigned int i = 0; i < this->objetos.size(); i++){
                     ofs.write(reinterpret_cast<char*>(&this->objetos[i]), sizeof(T));
+                    cout << "Salvando no arquivo:" << endl;
+                    this->objetos[i].imprime();
                 }
             }else{
                 cout << "Erro na abertura do arquivo: ";

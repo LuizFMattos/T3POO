@@ -9,15 +9,28 @@ using namespace std;
 class Data;
 class Livro{
     public:
-        Livro() : adquirido(0,0,0){
-
+        Livro(){
+            char titulo[30] = "root";
+            char autor[30] = "root";
+            char editora[30] = "root";
+            this->id = 0;
+            strcpy(this->titulo, titulo);
+            strcpy(this->autor , autor);
+            strcpy(this->editora, editora);
+            this->edicao = 0;
+            this->diaAdquirido = 11;
+            this->mesAdquirido = 12;
+            this->anoAdquirido = 2019;
         }
-        Livro(double id, char* titulo, char* autor, char* editora, int edicao, int dia, int mes, int ano) : adquirido(dia, mes, ano){
+        Livro(double id, char* titulo, char* autor, char* editora, int edicao, int dia, int mes, int ano){
             this->id = id;
             strcpy(this->titulo, titulo);
             strcpy(this->autor , autor);
             strcpy(this->editora, editora);
             this->edicao = edicao;
+            this->diaAdquirido = dia;
+            this->mesAdquirido = mes;
+            this->anoAdquirido = ano;
         }
 
         //getters
@@ -36,15 +49,23 @@ class Livro{
         int getEdicao(){
             return this->edicao;
         }
-        Data getDataAquirido(){
-            return this->adquirido;
+        int getDiaAdquirido(){
+            return this->diaAdquirido;
+        }
+        int getMesAdquirido(){
+            return this->mesAdquirido;
+        }
+        int getAnoAdquirido(){
+            return this->anoAdquirido;
         }
         void imprime(){
             cout << this->getId() << endl;
-            cout << this->getAutor() << endl;
-            cout << this->getEdicao() << endl;
             cout << this->getTitulo() << endl;
-            cout << "------------" << endl;
+            cout << this->getAutor() << endl;
+            cout << this->getEditora() << endl;
+            cout << this->getEdicao() << endl;
+            cout << this->getDiaAdquirido() << "/" << this->getMesAdquirido() << "/" << this->getAnoAdquirido() << endl;
+            cout << "------------------------------------------------" << endl;
         }
 
         //setters
@@ -63,8 +84,10 @@ class Livro{
         void setEdicao(int e){
             this->edicao = e;
         }
-        void setDataAdquirido(Data d){
-            this->adquirido = d;
+        void setDataAdquirido(int dia, int mes, int ano){
+            this->diaAdquirido = dia;
+            this->mesAdquirido = mes;
+            this->anoAdquirido = ano;
         }
     private:
         double id;
@@ -72,7 +95,9 @@ class Livro{
         char autor[30];
         char editora[30];
         int edicao;
-        Data adquirido;
+        int diaAdquirido;
+        int mesAdquirido;
+        int anoAdquirido;
 };
 
 #endif // LIVRO_H

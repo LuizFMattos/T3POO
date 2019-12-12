@@ -15,11 +15,7 @@ int main(int argc, char *argv[])
     char autor[30] = "Emerson";
     char editora[30] = "UFSCar";
     Livro l1(1, titulo, autor, editora, 2, 1, 1, 1);
-    d.salvar(l1);
-//    d.salvar(l2);
-//    d.salvar(l3);
-//    d.salvar(l4);
-//    d.salvar(l5);
+    //d.salvar(l1);
 
     QApplication a(argc, argv);
     BibliotecaDC w;
