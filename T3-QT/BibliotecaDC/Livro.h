@@ -18,9 +18,10 @@ class Livro{
             strcpy(this->autor , autor);
             strcpy(this->editora, editora);
             this->edicao = 0;
-            this->diaAdquirido = 11;
-            this->mesAdquirido = 12;
-            this->anoAdquirido = 2019;
+            this->diaAdquirido = 1;
+            this->mesAdquirido = 1;
+            this->anoAdquirido = 2000;
+            estaEmprestado = 0;
         }
         Livro(double id, char* titulo, char* autor, char* editora, int edicao, int dia, int mes, int ano){
             this->id = id;
@@ -31,19 +32,20 @@ class Livro{
             this->diaAdquirido = dia;
             this->mesAdquirido = mes;
             this->anoAdquirido = ano;
+            this->estaEmprestado = 0;
         }
 
         //getters
         double getId(){
             return this->id;
         }
-        string getTitulo(){
+        char* getTitulo(){
             return this->titulo;
         }
-        string getAutor(){
+        char* getAutor(){
             return this->autor;
         }
-        string getEditora(){
+        char* getEditora(){
             return this->editora;
         }
         int getEdicao(){
@@ -58,6 +60,9 @@ class Livro{
         int getAnoAdquirido(){
             return this->anoAdquirido;
         }
+        bool getEstaEmprestado(){
+            return this->estaEmprestado;
+        }
         void imprime(){
             cout << this->getId() << endl;
             cout << this->getTitulo() << endl;
@@ -65,6 +70,7 @@ class Livro{
             cout << this->getEditora() << endl;
             cout << this->getEdicao() << endl;
             cout << this->getDiaAdquirido() << "/" << this->getMesAdquirido() << "/" << this->getAnoAdquirido() << endl;
+            cout << this->getEstaEmprestado() << endl;
             cout << "------------------------------------------------" << endl;
         }
 
@@ -89,15 +95,19 @@ class Livro{
             this->mesAdquirido = mes;
             this->anoAdquirido = ano;
         }
+        void setEstaEmprestado(bool value){
+            this->estaEmprestado = value;
+        }
     private:
         double id;
         char titulo[30];
         char autor[30];
         char editora[30];
-        int edicao;
+        int edicao;//8+90+16 = 114
         int diaAdquirido;
         int mesAdquirido;
         int anoAdquirido;
+        bool estaEmprestado;
 };
 
 #endif // LIVRO_H

@@ -15,6 +15,15 @@ public:
     BibliotecaDC(QWidget *parent = nullptr);
     ~BibliotecaDC();
 
+private slots:
+    void on_btnAcervoCadastrar_clicked();
+
+    void on_tblAcervoLivros_cellClicked(int row, int column);
+
+    void on_btnAcervoEditar_clicked();
+
+    void on_btnAcervoLimpar_clicked();
+
 private:
     Ui::BibliotecaDC *ui;
 };

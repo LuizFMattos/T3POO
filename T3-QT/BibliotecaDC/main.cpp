@@ -3,6 +3,7 @@
 
 #include "DAO.h"
 #include "Livro.h"
+#include "Emprestimo.h"
 
 #define PESSOA     0
 #define LIVRO      1
@@ -11,11 +12,20 @@
 int main(int argc, char *argv[])
 {
     DAO<Livro> d(LIVRO);
-    char titulo[30] = "Sistemas digitais";
-    char autor[30] = "Emerson";
-    char editora[30] = "UFSCar";
-    Livro l1(1, titulo, autor, editora, 2, 1, 1, 1);
-    //d.salvar(l1);
+    char titulo[30] = "3Sistemas digitais";
+    char autor[30] = "3Emerson";
+    char editora[30] = "3UFSCar";
+    Livro l1(d.getNextId(), titulo, autor, editora, 3, 3, 3, 3);
+    //d.cadastrar(l1);
+    //d.editar(2, l1);
+    //d.excluir(3);
+    //d.listar();
+
+    int data[3] = {13, 12, 2019};
+    DAO<Emprestimo> d2(EMPRESTIMO);
+    Emprestimo e1(d2.getNextId(), 44071481870, 1, data);
+    //d2.cadastrar(e1);
+    d2.listar();
 
     QApplication a(argc, argv);
     BibliotecaDC w;

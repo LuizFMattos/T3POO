@@ -24,77 +24,84 @@ class DAO
             if(classe == LIVRO)      strcpy( this->nomeArquivo, "livro.dat"); else
             if(classe == EMPRESTIMO) strcpy( this->nomeArquivo, "emprestimo.dat");
 
-            ifstream ifs1(nomeArquivo, ios::binary);
-
             T obj;
 
+            ifstream ifs1(nomeArquivo, ios::binary);
             if( !ifs1.is_open() ){ // se o arquivo ainda nao exisir, ele será criado!
                 ofstream ofs(nomeArquivo, ios::binary);
-                ofs.write(reinterpret_cast<char*>(&obj), sizeof(T));
+                ofs.write(reinterpret_cast<char*>(&obj), sizeof(T));//adiciona a "raiz" de id 0
+                //para que ele nao seja criado com lixo!
                 ofs.close();
             }
             ifs1.close();
-
-            ifstream ifs(nomeArquivo, ios::binary);
-            if( ifs.is_open()){
-                while( !ifs.eof() ){
-                    ifs.read(reinterpret_cast<char*>(&obj), sizeof (T) );
-                    cout << "Lendo do arquivo:" << endl;
-                    obj.imprime();
-                    this->objetos.push_back(obj);
-                }
-            }else{
-                cout << "Erro na abertura do arquivo: ";
-                cout << this->nomeArquivo << endl;
-            }
-            ifs.close();
         }
         ~DAO(){
-            ofstream ofs(this->nomeArquivo, ios::binary, ios::trunc);
-            if( ofs.is_open() ){
-                for( unsigned int i = 0; i < this->objetos.size(); i++){
-                    ofs.write(reinterpret_cast<char*>(&this->objetos[i]), sizeof(T));
-                    cout << "Salvando no arquivo:" << endl;
-                    this->objetos[i].imprime();
-                }
+        }
+        void listar(){
+            vector<T> vec = this->getObjetos();
+            for( int i = 0; i < vec.size()-1; i++){
+                vec[i].imprime();
+            }
+        }
+        int cadastrar(T obj){
+            ofstream ofs(nomeArquivo, ios::binary | ios::app);
+            if( ofs.is_open()){
+                ofs.write(reinterpret_cast<char*>(&obj), sizeof (T) );
             }else{
-                cout << "Erro na abertura do arquivo: ";
-                cout << this->nomeArquivo << endl;
+                cout << "Erro na abertura do arquivo: " << this->nomeArquivo;
             }
             ofs.close();
         }
-        int salvar(T obj){
-            this->objetos.push_back(obj);
-            return 1;
-        }
-        int editar(double id, T obj){
-            for( int i = 0; i < this->objetos.size(); i++){
-                if( this->objetos[i].getId() == id ){
-                    this->objetos[i] = obj;
-                    return 1;
+        int editar( T obj ){
+            vector<T> vec;
+            vec = this->getObjetos();
+            for(int i = 0; i < vec.size() - 1; i++){
+                if(vec[i].getId() == obj.getId() ){
+                    vec[i] = obj;
+                    break;
                 }
             }
-            return 0;
+            ofstream ofs(nomeArquivo, ios::binary | ios::trunc);
+            for(int i = 0; i < vec.size() - 1; i++){
+                ofs.write(reinterpret_cast<char*>(&vec[i]), sizeof (T) );
+            }
         }
         int excluir(double id){
-            for( int i = 0; i < this->objetos.size(); i++){
-                if( this->objetos[i].getId() == id ){
-                    this->objetos.erase( this->objetos.begin() + i);
-                    return 1;
+            vector<T> vec;
+            vector<T> vecAposExclusao;
+            vec = this->getObjetos();
+            for(int i = 0; i < vec.size() - 1; i++){
+                if(vec[i].getId() != id){
+                    vecAposExclusao.push_back(vec[i]);
                 }
             }
-            return 0;
+            ofstream ofs(nomeArquivo, ios::binary | ios::trunc);
+            for(int i = 0; i < vecAposExclusao.size(); i++){
+                ofs.write(reinterpret_cast<char*>(&vecAposExclusao[i]), sizeof (T) );
+            }
         }
+
         vector<T> getObjetos(){
-            return this->objetos;
+            vector<T> vec;
+            T obj;
+            ifstream ifs(nomeArquivo, ios::binary);
+            if( ifs.is_open() ){
+                while( !ifs.eof() ){
+                    ifs.read(reinterpret_cast<char*>(&obj), sizeof (T) );
+                    vec.push_back(obj);
+                }
+                return vec;
+            }else{
+                cout << "Erro na abertura do arquivo" << endl;
+            }
+            ifs.close();
+        }
+        double getNextId(){
+            vector<T> vec;
+            vec = getObjetos();
+            return vec[ vec.size() - 2 ].getId() + 1;
         }
         T getObjeto(int id){
-            for( int i = 0; i < this->objetos.size(); i++){
-                if( this->objetos[i].getId() == id ){
-                    return this->objetos[i];
-                }
-            }
-            return NULL;
         }
     private:
         vector<T> objetos;
