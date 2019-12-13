@@ -19,7 +19,7 @@
      <rect>
       <x>0</x>
       <y>20</y>
-      <width>741</width>
+      <width>881</width>
       <height>101</height>
      </rect>
     </property>
@@ -51,7 +51,7 @@
      <bool>false</bool>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="Emprestimo">
      <attribute name="title">
@@ -678,15 +678,15 @@
     </widget>
     <widget class="QWidget" name="usuarios">
      <attribute name="title">
-      <string>Usuários</string>
+      <string>Usuário</string>
      </attribute>
      <widget class="QGroupBox" name="groupBox">
       <property name="geometry">
        <rect>
-        <x>110</x>
+        <x>20</x>
         <y>20</y>
-        <width>441</width>
-        <height>141</height>
+        <width>791</width>
+        <height>271</height>
        </rect>
       </property>
       <property name="autoFillBackground">
@@ -698,9 +698,9 @@
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>0</x>
-         <y>30</y>
-         <width>221</width>
+         <x>20</x>
+         <y>80</y>
+         <width>281</width>
          <height>27</height>
         </rect>
        </property>
@@ -716,14 +716,14 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit"/>
+         <widget class="QLineEdit" name="txtUsuarioNome"/>
         </item>
        </layout>
       </widget>
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>250</x>
+         <x>20</x>
          <y>30</y>
          <width>177</width>
          <height>27</height>
@@ -738,16 +738,16 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_2"/>
+         <widget class="QLineEdit" name="txtUsuarioCPF"/>
         </item>
        </layout>
       </widget>
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>0</x>
-         <y>60</y>
-         <width>221</width>
+         <x>340</x>
+         <y>130</y>
+         <width>131</width>
          <height>27</height>
         </rect>
        </property>
@@ -758,21 +758,21 @@
         <item>
          <widget class="QLabel" name="label_3">
           <property name="text">
-           <string>Tel. Celular</string>
+           <string>RA</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_3"/>
+         <widget class="QLineEdit" name="txtUsuarioRa"/>
         </item>
        </layout>
       </widget>
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>0</x>
-         <y>100</y>
-         <width>258</width>
+         <x>20</x>
+         <y>230</y>
+         <width>221</width>
          <height>28</height>
         </rect>
        </property>
@@ -780,130 +780,227 @@
         <item>
          <widget class="QLabel" name="label_5">
           <property name="text">
-           <string>Data de Nascimento</string>
+           <string>Curso</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QDateEdit" name="dateEdit">
-          <property name="dateTime">
-           <datetime>
-            <hour>18</hour>
-            <minute>0</minute>
-            <second>0</second>
-            <year>2019</year>
-            <month>1</month>
-            <day>1</day>
-           </datetime>
-          </property>
-          <property name="calendarPopup">
-           <bool>true</bool>
-          </property>
-          <property name="timeSpec">
-           <enum>Qt::UTC</enum>
-          </property>
-          <property name="date">
-           <date>
-            <year>2019</year>
-            <month>1</month>
-            <day>1</day>
-           </date>
-          </property>
-         </widget>
+         <widget class="QLineEdit" name="txtUsuarioCurso"/>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="layoutWidget">
+      <widget class="QWidget" name="horizontalLayoutWidget_2">
        <property name="geometry">
         <rect>
-         <x>250</x>
-         <y>70</y>
-         <width>105</width>
-         <height>27</height>
+         <x>20</x>
+         <y>180</y>
+         <width>177</width>
+         <height>24</height>
         </rect>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
          <widget class="QLabel" name="label_6">
           <property name="text">
-           <string>Curso</string>
+           <string>Perfil</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QComboBox" name="comboBox">
-          <item>
-           <property name="text">
-            <string/>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>ENC</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>BCC</string>
-           </property>
-          </item>
+         <widget class="QComboBox" name="cmbUsuarioPerfil"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="layoutWidget_22">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>130</y>
+         <width>281</width>
+         <height>27</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="Nome_2">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetNoConstraint</enum>
+        </property>
+        <item>
+         <widget class="QLabel" name="label_9">
+          <property name="text">
+           <string>e-mail</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="txtUsuarioEmail"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="layoutWidget_23">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>80</y>
+         <width>131</width>
+         <height>27</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="Telefone_2">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetNoConstraint</enum>
+        </property>
+        <item>
+         <widget class="QLabel" name="label_10">
+          <property name="text">
+           <string>Penalidade</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="txtUsuarioPenalidade"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="layoutWidget_24">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>30</y>
+         <width>168</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <item>
+         <widget class="QLabel" name="label_11">
+          <property name="text">
+           <string>Ano de ingresso</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="txtUsuarioIngresso"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_2">
+       <property name="geometry">
+        <rect>
+         <x>490</x>
+         <y>20</y>
+         <width>301</width>
+         <height>241</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Livros emprestados</string>
+       </property>
+       <widget class="QListWidget" name="tblUsuarioLivro">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>30</y>
+          <width>261</width>
+          <height>191</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_17">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>300</y>
+        <width>791</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Operações</string>
+      </property>
+      <widget class="QWidget" name="horizontalLayoutWidget_3">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>30</y>
+         <width>751</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_34">
+        <item>
+         <widget class="QPushButton" name="btnUsuarioCadastrar">
+          <property name="minimumSize">
+           <size>
+            <width>140</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Cadastrar</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnUsuarioEditar">
+          <property name="text">
+           <string>Editar</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnUsuarioExcluir">
+          <property name="text">
+           <string>Excluir</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnUsuarioLimpar">
+          <property name="text">
+           <string>Limpar</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnUsuarioPesquisar">
+          <property name="text">
+           <string>Pesquisar</string>
+          </property>
          </widget>
         </item>
        </layout>
       </widget>
      </widget>
-     <widget class="QGroupBox" name="groupBox_2">
+     <widget class="QGroupBox" name="groupBox_18">
       <property name="geometry">
        <rect>
-        <x>110</x>
-        <y>180</y>
-        <width>441</width>
-        <height>121</height>
+        <x>20</x>
+        <y>400</y>
+        <width>781</width>
+        <height>241</height>
        </rect>
       </property>
       <property name="title">
-       <string>Filtro Nome</string>
+       <string>Usuários</string>
       </property>
-     </widget>
-     <widget class="QWidget" name="layoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>330</y>
-        <width>441</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
-       <item>
-        <widget class="QPushButton" name="pushButton">
-         <property name="text">
-          <string>Cadastrar</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_4">
-         <property name="text">
-          <string>Pesquisar</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_3">
-         <property name="text">
-          <string>Editar</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_2">
-         <property name="text">
-          <string>Remover</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <widget class="QTableWidget" name="tblUsuarioUsuario">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>30</y>
+         <width>741</width>
+         <height>191</height>
+        </rect>
+       </property>
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <attribute name="horizontalHeaderCascadingSectionResizes">
+        <bool>true</bool>
+       </attribute>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="acervo">
@@ -1236,15 +1333,9 @@
   <tabstop>lineEdit_15</tabstop>
   <tabstop>pushButton_7</tabstop>
   <tabstop>pushButton_8</tabstop>
-  <tabstop>lineEdit</tabstop>
-  <tabstop>lineEdit_2</tabstop>
-  <tabstop>lineEdit_3</tabstop>
-  <tabstop>comboBox</tabstop>
-  <tabstop>dateEdit</tabstop>
-  <tabstop>pushButton</tabstop>
-  <tabstop>pushButton_4</tabstop>
-  <tabstop>pushButton_3</tabstop>
-  <tabstop>pushButton_2</tabstop>
+  <tabstop>txtUsuarioNome</tabstop>
+  <tabstop>txtUsuarioCPF</tabstop>
+  <tabstop>txtUsuarioRa</tabstop>
   <tabstop>txtAcervoIdLivro</tabstop>
   <tabstop>txtAcervoTitulo</tabstop>
   <tabstop>txtAcervoAutor</tabstop>

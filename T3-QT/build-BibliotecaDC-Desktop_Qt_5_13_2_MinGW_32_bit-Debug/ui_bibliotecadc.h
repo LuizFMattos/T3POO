@@ -20,6 +20,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -120,30 +121,47 @@ public:
     QWidget *layoutWidget3;
     QHBoxLayout *Nome;
     QLabel *label_2;
-    QLineEdit *lineEdit;
+    QLineEdit *txtUsuarioNome;
     QWidget *layoutWidget4;
     QHBoxLayout *CPF;
     QLabel *label_4;
-    QLineEdit *lineEdit_2;
+    QLineEdit *txtUsuarioCPF;
     QWidget *layoutWidget5;
     QHBoxLayout *Telefone;
     QLabel *label_3;
-    QLineEdit *lineEdit_3;
+    QLineEdit *txtUsuarioRa;
     QWidget *layoutWidget6;
     QHBoxLayout *horizontalLayout;
     QLabel *label_5;
-    QDateEdit *dateEdit;
-    QWidget *layoutWidget7;
+    QLineEdit *txtUsuarioCurso;
+    QWidget *horizontalLayoutWidget_2;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_6;
-    QComboBox *comboBox;
+    QComboBox *cmbUsuarioPerfil;
+    QWidget *layoutWidget_22;
+    QHBoxLayout *Nome_2;
+    QLabel *label_9;
+    QLineEdit *txtUsuarioEmail;
+    QWidget *layoutWidget_23;
+    QHBoxLayout *Telefone_2;
+    QLabel *label_10;
+    QLineEdit *txtUsuarioPenalidade;
+    QWidget *layoutWidget_24;
+    QHBoxLayout *horizontalLayout_6;
+    QLabel *label_11;
+    QLineEdit *txtUsuarioIngresso;
     QGroupBox *groupBox_2;
-    QWidget *layoutWidget8;
-    QHBoxLayout *horizontalLayout_3;
-    QPushButton *pushButton;
-    QPushButton *pushButton_4;
-    QPushButton *pushButton_3;
-    QPushButton *pushButton_2;
+    QListWidget *tblUsuarioLivro;
+    QGroupBox *groupBox_17;
+    QWidget *horizontalLayoutWidget_3;
+    QHBoxLayout *horizontalLayout_34;
+    QPushButton *btnUsuarioCadastrar;
+    QPushButton *btnUsuarioEditar;
+    QPushButton *btnUsuarioExcluir;
+    QPushButton *btnUsuarioLimpar;
+    QPushButton *btnUsuarioPesquisar;
+    QGroupBox *groupBox_18;
+    QTableWidget *tblUsuarioUsuario;
     QWidget *acervo;
     QGroupBox *groupBox_12;
     QTableWidget *tblAcervoLivros;
@@ -192,7 +210,7 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(0, 20, 741, 101));
+        label->setGeometry(QRect(0, 20, 881, 101));
         QFont font;
         font.setPointSize(48);
         label->setFont(font);
@@ -543,11 +561,11 @@ public:
         usuarios->setObjectName(QString::fromUtf8("usuarios"));
         groupBox = new QGroupBox(usuarios);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(110, 20, 441, 141));
+        groupBox->setGeometry(QRect(20, 20, 791, 271));
         groupBox->setAutoFillBackground(false);
         layoutWidget3 = new QWidget(groupBox);
         layoutWidget3->setObjectName(QString::fromUtf8("layoutWidget3"));
-        layoutWidget3->setGeometry(QRect(0, 30, 221, 27));
+        layoutWidget3->setGeometry(QRect(20, 80, 281, 27));
         Nome = new QHBoxLayout(layoutWidget3);
         Nome->setObjectName(QString::fromUtf8("Nome"));
         Nome->setSizeConstraint(QLayout::SetNoConstraint);
@@ -557,14 +575,14 @@ public:
 
         Nome->addWidget(label_2);
 
-        lineEdit = new QLineEdit(layoutWidget3);
-        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        txtUsuarioNome = new QLineEdit(layoutWidget3);
+        txtUsuarioNome->setObjectName(QString::fromUtf8("txtUsuarioNome"));
 
-        Nome->addWidget(lineEdit);
+        Nome->addWidget(txtUsuarioNome);
 
         layoutWidget4 = new QWidget(groupBox);
         layoutWidget4->setObjectName(QString::fromUtf8("layoutWidget4"));
-        layoutWidget4->setGeometry(QRect(250, 30, 177, 27));
+        layoutWidget4->setGeometry(QRect(20, 30, 177, 27));
         CPF = new QHBoxLayout(layoutWidget4);
         CPF->setObjectName(QString::fromUtf8("CPF"));
         CPF->setContentsMargins(0, 0, 0, 0);
@@ -573,14 +591,14 @@ public:
 
         CPF->addWidget(label_4);
 
-        lineEdit_2 = new QLineEdit(layoutWidget4);
-        lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
+        txtUsuarioCPF = new QLineEdit(layoutWidget4);
+        txtUsuarioCPF->setObjectName(QString::fromUtf8("txtUsuarioCPF"));
 
-        CPF->addWidget(lineEdit_2);
+        CPF->addWidget(txtUsuarioCPF);
 
         layoutWidget5 = new QWidget(groupBox);
         layoutWidget5->setObjectName(QString::fromUtf8("layoutWidget5"));
-        layoutWidget5->setGeometry(QRect(0, 60, 221, 27));
+        layoutWidget5->setGeometry(QRect(340, 130, 131, 27));
         Telefone = new QHBoxLayout(layoutWidget5);
         Telefone->setObjectName(QString::fromUtf8("Telefone"));
         Telefone->setSizeConstraint(QLayout::SetNoConstraint);
@@ -590,14 +608,14 @@ public:
 
         Telefone->addWidget(label_3);
 
-        lineEdit_3 = new QLineEdit(layoutWidget5);
-        lineEdit_3->setObjectName(QString::fromUtf8("lineEdit_3"));
+        txtUsuarioRa = new QLineEdit(layoutWidget5);
+        txtUsuarioRa->setObjectName(QString::fromUtf8("txtUsuarioRa"));
 
-        Telefone->addWidget(lineEdit_3);
+        Telefone->addWidget(txtUsuarioRa);
 
         layoutWidget6 = new QWidget(groupBox);
         layoutWidget6->setObjectName(QString::fromUtf8("layoutWidget6"));
-        layoutWidget6->setGeometry(QRect(0, 100, 258, 28));
+        layoutWidget6->setGeometry(QRect(20, 230, 221, 28));
         horizontalLayout = new QHBoxLayout(layoutWidget6);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
@@ -606,63 +624,126 @@ public:
 
         horizontalLayout->addWidget(label_5);
 
-        dateEdit = new QDateEdit(layoutWidget6);
-        dateEdit->setObjectName(QString::fromUtf8("dateEdit"));
-        dateEdit->setDateTime(QDateTime(QDate(2019, 1, 1), QTime(18, 0, 0)));
-        dateEdit->setCalendarPopup(true);
-        dateEdit->setTimeSpec(Qt::UTC);
-        dateEdit->setDate(QDate(2019, 1, 1));
+        txtUsuarioCurso = new QLineEdit(layoutWidget6);
+        txtUsuarioCurso->setObjectName(QString::fromUtf8("txtUsuarioCurso"));
 
-        horizontalLayout->addWidget(dateEdit);
+        horizontalLayout->addWidget(txtUsuarioCurso);
 
-        layoutWidget7 = new QWidget(groupBox);
-        layoutWidget7->setObjectName(QString::fromUtf8("layoutWidget7"));
-        layoutWidget7->setGeometry(QRect(250, 70, 105, 27));
-        horizontalLayout_2 = new QHBoxLayout(layoutWidget7);
+        horizontalLayoutWidget_2 = new QWidget(groupBox);
+        horizontalLayoutWidget_2->setObjectName(QString::fromUtf8("horizontalLayoutWidget_2"));
+        horizontalLayoutWidget_2->setGeometry(QRect(20, 180, 177, 24));
+        horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget_2);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        label_6 = new QLabel(layoutWidget7);
+        label_6 = new QLabel(horizontalLayoutWidget_2);
         label_6->setObjectName(QString::fromUtf8("label_6"));
 
         horizontalLayout_2->addWidget(label_6);
 
-        comboBox = new QComboBox(layoutWidget7);
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->setObjectName(QString::fromUtf8("comboBox"));
+        cmbUsuarioPerfil = new QComboBox(horizontalLayoutWidget_2);
+        cmbUsuarioPerfil->setObjectName(QString::fromUtf8("cmbUsuarioPerfil"));
 
-        horizontalLayout_2->addWidget(comboBox);
+        horizontalLayout_2->addWidget(cmbUsuarioPerfil);
 
-        groupBox_2 = new QGroupBox(usuarios);
+        layoutWidget_22 = new QWidget(groupBox);
+        layoutWidget_22->setObjectName(QString::fromUtf8("layoutWidget_22"));
+        layoutWidget_22->setGeometry(QRect(20, 130, 281, 27));
+        Nome_2 = new QHBoxLayout(layoutWidget_22);
+        Nome_2->setObjectName(QString::fromUtf8("Nome_2"));
+        Nome_2->setSizeConstraint(QLayout::SetNoConstraint);
+        Nome_2->setContentsMargins(0, 0, 0, 0);
+        label_9 = new QLabel(layoutWidget_22);
+        label_9->setObjectName(QString::fromUtf8("label_9"));
+
+        Nome_2->addWidget(label_9);
+
+        txtUsuarioEmail = new QLineEdit(layoutWidget_22);
+        txtUsuarioEmail->setObjectName(QString::fromUtf8("txtUsuarioEmail"));
+
+        Nome_2->addWidget(txtUsuarioEmail);
+
+        layoutWidget_23 = new QWidget(groupBox);
+        layoutWidget_23->setObjectName(QString::fromUtf8("layoutWidget_23"));
+        layoutWidget_23->setGeometry(QRect(340, 80, 131, 27));
+        Telefone_2 = new QHBoxLayout(layoutWidget_23);
+        Telefone_2->setObjectName(QString::fromUtf8("Telefone_2"));
+        Telefone_2->setSizeConstraint(QLayout::SetNoConstraint);
+        Telefone_2->setContentsMargins(0, 0, 0, 0);
+        label_10 = new QLabel(layoutWidget_23);
+        label_10->setObjectName(QString::fromUtf8("label_10"));
+
+        Telefone_2->addWidget(label_10);
+
+        txtUsuarioPenalidade = new QLineEdit(layoutWidget_23);
+        txtUsuarioPenalidade->setObjectName(QString::fromUtf8("txtUsuarioPenalidade"));
+
+        Telefone_2->addWidget(txtUsuarioPenalidade);
+
+        layoutWidget_24 = new QWidget(groupBox);
+        layoutWidget_24->setObjectName(QString::fromUtf8("layoutWidget_24"));
+        layoutWidget_24->setGeometry(QRect(300, 30, 168, 28));
+        horizontalLayout_6 = new QHBoxLayout(layoutWidget_24);
+        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
+        horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
+        label_11 = new QLabel(layoutWidget_24);
+        label_11->setObjectName(QString::fromUtf8("label_11"));
+
+        horizontalLayout_6->addWidget(label_11);
+
+        txtUsuarioIngresso = new QLineEdit(layoutWidget_24);
+        txtUsuarioIngresso->setObjectName(QString::fromUtf8("txtUsuarioIngresso"));
+
+        horizontalLayout_6->addWidget(txtUsuarioIngresso);
+
+        groupBox_2 = new QGroupBox(groupBox);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setGeometry(QRect(110, 180, 441, 121));
-        layoutWidget8 = new QWidget(usuarios);
-        layoutWidget8->setObjectName(QString::fromUtf8("layoutWidget8"));
-        layoutWidget8->setGeometry(QRect(110, 330, 441, 30));
-        horizontalLayout_3 = new QHBoxLayout(layoutWidget8);
-        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
-        pushButton = new QPushButton(layoutWidget8);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        groupBox_2->setGeometry(QRect(490, 20, 301, 241));
+        tblUsuarioLivro = new QListWidget(groupBox_2);
+        tblUsuarioLivro->setObjectName(QString::fromUtf8("tblUsuarioLivro"));
+        tblUsuarioLivro->setGeometry(QRect(20, 30, 261, 191));
+        groupBox_17 = new QGroupBox(usuarios);
+        groupBox_17->setObjectName(QString::fromUtf8("groupBox_17"));
+        groupBox_17->setGeometry(QRect(20, 300, 791, 91));
+        horizontalLayoutWidget_3 = new QWidget(groupBox_17);
+        horizontalLayoutWidget_3->setObjectName(QString::fromUtf8("horizontalLayoutWidget_3"));
+        horizontalLayoutWidget_3->setGeometry(QRect(20, 30, 751, 41));
+        horizontalLayout_34 = new QHBoxLayout(horizontalLayoutWidget_3);
+        horizontalLayout_34->setObjectName(QString::fromUtf8("horizontalLayout_34"));
+        horizontalLayout_34->setContentsMargins(0, 0, 0, 0);
+        btnUsuarioCadastrar = new QPushButton(horizontalLayoutWidget_3);
+        btnUsuarioCadastrar->setObjectName(QString::fromUtf8("btnUsuarioCadastrar"));
+        btnUsuarioCadastrar->setMinimumSize(QSize(140, 0));
 
-        horizontalLayout_3->addWidget(pushButton);
+        horizontalLayout_34->addWidget(btnUsuarioCadastrar);
 
-        pushButton_4 = new QPushButton(layoutWidget8);
-        pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
+        btnUsuarioEditar = new QPushButton(horizontalLayoutWidget_3);
+        btnUsuarioEditar->setObjectName(QString::fromUtf8("btnUsuarioEditar"));
 
-        horizontalLayout_3->addWidget(pushButton_4);
+        horizontalLayout_34->addWidget(btnUsuarioEditar);
 
-        pushButton_3 = new QPushButton(layoutWidget8);
-        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+        btnUsuarioExcluir = new QPushButton(horizontalLayoutWidget_3);
+        btnUsuarioExcluir->setObjectName(QString::fromUtf8("btnUsuarioExcluir"));
 
-        horizontalLayout_3->addWidget(pushButton_3);
+        horizontalLayout_34->addWidget(btnUsuarioExcluir);
 
-        pushButton_2 = new QPushButton(layoutWidget8);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        btnUsuarioLimpar = new QPushButton(horizontalLayoutWidget_3);
+        btnUsuarioLimpar->setObjectName(QString::fromUtf8("btnUsuarioLimpar"));
 
-        horizontalLayout_3->addWidget(pushButton_2);
+        horizontalLayout_34->addWidget(btnUsuarioLimpar);
 
+        btnUsuarioPesquisar = new QPushButton(horizontalLayoutWidget_3);
+        btnUsuarioPesquisar->setObjectName(QString::fromUtf8("btnUsuarioPesquisar"));
+
+        horizontalLayout_34->addWidget(btnUsuarioPesquisar);
+
+        groupBox_18 = new QGroupBox(usuarios);
+        groupBox_18->setObjectName(QString::fromUtf8("groupBox_18"));
+        groupBox_18->setGeometry(QRect(20, 400, 781, 241));
+        tblUsuarioUsuario = new QTableWidget(groupBox_18);
+        tblUsuarioUsuario->setObjectName(QString::fromUtf8("tblUsuarioUsuario"));
+        tblUsuarioUsuario->setGeometry(QRect(20, 30, 741, 191));
+        tblUsuarioUsuario->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        tblUsuarioUsuario->horizontalHeader()->setCascadingSectionResizes(true);
         Menu->addTab(usuarios, QString());
         acervo = new QWidget();
         acervo->setObjectName(QString::fromUtf8("acervo"));
@@ -842,16 +923,10 @@ public:
         QWidget::setTabOrder(lineEdit_14, lineEdit_15);
         QWidget::setTabOrder(lineEdit_15, pushButton_7);
         QWidget::setTabOrder(pushButton_7, pushButton_8);
-        QWidget::setTabOrder(pushButton_8, lineEdit);
-        QWidget::setTabOrder(lineEdit, lineEdit_2);
-        QWidget::setTabOrder(lineEdit_2, lineEdit_3);
-        QWidget::setTabOrder(lineEdit_3, comboBox);
-        QWidget::setTabOrder(comboBox, dateEdit);
-        QWidget::setTabOrder(dateEdit, pushButton);
-        QWidget::setTabOrder(pushButton, pushButton_4);
-        QWidget::setTabOrder(pushButton_4, pushButton_3);
-        QWidget::setTabOrder(pushButton_3, pushButton_2);
-        QWidget::setTabOrder(pushButton_2, txtAcervoIdLivro);
+        QWidget::setTabOrder(pushButton_8, txtUsuarioNome);
+        QWidget::setTabOrder(txtUsuarioNome, txtUsuarioCPF);
+        QWidget::setTabOrder(txtUsuarioCPF, txtUsuarioRa);
+        QWidget::setTabOrder(txtUsuarioRa, txtAcervoIdLivro);
         QWidget::setTabOrder(txtAcervoIdLivro, txtAcervoTitulo);
         QWidget::setTabOrder(txtAcervoTitulo, txtAcervoAutor);
         QWidget::setTabOrder(txtAcervoAutor, txtAcervoEditora);
@@ -866,7 +941,7 @@ public:
 
         retranslateUi(BibliotecaDC);
 
-        Menu->setCurrentIndex(0);
+        Menu->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(BibliotecaDC);
@@ -908,19 +983,21 @@ public:
         groupBox->setTitle(QCoreApplication::translate("BibliotecaDC", "Dados Pessoais", nullptr));
         label_2->setText(QCoreApplication::translate("BibliotecaDC", "Nome", nullptr));
         label_4->setText(QCoreApplication::translate("BibliotecaDC", "CPF", nullptr));
-        label_3->setText(QCoreApplication::translate("BibliotecaDC", "Tel. Celular", nullptr));
-        label_5->setText(QCoreApplication::translate("BibliotecaDC", "Data de Nascimento", nullptr));
-        label_6->setText(QCoreApplication::translate("BibliotecaDC", "Curso", nullptr));
-        comboBox->setItemText(0, QString());
-        comboBox->setItemText(1, QCoreApplication::translate("BibliotecaDC", "ENC", nullptr));
-        comboBox->setItemText(2, QCoreApplication::translate("BibliotecaDC", "BCC", nullptr));
-
-        groupBox_2->setTitle(QCoreApplication::translate("BibliotecaDC", "Filtro Nome", nullptr));
-        pushButton->setText(QCoreApplication::translate("BibliotecaDC", "Cadastrar", nullptr));
-        pushButton_4->setText(QCoreApplication::translate("BibliotecaDC", "Pesquisar", nullptr));
-        pushButton_3->setText(QCoreApplication::translate("BibliotecaDC", "Editar", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("BibliotecaDC", "Remover", nullptr));
-        Menu->setTabText(Menu->indexOf(usuarios), QCoreApplication::translate("BibliotecaDC", "Usu\303\241rios", nullptr));
+        label_3->setText(QCoreApplication::translate("BibliotecaDC", "RA", nullptr));
+        label_5->setText(QCoreApplication::translate("BibliotecaDC", "Curso", nullptr));
+        label_6->setText(QCoreApplication::translate("BibliotecaDC", "Perfil", nullptr));
+        label_9->setText(QCoreApplication::translate("BibliotecaDC", "e-mail", nullptr));
+        label_10->setText(QCoreApplication::translate("BibliotecaDC", "Penalidade", nullptr));
+        label_11->setText(QCoreApplication::translate("BibliotecaDC", "Ano de ingresso", nullptr));
+        groupBox_2->setTitle(QCoreApplication::translate("BibliotecaDC", "Livros emprestados", nullptr));
+        groupBox_17->setTitle(QCoreApplication::translate("BibliotecaDC", "Opera\303\247\303\265es", nullptr));
+        btnUsuarioCadastrar->setText(QCoreApplication::translate("BibliotecaDC", "Cadastrar", nullptr));
+        btnUsuarioEditar->setText(QCoreApplication::translate("BibliotecaDC", "Editar", nullptr));
+        btnUsuarioExcluir->setText(QCoreApplication::translate("BibliotecaDC", "Excluir", nullptr));
+        btnUsuarioLimpar->setText(QCoreApplication::translate("BibliotecaDC", "Limpar", nullptr));
+        btnUsuarioPesquisar->setText(QCoreApplication::translate("BibliotecaDC", "Pesquisar", nullptr));
+        groupBox_18->setTitle(QCoreApplication::translate("BibliotecaDC", "Usu\303\241rios", nullptr));
+        Menu->setTabText(Menu->indexOf(usuarios), QCoreApplication::translate("BibliotecaDC", "Usu\303\241rio", nullptr));
         groupBox_12->setTitle(QCoreApplication::translate("BibliotecaDC", "Acervo", nullptr));
         groupBox_13->setTitle(QCoreApplication::translate("BibliotecaDC", "Opera\303\247\303\265es", nullptr));
         btnAcervoCadastrar->setText(QCoreApplication::translate("BibliotecaDC", "Cadastrar", nullptr));

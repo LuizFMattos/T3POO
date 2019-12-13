@@ -23,8 +23,7 @@ HEADERS += \
     DAO.h \
     Emprestimo.h \
     Livro.h \
-    bibliotecadc.h \
-    data.h
+    bibliotecadc.h
 
 FORMS += \
     bibliotecadc.ui

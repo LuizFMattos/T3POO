@@ -26,6 +26,12 @@ private slots:
 
     void on_btnAcervoExcluir_clicked();
 
+    void on_tblUsuarioUsuario_cellClicked(int row, int column);
+
+    void on_btnUsuarioLimpar_clicked();
+
+    void on_btnUsuarioExcluir_clicked();
+
 private:
     Ui::BibliotecaDC *ui;
 };

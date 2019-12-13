@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string.h>
-#include "data.h"
+#include "DAO.h"
 
 using namespace std;
 class Data;
@@ -62,6 +62,16 @@ class Livro{
         }
         bool getEstaEmprestado(){
             return this->estaEmprestado;
+        }
+        Livro getLivro(double id){
+            DAO<Livro> l1(LIVRO);
+            vector<Livro> vec;
+            vec = l1.getObjetos();
+            for( unsigned int i = 0; i < vec.size() - 1; i++){
+                if( id == vec[i].getId() )
+                    return vec[i];
+            }
+
         }
         void imprime(){
             cout << this->getId() << endl;
