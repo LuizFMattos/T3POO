@@ -23,6 +23,7 @@ HEADERS += \
     DAO.h \
     Emprestimo.h \
     Livro.h \
+    Pessoa.h \
     bibliotecadc.h
 
 FORMS += \

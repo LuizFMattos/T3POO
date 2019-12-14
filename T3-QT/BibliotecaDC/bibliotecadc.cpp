@@ -4,6 +4,7 @@
 #include "DAO.h"
 #include "Livro.h"
 #include "Emprestimo.h"
+#include "Pessoa.h"
 
 #include <cmath>
 #include <string>
@@ -20,7 +21,35 @@ using namespace std;
 
 void updateTableWiget(int widget, QTableWidget* table){
 
-    if( widget == PESSOA){
+    if( widget == USUARIO){
+        table->setColumnCount(8);
+        QStringList cabec = {"CPF", "Cadastro", "Nome", "e-mail", "RA", "Penalidade", "Curso", "Ingresso"};
+        table->setHorizontalHeaderLabels(cabec);
+
+        table->setColumnWidth(0, 100);
+        table->setColumnWidth(1, 70);
+        table->setColumnWidth(2, 105);
+        table->setColumnWidth(3, 105);
+        table->setColumnWidth(4, 60);
+        table->setColumnWidth(5, 85);
+        table->setColumnWidth(6, 105);
+        table->setColumnWidth(7, 65);
+
+        DAO<Pessoa> dp(USUARIO);
+        vector<Pessoa> vec;
+        vec = dp.getObjetos();
+
+        for( unsigned int i = vec.size() - 2; i > 0; i--){
+            table->insertRow(0);
+            table->setItem(0, 0, new QTableWidgetItem( to_string( (long long int) round( vec[i].getId() ) ).c_str() ) );
+            table->setItem(0, 1, new QTableWidgetItem( vec[i].getTipoCadastro() ) );
+            table->setItem(0, 2, new QTableWidgetItem( vec[i].getNome() ) );
+            table->setItem(0, 3, new QTableWidgetItem( vec[i].getEmail() ) );
+            table->setItem(0, 4, new QTableWidgetItem( to_string( vec[i].getRa() ).c_str() ) );
+            table->setItem(0, 5, new QTableWidgetItem( to_string( vec[i].getPenalidade() ).c_str() ) );
+            table->setItem(0, 6, new QTableWidgetItem( vec[i].getCurso() ) );
+            table->setItem(0, 7, new QTableWidgetItem( to_string( vec[i].getAnoIngresso() ).c_str() ) );
+        }
 
     }else if( widget == LIVRO ){
         table->setColumnCount(6);
@@ -102,7 +131,54 @@ void deleteTableWidget(QTableWidget* table){
     table->setRowCount(0);
 }
 
-int verificaCamposAcervo(Ui::BibliotecaDC* a){
+BibliotecaDC::BibliotecaDC(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::BibliotecaDC)
+{
+    ui->setupUi(this);
+    updateTableWiget(LIVRO, ui->tblAcervoLivros);
+    updateTableWiget(EMPRESTIMO, ui->tblEmprestimoEmprestimo);
+    updateTableWiget(USUARIO, ui->tblUsuarioUsuario);
+    ui->txtAcervoIdLivro->setEnabled(false);
+
+    QRegExp re1("([A-Z ]{0,50})");
+    QRegExp re2("([A-Z ]{0,30})");
+    QRegExp re3("([A-Z]{0,30})");
+    QRegExpValidator *validator1 = new QRegExpValidator(re1, this);
+    QRegExpValidator *validator2 = new QRegExpValidator(re2, this);
+    QRegExpValidator *validator3 = new QRegExpValidator(re3, this);
+    ui->txtUsuarioNome->setValidator(validator1);
+    ui->txtUsuarioCurso->setValidator(validator2);
+    ui->txtUsuarioEmail->setValidator(validator3);
+
+
+    time_t t = time(NULL);
+    struct tm tm = *localtime(&t);
+    int ano = tm.tm_year+1900;
+    int mes = tm.tm_mon;
+    int dia = tm.tm_mday;
+    QDate d(ano, mes, dia);
+    ui->dtAcervoDataAquiscao->setDate(d);
+    ui->dtAcervoDataAquiscao->setEnabled(false);
+    ui->btnAcervoExcluir->setEnabled(false);
+    ui->btnAcervoEditar->setEnabled(false);
+
+    //USUARIO
+    ui->cmbUsuarioPerfil->addItem("", "");
+    ui->cmbUsuarioPerfil->addItem("Admin", "adm");
+    ui->cmbUsuarioPerfil->addItem("Professor", "prf");
+    ui->cmbUsuarioPerfil->addItem("Aluno", "aln");
+    ui->btnUsuarioExcluir->setEnabled(false);
+    ui->btnUsuarioEditar->setEnabled(false);
+}
+
+BibliotecaDC::~BibliotecaDC()
+{
+    delete ui;
+}
+
+//////////////////////////////////////ACERVO//////////////////////////////////////
+bool verificaCamposAcervo(Ui::BibliotecaDC* a){
     if( a->txtAcervoTitulo->text() == "" || a->txtAcervoAutor->text() == "" || a->txtAcervoEditora->text() == "" || a->txtAcervoEdicao->text() == ""){
         QMessageBox msg;
         msg.setText("Há campos não preenchidos, preencha-os!");
@@ -110,9 +186,9 @@ int verificaCamposAcervo(Ui::BibliotecaDC* a){
         msg.setDefaultButton(QMessageBox::Ok);
         msg.exec();
 
-        return 0;
+        return false;
     }
-    return 1;
+    return true;
 }
 
 void limparCamposAcervo(Ui::BibliotecaDC* a){
@@ -129,58 +205,6 @@ void limparCamposAcervo(Ui::BibliotecaDC* a){
     a->txtAcervoEdicao->setText( "" );
     a->dtAcervoDataAquiscao->setDate(d);
 }
-
-void limparCamposUsuario(Ui::BibliotecaDC* a){
-    time_t t = time(NULL);
-    struct tm tm = *localtime(&t);
-    int ano = tm.tm_year+1900;
-    int mes = tm.tm_mon;
-    int dia = tm.tm_mday;
-    QDate d(ano, mes, dia);
-    a->txtUsuarioRa->setText( "" );
-    a->txtUsuarioCPF->setText( "" );
-    a->txtUsuarioNome->setText( "" );
-    a->txtUsuarioCurso->setText( "" );
-    a->txtUsuarioEmail->setText( "" );
-    a->txtUsuarioIngresso->setText( "" );
-    a->txtUsuarioPenalidade->setText( "" );
-    a->cmbUsuarioPerfil->setCurrentIndex(-1);
-}
-
-BibliotecaDC::BibliotecaDC(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::BibliotecaDC)
-{
-    ui->setupUi(this);
-    updateTableWiget(LIVRO, ui->tblAcervoLivros);
-    updateTableWiget(EMPRESTIMO, ui->tblEmprestimoEmprestimo);
-    ui->txtAcervoIdLivro->setEnabled(false);
-
-    time_t t = time(NULL);
-    struct tm tm = *localtime(&t);
-    int ano = tm.tm_year+1900;
-    int mes = tm.tm_mon;
-    int dia = tm.tm_mday;
-    QDate d(ano, mes, dia);
-    ui->dtAcervoDataAquiscao->setDate(d);
-    ui->dtAcervoDataAquiscao->setEnabled(false);
-    ui->btnAcervoExcluir->setEnabled(false);
-    ui->btnAcervoEditar->setEnabled(false);
-
-    //USUARIO
-    ui->cmbUsuarioPerfil->addItem("Admin", "adm");
-    ui->cmbUsuarioPerfil->addItem("Professor", "prf");
-    ui->cmbUsuarioPerfil->addItem("Aluno", "aln");
-    ui->btnUsuarioExcluir->setEnabled(false);
-    ui->btnUsuarioEditar->setEnabled(false);
-}
-
-BibliotecaDC::~BibliotecaDC()
-{
-    delete ui;
-}
-
-
 void BibliotecaDC::on_btnAcervoCadastrar_clicked()
 {
     if( verificaCamposAcervo(ui) ){
@@ -286,12 +310,56 @@ void BibliotecaDC::on_btnAcervoExcluir_clicked()
     ui->btnAcervoPesquisar->setEnabled(true);
 }
 
+//////////////////////////////////////USUARIO//////////////////////////////////////
+void limparCamposUsuario(Ui::BibliotecaDC* a){
+    time_t t = time(NULL);
+    struct tm tm = *localtime(&t);
+    int ano = tm.tm_year+1900;
+    int mes = tm.tm_mon;
+    int dia = tm.tm_mday;
+    QDate d(ano, mes, dia);
+    a->txtUsuarioRa->setText( "" );
+    a->txtUsuarioCPF->setText( "" );
+    a->txtUsuarioNome->setText( "" );
+    a->txtUsuarioCurso->setText( "" );
+    a->txtUsuarioEmail->setText( "" );
+    a->txtUsuarioIngresso->setText( "" );
+    a->txtUsuarioPenalidade->setText( "" );
+    a->cmbUsuarioPerfil->setCurrentIndex(-1);
+}
+bool verificaCamposUsuario(Ui::BibliotecaDC* a){
+    if( a->txtUsuarioRa->text() == "" || a->txtUsuarioCPF->text() == "" || a->txtUsuarioCurso->text() == "" || a->txtUsuarioEmail->text() == "" || a->txtUsuarioIngresso->text() == "" || a->txtUsuarioPenalidade->text() == "" || a->cmbUsuarioPerfil->currentIndex() < 1 ){
+        QMessageBox msg;
+        msg.setText("Há campos não preenchidos, preencha-os!");
+        msg.setIcon(QMessageBox::Warning);
+        msg.setDefaultButton(QMessageBox::Ok);
+        msg.exec();
+        return false;
+    }
+    return true;
+}
+
 void BibliotecaDC::on_tblUsuarioUsuario_cellClicked(int row, int column)
 {
     ui->btnUsuarioCadastrar->setEnabled(false);
     ui->btnUsuarioPesquisar->setEnabled(false);
     ui->btnUsuarioExcluir->setEnabled(true);
     ui->btnUsuarioEditar->setEnabled(true);
+
+    ui->txtUsuarioCPF->setText( ui->tblUsuarioUsuario->item(row, 0)->text() );
+    if( ui->tblUsuarioUsuario->item(row, 1)->text() == "Admin" )
+        ui->cmbUsuarioPerfil->setCurrentIndex(1);
+    else if( ui->tblUsuarioUsuario->item(row, 1)->text() == "Professor" )
+        ui->cmbUsuarioPerfil->setCurrentIndex(2);
+    else if( ui->tblUsuarioUsuario->item(row, 1)->text() == "Aluno" )
+        ui->cmbUsuarioPerfil->setCurrentIndex(3);
+
+    ui->txtUsuarioNome->setText( ui->tblUsuarioUsuario->item(row, 2)->text() );
+    ui->txtUsuarioEmail->setText( ui->tblUsuarioUsuario->item(row, 3)->text() );
+    ui->txtUsuarioRa->setText( ui->tblUsuarioUsuario->item(row, 4)->text() );
+    ui->txtUsuarioPenalidade->setText( ui->tblUsuarioUsuario->item(row, 5)->text() );
+    ui->txtUsuarioCurso->setText( ui->tblUsuarioUsuario->item(row, 6)->text() );
+    ui->txtUsuarioIngresso->setText( ui->tblUsuarioUsuario->item(row, 7)->text() );
 }
 
 void BibliotecaDC::on_btnUsuarioLimpar_clicked()
@@ -305,11 +373,46 @@ void BibliotecaDC::on_btnUsuarioLimpar_clicked()
 
 void BibliotecaDC::on_btnUsuarioExcluir_clicked()
 {
-    //DAO<Livro> dl(LIVRO); PESSOA
-    //dl.excluir(ui->txtUsuarioCpf->text().toDouble());
+    DAO<Pessoa> dl(USUARIO);
+    dl.excluir( ui->txtUsuarioCPF->text().toDouble() );
     deleteTableWidget(ui->tblUsuarioUsuario);
     updateTableWiget(USUARIO, ui->tblUsuarioUsuario);
+
     limparCamposUsuario(ui);
     ui->btnUsuarioCadastrar->setEnabled(true);
     ui->btnUsuarioPesquisar->setEnabled(true);
+}
+
+void BibliotecaDC::on_btnUsuarioCadastrar_clicked()
+{
+    ui->label_6->setText( ui->cmbUsuarioPerfil->currentText() );
+    if( verificaCamposUsuario(ui) ){
+        double cpf = ui->txtUsuarioCPF->text().toDouble();
+//        const char* tipoCadastro = ui->cmbUsuarioPerfil->currentText().toUtf8().constData();
+        const char* nome = ui->txtUsuarioNome->text().toUtf8().constData();
+        const char* email = ui->txtUsuarioEmail->text().toUtf8().constData();
+        int ra = ui->txtUsuarioRa->text().toInt();
+        int penalidade = 0;
+        const char* curso = ui->txtUsuarioCurso->text().toUtf8().constData();
+        int anoIngresso = ui->txtUsuarioIngresso->text().toInt();
+
+        char tip[30] = {};
+        char nom[50] = {};
+        char ema[50] = {};
+        char cur[30] = {};
+        //strcpy(tip, tipoCadastro);
+        strcpy(nom, nome);
+        strcpy(ema, email);
+        strcpy(cur, curso);
+
+        vector<int> vec(0);
+
+        DAO<Pessoa> dp(USUARIO);
+        Pessoa p(cpf, tip, nom, ema, ra, penalidade, cur, anoIngresso, vec);
+        dp.cadastrar(p);
+        deleteTableWidget(ui->tblUsuarioUsuario);
+        updateTableWiget(0, ui->tblUsuarioUsuario);
+        limparCamposUsuario(ui);
+
+    }
 }

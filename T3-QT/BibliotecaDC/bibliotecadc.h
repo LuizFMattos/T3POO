@@ -32,6 +32,8 @@ private slots:
 
     void on_btnUsuarioExcluir_clicked();
 
+    void on_btnUsuarioCadastrar_clicked();
+
 private:
     Ui::BibliotecaDC *ui;
 };

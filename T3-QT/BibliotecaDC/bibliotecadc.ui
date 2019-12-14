@@ -87,7 +87,11 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="txtEmprestimoCpf"/>
+         <widget class="QLineEdit" name="txtEmprestimoCpf">
+          <property name="inputMask">
+           <string/>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -695,216 +699,224 @@
       <property name="title">
        <string>Dados Pessoais</string>
       </property>
-      <widget class="QWidget" name="layoutWidget">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>80</y>
-         <width>281</width>
-         <height>27</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="Nome">
-        <property name="sizeConstraint">
-         <enum>QLayout::SetNoConstraint</enum>
-        </property>
-        <item>
-         <widget class="QLabel" name="label_2">
-          <property name="text">
-           <string>Nome</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="txtUsuarioNome"/>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="layoutWidget">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>30</y>
-         <width>177</width>
-         <height>27</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="CPF">
-        <item>
-         <widget class="QLabel" name="label_4">
-          <property name="text">
-           <string>CPF</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="txtUsuarioCPF"/>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="layoutWidget">
-       <property name="geometry">
-        <rect>
-         <x>340</x>
-         <y>130</y>
-         <width>131</width>
-         <height>27</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="Telefone">
-        <property name="sizeConstraint">
-         <enum>QLayout::SetNoConstraint</enum>
-        </property>
-        <item>
-         <widget class="QLabel" name="label_3">
-          <property name="text">
-           <string>RA</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="txtUsuarioRa"/>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="layoutWidget">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>230</y>
-         <width>221</width>
-         <height>28</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QLabel" name="label_5">
-          <property name="text">
-           <string>Curso</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="txtUsuarioCurso"/>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="horizontalLayoutWidget_2">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>180</y>
-         <width>177</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
-        <item>
-         <widget class="QLabel" name="label_6">
-          <property name="text">
-           <string>Perfil</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="cmbUsuarioPerfil"/>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="layoutWidget_22">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>130</y>
-         <width>281</width>
-         <height>27</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="Nome_2">
-        <property name="sizeConstraint">
-         <enum>QLayout::SetNoConstraint</enum>
-        </property>
-        <item>
-         <widget class="QLabel" name="label_9">
-          <property name="text">
-           <string>e-mail</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="txtUsuarioEmail"/>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="layoutWidget_23">
-       <property name="geometry">
-        <rect>
-         <x>340</x>
-         <y>80</y>
-         <width>131</width>
-         <height>27</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="Telefone_2">
-        <property name="sizeConstraint">
-         <enum>QLayout::SetNoConstraint</enum>
-        </property>
-        <item>
-         <widget class="QLabel" name="label_10">
-          <property name="text">
-           <string>Penalidade</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="txtUsuarioPenalidade"/>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="layoutWidget_24">
-       <property name="geometry">
-        <rect>
-         <x>300</x>
-         <y>30</y>
-         <width>168</width>
-         <height>28</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_6">
-        <item>
-         <widget class="QLabel" name="label_11">
-          <property name="text">
-           <string>Ano de ingresso</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="txtUsuarioIngresso"/>
-        </item>
-       </layout>
-      </widget>
       <widget class="QGroupBox" name="groupBox_2">
        <property name="geometry">
         <rect>
          <x>490</x>
          <y>20</y>
-         <width>301</width>
+         <width>281</width>
          <height>241</height>
         </rect>
        </property>
        <property name="title">
         <string>Livros emprestados</string>
        </property>
-       <widget class="QListWidget" name="tblUsuarioLivro">
+       <widget class="QTableWidget" name="tblUsuarioLivro">
         <property name="geometry">
          <rect>
           <x>20</x>
           <y>30</y>
-          <width>261</width>
-          <height>191</height>
+          <width>241</width>
+          <height>192</height>
          </rect>
         </property>
        </widget>
+      </widget>
+      <widget class="QLineEdit" name="txtUsuarioCPF">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>30</y>
+         <width>131</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>30</y>
+         <width>41</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>CPF</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>70</y>
+         <width>33</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Nome</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtUsuarioNome">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>70</y>
+         <width>395</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>110</y>
+         <width>36</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>e-mail</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtUsuarioEmail">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>110</y>
+         <width>395</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>190</y>
+         <width>84</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Perfil</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cmbUsuarioPerfil">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>190</y>
+         <width>81</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>150</y>
+         <width>33</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Curso</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtUsuarioCurso">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>150</y>
+         <width>241</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_11">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>190</y>
+         <width>92</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Ano de ingresso</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtUsuarioIngresso">
+       <property name="geometry">
+        <rect>
+         <x>415</x>
+         <y>190</y>
+         <width>51</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_10">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>150</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Penalidade</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtUsuarioPenalidade">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>415</x>
+         <y>150</y>
+         <width>51</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>390</x>
+         <y>30</y>
+         <width>16</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>RA</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtUsuarioRa">
+       <property name="geometry">
+        <rect>
+         <x>410</x>
+         <y>30</y>
+         <width>51</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
       </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_17">
@@ -1323,19 +1335,30 @@
   <tabstop>Menu</tabstop>
   <tabstop>txtEmprestimoCpf</tabstop>
   <tabstop>txtEmprestimoNome</tabstop>
+  <tabstop>txtAcervoIdLivro_2</tabstop>
+  <tabstop>pushButton_6</tabstop>
+  <tabstop>txtAcervoTitulo_2</tabstop>
+  <tabstop>txtAcervoAutor_2</tabstop>
+  <tabstop>txtAcervoEditora_2</tabstop>
+  <tabstop>txtAcervoEdicao_2</tabstop>
+  <tabstop>dtAcervoDataAquiscao_2</tabstop>
   <tabstop>pushButton_5</tabstop>
-  <tabstop>lineEdit_10</tabstop>
-  <tabstop>lineEdit_11</tabstop>
-  <tabstop>lineEdit_12</tabstop>
-  <tabstop>dateEdit_3</tabstop>
-  <tabstop>lineEdit_13</tabstop>
-  <tabstop>lineEdit_14</tabstop>
-  <tabstop>lineEdit_15</tabstop>
-  <tabstop>pushButton_7</tabstop>
-  <tabstop>pushButton_8</tabstop>
-  <tabstop>txtUsuarioNome</tabstop>
+  <tabstop>tblEmprestimoEmprestimo</tabstop>
   <tabstop>txtUsuarioCPF</tabstop>
   <tabstop>txtUsuarioRa</tabstop>
+  <tabstop>tblUsuarioLivro</tabstop>
+  <tabstop>txtUsuarioNome</tabstop>
+  <tabstop>txtUsuarioEmail</tabstop>
+  <tabstop>txtUsuarioCurso</tabstop>
+  <tabstop>cmbUsuarioPerfil</tabstop>
+  <tabstop>txtUsuarioPenalidade</tabstop>
+  <tabstop>txtUsuarioIngresso</tabstop>
+  <tabstop>btnUsuarioCadastrar</tabstop>
+  <tabstop>btnUsuarioEditar</tabstop>
+  <tabstop>btnUsuarioExcluir</tabstop>
+  <tabstop>btnUsuarioLimpar</tabstop>
+  <tabstop>btnUsuarioPesquisar</tabstop>
+  <tabstop>tblUsuarioUsuario</tabstop>
   <tabstop>txtAcervoIdLivro</tabstop>
   <tabstop>txtAcervoTitulo</tabstop>
   <tabstop>txtAcervoAutor</tabstop>
@@ -1346,8 +1369,17 @@
   <tabstop>btnAcervoEditar</tabstop>
   <tabstop>btnAcervoExcluir</tabstop>
   <tabstop>btnAcervoLimpar</tabstop>
-  <tabstop>tblAcervoLivros</tabstop>
   <tabstop>btnAcervoPesquisar</tabstop>
+  <tabstop>tblAcervoLivros</tabstop>
+  <tabstop>lineEdit_15</tabstop>
+  <tabstop>pushButton_7</tabstop>
+  <tabstop>lineEdit_11</tabstop>
+  <tabstop>lineEdit_10</tabstop>
+  <tabstop>lineEdit_13</tabstop>
+  <tabstop>pushButton_8</tabstop>
+  <tabstop>lineEdit_14</tabstop>
+  <tabstop>lineEdit_12</tabstop>
+  <tabstop>dateEdit_3</tabstop>
  </tabstops>
  <resources/>
  <connections/>
