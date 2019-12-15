@@ -5,6 +5,7 @@
 #include "DAO.h"
 #include "Livro.h"
 #include "Emprestimo.h"
+#include "Pessoa.h"
 
 #define PESSOA     0
 #define LIVRO      1
@@ -27,6 +28,7 @@ int main(int argc, char *argv[])
     Emprestimo e1(d2.getNextId(), 44071481870, 1, data);
     //d2.cadastrar(e1);
     d2.listar();
+    Pessoa p();
 
     QApplication a(argc, argv);
     BibliotecaDC w;
