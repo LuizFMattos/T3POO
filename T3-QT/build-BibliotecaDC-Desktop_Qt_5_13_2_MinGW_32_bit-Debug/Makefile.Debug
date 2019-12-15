@@ -215,9 +215,11 @@ debug/moc_bibliotecadc.cpp: ../BibliotecaDC/bibliotecadc.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qicon.h \
+		../BibliotecaDC/Livro.h \
+		../BibliotecaDC/DAO.h \
 		debug/moc_predefs.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/bin/moc.exe
-	C:\Qt\Qt5.13.2\5.13.2\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/luizf/Development/UFSCar/POO/T3POO/T3-QT/build-BibliotecaDC-Desktop_Qt_5_13_2_MinGW_32_bit-Debug/debug/moc_predefs.h -IC:/Qt/Qt5.13.2/5.13.2/mingw73_32/mkspecs/win32-g++ -IC:/Users/luizf/Development/UFSCar/POO/T3POO/T3-QT/BibliotecaDC -IC:/Qt/Qt5.13.2/5.13.2/mingw73_32/include -IC:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets -IC:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui -IC:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtANGLE -IC:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore -I. -IC:/Qt/Qt5.13.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Qt5.13.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.13.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Qt5.13.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Qt5.13.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Qt5.13.2/Tools/mingw730_32/i686-w64-mingw32/include ..\BibliotecaDC\bibliotecadc.h -o debug\moc_bibliotecadc.cpp
+	C:\Qt\Qt5.13.2\5.13.2\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Fernando/Documents/GitHub/T3POO/T3-QT/build-BibliotecaDC-Desktop_Qt_5_13_2_MinGW_32_bit-Debug/debug/moc_predefs.h -IC:/Qt/Qt5.13.2/5.13.2/mingw73_32/mkspecs/win32-g++ -IC:/Users/Fernando/Documents/GitHub/T3POO/T3-QT/BibliotecaDC -IC:/Qt/Qt5.13.2/5.13.2/mingw73_32/include -IC:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets -IC:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui -IC:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtANGLE -IC:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore -I. -IC:/Qt/Qt5.13.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Qt5.13.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.13.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Qt5.13.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Qt5.13.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Qt5.13.2/Tools/mingw730_32/i686-w64-mingw32/include ..\BibliotecaDC\bibliotecadc.h -o debug\moc_bibliotecadc.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -349,6 +351,8 @@ debug/main.o: ../BibliotecaDC/main.cpp ../BibliotecaDC/bibliotecadc.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qicon.h \
+		../BibliotecaDC/Livro.h \
+		../BibliotecaDC/DAO.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QApplication \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qapplication.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcoreapplication.h \
@@ -356,8 +360,6 @@ debug/main.o: ../BibliotecaDC/main.cpp ../BibliotecaDC/bibliotecadc.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qguiapplication.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qinputmethod.h \
-		../BibliotecaDC/DAO.h \
-		../BibliotecaDC/Livro.h \
 		../BibliotecaDC/Emprestimo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\BibliotecaDC\main.cpp
 
@@ -468,6 +470,8 @@ debug/bibliotecadc.o: ../BibliotecaDC/bibliotecadc.cpp ../BibliotecaDC/bibliotec
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qicon.h \
+		../BibliotecaDC/Livro.h \
+		../BibliotecaDC/DAO.h \
 		ui_bibliotecadc.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QDate \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdatetime.h \
@@ -516,6 +520,9 @@ debug/bibliotecadc.o: ../BibliotecaDC/bibliotecadc.cpp ../BibliotecaDC/bibliotec
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtextformat.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpen.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtextoption.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QListWidget \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlistwidget.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlistview.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QMenuBar \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qmenubar.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qmenu.h \
@@ -531,8 +538,6 @@ debug/bibliotecadc.o: ../BibliotecaDC/bibliotecadc.cpp ../BibliotecaDC/bibliotec
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtablewidget.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtableview.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QWidget \
-		../BibliotecaDC/DAO.h \
-		../BibliotecaDC/Livro.h \
 		../BibliotecaDC/Emprestimo.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QMessageBox \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qmessagebox.h \
