@@ -149,7 +149,7 @@
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_11">
         <item>
-         <widget class="QPushButton" name="pushButton_5">
+         <widget class="QPushButton" name="btnEmprestimoEmprestar">
           <property name="text">
            <string>Emprestar</string>
           </property>
@@ -976,13 +976,6 @@
           </property>
          </widget>
         </item>
-        <item>
-         <widget class="QPushButton" name="btnUsuarioPesquisar">
-          <property name="text">
-           <string>Pesquisar</string>
-          </property>
-         </widget>
-        </item>
        </layout>
       </widget>
      </widget>
@@ -1102,13 +1095,6 @@
          <widget class="QPushButton" name="btnAcervoLimpar">
           <property name="text">
            <string>Limpar</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btnAcervoPesquisar">
-          <property name="text">
-           <string>Pesquisar</string>
           </property>
          </widget>
         </item>
@@ -1343,23 +1329,22 @@
   <tabstop>txtAcervoEditora_2</tabstop>
   <tabstop>txtAcervoEdicao_2</tabstop>
   <tabstop>dtAcervoDataAquiscao_2</tabstop>
-  <tabstop>pushButton_5</tabstop>
+  <tabstop>btnEmprestimoEmprestar</tabstop>
   <tabstop>tblEmprestimoEmprestimo</tabstop>
   <tabstop>txtUsuarioCPF</tabstop>
   <tabstop>txtUsuarioRa</tabstop>
-  <tabstop>tblUsuarioLivro</tabstop>
   <tabstop>txtUsuarioNome</tabstop>
   <tabstop>txtUsuarioEmail</tabstop>
   <tabstop>txtUsuarioCurso</tabstop>
-  <tabstop>cmbUsuarioPerfil</tabstop>
   <tabstop>txtUsuarioPenalidade</tabstop>
+  <tabstop>cmbUsuarioPerfil</tabstop>
   <tabstop>txtUsuarioIngresso</tabstop>
   <tabstop>btnUsuarioCadastrar</tabstop>
   <tabstop>btnUsuarioEditar</tabstop>
   <tabstop>btnUsuarioExcluir</tabstop>
   <tabstop>btnUsuarioLimpar</tabstop>
-  <tabstop>btnUsuarioPesquisar</tabstop>
   <tabstop>tblUsuarioUsuario</tabstop>
+  <tabstop>tblUsuarioLivro</tabstop>
   <tabstop>txtAcervoIdLivro</tabstop>
   <tabstop>txtAcervoTitulo</tabstop>
   <tabstop>txtAcervoAutor</tabstop>
@@ -1370,7 +1355,6 @@
   <tabstop>btnAcervoEditar</tabstop>
   <tabstop>btnAcervoExcluir</tabstop>
   <tabstop>btnAcervoLimpar</tabstop>
-  <tabstop>btnAcervoPesquisar</tabstop>
   <tabstop>tblAcervoLivros</tabstop>
   <tabstop>lineEdit_15</tabstop>
   <tabstop>pushButton_7</tabstop>

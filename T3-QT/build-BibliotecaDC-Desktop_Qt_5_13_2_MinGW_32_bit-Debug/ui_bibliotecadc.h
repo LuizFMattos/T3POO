@@ -142,7 +142,6 @@ public:
     QPushButton *btnUsuarioEditar;
     QPushButton *btnUsuarioExcluir;
     QPushButton *btnUsuarioLimpar;
-    QPushButton *btnUsuarioPesquisar;
     QGroupBox *groupBox_18;
     QTableWidget *tblUsuarioUsuario;
     QWidget *acervo;
@@ -155,7 +154,6 @@ public:
     QPushButton *btnAcervoEditar;
     QPushButton *btnAcervoExcluir;
     QPushButton *btnAcervoLimpar;
-    QPushButton *btnAcervoPesquisar;
     QGroupBox *groupBox_14;
     QWidget *layoutWidget_10;
     QHBoxLayout *horizontalLayout_20;
@@ -578,7 +576,7 @@ public:
         cmbUsuarioPerfil->setGeometry(QRect(70, 190, 81, 22));
         label_5 = new QLabel(groupBox);
         label_5->setObjectName(QString::fromUtf8("label_5"));
-        label_5->setGeometry(QRect(20, 140, 33, 22));
+        label_5->setGeometry(QRect(20, 150, 33, 22));
         txtUsuarioCurso = new QLineEdit(groupBox);
         txtUsuarioCurso->setObjectName(QString::fromUtf8("txtUsuarioCurso"));
         txtUsuarioCurso->setGeometry(QRect(70, 150, 241, 22));
@@ -597,10 +595,10 @@ public:
         txtUsuarioPenalidade->setGeometry(QRect(415, 150, 51, 22));
         label_3 = new QLabel(groupBox);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(370, 30, 16, 22));
+        label_3->setGeometry(QRect(390, 30, 16, 22));
         txtUsuarioRa = new QLineEdit(groupBox);
         txtUsuarioRa->setObjectName(QString::fromUtf8("txtUsuarioRa"));
-        txtUsuarioRa->setGeometry(QRect(400, 30, 51, 22));
+        txtUsuarioRa->setGeometry(QRect(410, 30, 51, 22));
         groupBox_17 = new QGroupBox(usuarios);
         groupBox_17->setObjectName(QString::fromUtf8("groupBox_17"));
         groupBox_17->setGeometry(QRect(20, 300, 791, 91));
@@ -630,11 +628,6 @@ public:
         btnUsuarioLimpar->setObjectName(QString::fromUtf8("btnUsuarioLimpar"));
 
         horizontalLayout_34->addWidget(btnUsuarioLimpar);
-
-        btnUsuarioPesquisar = new QPushButton(horizontalLayoutWidget_3);
-        btnUsuarioPesquisar->setObjectName(QString::fromUtf8("btnUsuarioPesquisar"));
-
-        horizontalLayout_34->addWidget(btnUsuarioPesquisar);
 
         groupBox_18 = new QGroupBox(usuarios);
         groupBox_18->setObjectName(QString::fromUtf8("groupBox_18"));
@@ -684,11 +677,6 @@ public:
         btnAcervoLimpar->setObjectName(QString::fromUtf8("btnAcervoLimpar"));
 
         horizontalLayout_26->addWidget(btnAcervoLimpar);
-
-        btnAcervoPesquisar = new QPushButton(horizontalLayoutWidget);
-        btnAcervoPesquisar->setObjectName(QString::fromUtf8("btnAcervoPesquisar"));
-
-        horizontalLayout_26->addWidget(btnAcervoPesquisar);
 
         groupBox_14 = new QGroupBox(acervo);
         groupBox_14->setObjectName(QString::fromUtf8("groupBox_14"));
@@ -835,8 +823,7 @@ public:
         QWidget::setTabOrder(btnUsuarioCadastrar, btnUsuarioEditar);
         QWidget::setTabOrder(btnUsuarioEditar, btnUsuarioExcluir);
         QWidget::setTabOrder(btnUsuarioExcluir, btnUsuarioLimpar);
-        QWidget::setTabOrder(btnUsuarioLimpar, btnUsuarioPesquisar);
-        QWidget::setTabOrder(btnUsuarioPesquisar, tblUsuarioUsuario);
+        QWidget::setTabOrder(btnUsuarioLimpar, tblUsuarioUsuario);
         QWidget::setTabOrder(tblUsuarioUsuario, txtAcervoIdLivro);
         QWidget::setTabOrder(txtAcervoIdLivro, txtAcervoTitulo);
         QWidget::setTabOrder(txtAcervoTitulo, txtAcervoAutor);
@@ -847,8 +834,7 @@ public:
         QWidget::setTabOrder(btnAcervoCadastrar, btnAcervoEditar);
         QWidget::setTabOrder(btnAcervoEditar, btnAcervoExcluir);
         QWidget::setTabOrder(btnAcervoExcluir, btnAcervoLimpar);
-        QWidget::setTabOrder(btnAcervoLimpar, btnAcervoPesquisar);
-        QWidget::setTabOrder(btnAcervoPesquisar, tblAcervoLivros);
+        QWidget::setTabOrder(btnAcervoLimpar, tblAcervoLivros);
         QWidget::setTabOrder(tblAcervoLivros, lineEdit_15);
         QWidget::setTabOrder(lineEdit_15, pushButton_7);
         QWidget::setTabOrder(pushButton_7, lineEdit_11);
@@ -861,7 +847,7 @@ public:
 
         retranslateUi(BibliotecaDC);
 
-        Menu->setCurrentIndex(2);
+        Menu->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(BibliotecaDC);
@@ -919,7 +905,6 @@ public:
         btnUsuarioEditar->setText(QCoreApplication::translate("BibliotecaDC", "Editar", nullptr));
         btnUsuarioExcluir->setText(QCoreApplication::translate("BibliotecaDC", "Excluir", nullptr));
         btnUsuarioLimpar->setText(QCoreApplication::translate("BibliotecaDC", "Limpar", nullptr));
-        btnUsuarioPesquisar->setText(QCoreApplication::translate("BibliotecaDC", "Pesquisar", nullptr));
         groupBox_18->setTitle(QCoreApplication::translate("BibliotecaDC", "Usu\303\241rios", nullptr));
         Menu->setTabText(Menu->indexOf(usuarios), QCoreApplication::translate("BibliotecaDC", "Usu\303\241rio", nullptr));
         groupBox_12->setTitle(QCoreApplication::translate("BibliotecaDC", "Acervo", nullptr));
@@ -928,7 +913,6 @@ public:
         btnAcervoEditar->setText(QCoreApplication::translate("BibliotecaDC", "Editar", nullptr));
         btnAcervoExcluir->setText(QCoreApplication::translate("BibliotecaDC", "Excluir", nullptr));
         btnAcervoLimpar->setText(QCoreApplication::translate("BibliotecaDC", "Limpar", nullptr));
-        btnAcervoPesquisar->setText(QCoreApplication::translate("BibliotecaDC", "Pesquisar", nullptr));
         groupBox_14->setTitle(QCoreApplication::translate("BibliotecaDC", "Livro", nullptr));
         label_25->setText(QCoreApplication::translate("BibliotecaDC", "Cod. Livro", nullptr));
         label_26->setText(QCoreApplication::translate("BibliotecaDC", "T\303\255tulo", nullptr));
