@@ -15,9 +15,10 @@
 
 using namespace std;
 
-#define USUARIO    0
-#define LIVRO      1
-#define EMPRESTIMO 2
+#define USUARIO        0
+#define LIVRO          1
+#define EMPRESTIMO     2
+#define USUARIO_LIVROS 3
 
 void updateTableWiget(int widget, QTableWidget* table){
 
@@ -95,7 +96,7 @@ void updateTableWiget(int widget, QTableWidget* table){
 
         table->setColumnWidth(0, 60);
         table->setColumnWidth(1, 180);
-        table->setColumnWidth(2, 150    );
+        table->setColumnWidth(2, 150);
         table->setColumnWidth(3, 100);
         table->setColumnWidth(4, 100);
         table->setColumnWidth(5, 100);
@@ -123,6 +124,7 @@ void updateTableWiget(int widget, QTableWidget* table){
             string dataEmprestimo = diaEmprestimo + "/" + mesEmpresimo + "/" + anoEmprestimo;
             table->setItem(0, 3, new QTableWidgetItem( dataEmprestimo.c_str() )  );
         }
+    }else if( widget == USUARIO_LIVROS){
     }
 
 }
@@ -232,7 +234,6 @@ void BibliotecaDC::on_btnAcervoCadastrar_clicked()
 void BibliotecaDC::on_tblAcervoLivros_cellClicked(int row, int column)
 {
     ui->btnAcervoCadastrar->setEnabled(false);
-    ui->btnAcervoPesquisar->setEnabled(false);
     ui->btnAcervoExcluir->setEnabled(true);
     ui->btnAcervoEditar->setEnabled(true);
     QDate d;
@@ -296,7 +297,6 @@ void BibliotecaDC::on_btnAcervoLimpar_clicked()
     ui->btnAcervoExcluir->setEnabled(false);
     ui->btnAcervoEditar->setEnabled(false);
     ui->btnAcervoCadastrar->setEnabled(true);
-    ui->btnAcervoPesquisar->setEnabled(true);
 }
 
 void BibliotecaDC::on_btnAcervoExcluir_clicked()
@@ -307,7 +307,6 @@ void BibliotecaDC::on_btnAcervoExcluir_clicked()
     updateTableWiget(LIVRO, ui->tblAcervoLivros);
     limparCamposAcervo(ui);
     ui->btnAcervoCadastrar->setEnabled(true);
-    ui->btnAcervoPesquisar->setEnabled(true);
 }
 
 //////////////////////////////////////USUARIO//////////////////////////////////////
@@ -328,7 +327,7 @@ void limparCamposUsuario(Ui::BibliotecaDC* a){
     a->cmbUsuarioPerfil->setCurrentIndex(-1);
 }
 bool verificaCamposUsuario(Ui::BibliotecaDC* a){
-    if( a->txtUsuarioRa->text() == "" || a->txtUsuarioCPF->text() == "" || a->txtUsuarioCurso->text() == "" || a->txtUsuarioEmail->text() == "" || a->txtUsuarioIngresso->text() == "" || a->txtUsuarioPenalidade->text() == "" || a->cmbUsuarioPerfil->currentIndex() < 1 ){
+    if( a->txtUsuarioRa->text() == "" || a->txtUsuarioCPF->text() == "" || a->txtUsuarioCurso->text() == "" || a->txtUsuarioEmail->text() == "" || a->txtUsuarioIngresso->text() == "" || a->cmbUsuarioPerfil->currentIndex() < 1 ){
         QMessageBox msg;
         msg.setText("Há campos não preenchidos, preencha-os!");
         msg.setIcon(QMessageBox::Warning);
@@ -342,7 +341,6 @@ bool verificaCamposUsuario(Ui::BibliotecaDC* a){
 void BibliotecaDC::on_tblUsuarioUsuario_cellClicked(int row, int column)
 {
     ui->btnUsuarioCadastrar->setEnabled(false);
-    ui->btnUsuarioPesquisar->setEnabled(false);
     ui->btnUsuarioExcluir->setEnabled(true);
     ui->btnUsuarioEditar->setEnabled(true);
 
@@ -368,7 +366,6 @@ void BibliotecaDC::on_btnUsuarioLimpar_clicked()
     ui->btnUsuarioExcluir->setEnabled(false);
     ui->btnUsuarioEditar->setEnabled(false);
     ui->btnUsuarioCadastrar->setEnabled(true);
-    ui->btnUsuarioPesquisar->setEnabled(true);
 }
 
 void BibliotecaDC::on_btnUsuarioExcluir_clicked()
@@ -380,15 +377,13 @@ void BibliotecaDC::on_btnUsuarioExcluir_clicked()
 
     limparCamposUsuario(ui);
     ui->btnUsuarioCadastrar->setEnabled(true);
-    ui->btnUsuarioPesquisar->setEnabled(true);
 }
 
 void BibliotecaDC::on_btnUsuarioCadastrar_clicked()
 {
-    ui->label_6->setText( ui->cmbUsuarioPerfil->currentText() );
     if( verificaCamposUsuario(ui) ){
         double cpf = ui->txtUsuarioCPF->text().toDouble();
-//        const char* tipoCadastro = ui->cmbUsuarioPerfil->currentText().toUtf8().constData();
+        int a = ui->cmbUsuarioPerfil->currentIndex();
         const char* nome = ui->txtUsuarioNome->text().toUtf8().constData();
         const char* email = ui->txtUsuarioEmail->text().toUtf8().constData();
         int ra = ui->txtUsuarioRa->text().toInt();
@@ -400,7 +395,9 @@ void BibliotecaDC::on_btnUsuarioCadastrar_clicked()
         char nom[50] = {};
         char ema[50] = {};
         char cur[30] = {};
-        //strcpy(tip, tipoCadastro);
+        if( a == 1 ) strcpy(tip, "Admin"); else
+        if (a == 2 ) strcpy(tip, "Professor"); else
+        if (a == 3 ) strcpy(tip, "Aluno");
         strcpy(nom, nome);
         strcpy(ema, email);
         strcpy(cur, curso);
@@ -415,4 +412,42 @@ void BibliotecaDC::on_btnUsuarioCadastrar_clicked()
         limparCamposUsuario(ui);
 
     }
+}
+
+void BibliotecaDC::on_btnUsuarioEditar_clicked()
+{
+    double cpf = ui->txtUsuarioCPF->text().toDouble();
+    int a = ui->cmbUsuarioPerfil->currentIndex();
+    const char* nome = ui->txtUsuarioNome->text().toUtf8().constData();
+    const char* email = ui->txtUsuarioEmail->text().toUtf8().constData();
+    int ra = ui->txtUsuarioRa->text().toInt();
+    int penalidade = 0;
+    const char* curso = ui->txtUsuarioCurso->text().toUtf8().constData();
+    int anoIngresso = ui->txtUsuarioIngresso->text().toInt();
+
+    char tip[30] = {};
+    char nom[50] = {};
+    char ema[50] = {};
+    char cur[30] = {};
+    if( a == 1 ) strcpy(tip, "Admin"); else
+    if (a == 2 ) strcpy(tip, "Professor"); else
+    if (a == 3 ) strcpy(tip, "Aluno");
+    strcpy(nom, nome);
+    strcpy(ema, email);
+    strcpy(cur, curso);
+
+    vector<int> vec(0);
+
+    DAO<Pessoa> dp(USUARIO);
+    Pessoa p(cpf, tip, nom, ema, ra, penalidade, cur, anoIngresso, vec);
+    dp.editar(p);
+    deleteTableWidget(ui->tblUsuarioUsuario);
+    updateTableWiget(0, ui->tblUsuarioUsuario);
+    limparCamposUsuario(ui);
+
+    ui->btnUsuarioCadastrar->setEnabled(true);
+    ui->btnUsuarioExcluir->setEnabled(false);
+    ui->btnUsuarioEditar->setEnabled(false);
+
+
 }
