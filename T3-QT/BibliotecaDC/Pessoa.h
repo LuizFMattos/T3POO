@@ -23,12 +23,12 @@ class Pessoa{
                     this->anopenalidade = ano;
                     strcpy(this->curso, curso);
                     this->anoIngresso = anoIngresso;
-                    ( strcmp(tipoCadastro, "PROFESSOR") ? maxLivros = 5 : maxLivros = 3);
-                    (value.size() > 0) ? id_livro1 = value[0] : id_livro1 = 0;
-                    (value.size() > 1) ? id_livro2 = value[1] : id_livro1 = 0;
-                    (value.size() > 2) ? id_livro3 = value[2] : id_livro1 = 0;
-                    (value.size() > 3) ? id_livro4 = value[3] : id_livro1 = 0;
-                    (value.size() > 4) ? id_livro5 = value[4] : id_livro1 = 0;
+                    ( strcmp(tipoCadastro, "Professor") ? maxLivros = 3 : maxLivros = 5);
+                    id_livro1 = value[0];
+                    id_livro1 = value[1];
+                    id_livro1 = value[2];
+                    id_livro1 = value[3];
+                    id_livro1 = value[4];
                     this->qntLivros = livrosEmprestados;
                 }
 
@@ -44,11 +44,11 @@ class Pessoa{
                 char* getCurso() { return this->curso; }
                 int getAnoIngresso() { return anoIngresso; }
                 vector<Livro> getLivros(){
-                    vector<Livro> retorno(5);
+                    vector<Livro> retorno;
                     DAO<Livro> dl(LIVRO);
                     vector<Livro> todosLivros = dl.getObjetos();
                     for( unsigned int i = 0; i < todosLivros.size(); i ++){
-                        if( (todosLivros[i].getId() == id_livro1 || todosLivros[i].getId() == id_livro2 || todosLivros[i].getId() == id_livro3 || todosLivros[i].getId() == id_livro4 || todosLivros[i].getId() == id_livro5) && (id_livro1 != 0 && id_livro2 != 0 && id_livro3 != 0 && id_livro4 != 0 && id_livro5 != 0)){
+                        if( (todosLivros[i].getId() == id_livro1 && id_livro1 != 0) || (todosLivros[i].getId() == id_livro2 && id_livro2 != 0) || (todosLivros[i].getId() == id_livro3 && id_livro3 != 0) || (todosLivros[i].getId() == id_livro4 && id_livro4 != 0) || (todosLivros[i].getId() == id_livro5 && id_livro5 != 0)){
                             retorno.push_back(todosLivros[i]);
                         }
                     }
@@ -56,13 +56,7 @@ class Pessoa{
                 }
                 int getMaxLivros() { return maxLivros; }
                 int getQntLivrosEmprestados(){
-                    int cont = 0 ;
-                    cont+= id_livro1 > 0;
-                    cont+= id_livro2 > 0;
-                    cont+= id_livro3 > 0;
-                    cont+= id_livro4 > 0;
-                    cont+= id_livro5 > 0;
-                    return cont;
+                    return this->qntLivros;
                 }
                 vector<int> getPenalidade(){
                     vector<int> vec;
@@ -92,13 +86,14 @@ class Pessoa{
                     struct tm * timeinfo;
                     time (&rawtime);
                     timeinfo = localtime (&rawtime);
-                    int qtdelivros = this->getQntLivrosEmprestados();
                     //Verifica se a pessoa possui o maximo de livros emprestados ou se a data de penalidade expirou
-                    if(qtdelivros == this->maxLivros || diferencadedias(timeinfo->tm_mday,timeinfo->tm_mon+1,timeinfo->tm_year+1900, this->diapenalidade, this->mespenalidade, this->anopenalidade) < 0){
+                    if(this->qntLivros == this->maxLivros || diferencadedias(timeinfo->tm_mday,timeinfo->tm_mon+1,timeinfo->tm_year+1900, this->diapenalidade, this->mespenalidade, this->anopenalidade) < 0){
                         return false; //emprestimo invalido
                     }
                     this->qntLivros++;
-                    switch(qtdelivros){
+                    cout << qntLivros <<"   " << maxLivros << endl;
+
+                    switch(qntLivros){
                         case(1):
                             id_livro1 = id;
                         break;
@@ -119,6 +114,8 @@ class Pessoa{
                 }
 
                 bool devolver(double id, int diadev, int mesdev, int anodev){ //Id do livro a ser removido e o prazo de devolucao
+                    this->qntLivros--;
+                    cout << qntLivros <<"   " << maxLivros << endl;
                     if(id_livro1 == id){
                         goto livro1;
                     } else if(id_livro2 == id){

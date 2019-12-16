@@ -52,6 +52,8 @@ private slots:
 
     void on_tblEmprestimoEmprestimo_cellClicked(int row, int column);
 
+    void on_tblUsuarioUsuario_cellActivated(int row, int column);
+
 private:
     Ui::BibliotecaDC *ui;
 };

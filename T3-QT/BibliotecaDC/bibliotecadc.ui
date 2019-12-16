@@ -51,7 +51,7 @@
      <bool>false</bool>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Emprestimo">
      <attribute name="title">
@@ -487,7 +487,7 @@
         <x>20</x>
         <y>20</y>
         <width>791</width>
-        <height>271</height>
+        <height>151</height>
        </rect>
       </property>
       <property name="autoFillBackground">
@@ -496,29 +496,6 @@
       <property name="title">
        <string>Dados Pessoais</string>
       </property>
-      <widget class="QGroupBox" name="groupBox_2">
-       <property name="geometry">
-        <rect>
-         <x>490</x>
-         <y>20</y>
-         <width>281</width>
-         <height>241</height>
-        </rect>
-       </property>
-       <property name="title">
-        <string>Livros emprestados</string>
-       </property>
-       <widget class="QTableWidget" name="tblUsuarioLivro">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>30</y>
-          <width>241</width>
-          <height>192</height>
-         </rect>
-        </property>
-       </widget>
-      </widget>
       <widget class="QLineEdit" name="txtUsuarioCPF">
        <property name="geometry">
         <rect>
@@ -594,8 +571,8 @@
       <widget class="QLabel" name="label_6">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>190</y>
+         <x>640</x>
+         <y>70</y>
          <width>84</width>
          <height>22</height>
         </rect>
@@ -607,8 +584,8 @@
       <widget class="QComboBox" name="cmbUsuarioPerfil">
        <property name="geometry">
         <rect>
-         <x>70</x>
-         <y>190</y>
+         <x>690</x>
+         <y>70</y>
          <width>81</width>
          <height>22</height>
         </rect>
@@ -617,8 +594,8 @@
       <widget class="QLabel" name="label_5">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>150</y>
+         <x>350</x>
+         <y>30</y>
          <width>33</width>
          <height>22</height>
         </rect>
@@ -630,9 +607,9 @@
       <widget class="QLineEdit" name="txtUsuarioCurso">
        <property name="geometry">
         <rect>
-         <x>70</x>
-         <y>150</y>
-         <width>241</width>
+         <x>400</x>
+         <y>30</y>
+         <width>201</width>
          <height>22</height>
         </rect>
        </property>
@@ -640,8 +617,8 @@
       <widget class="QLabel" name="label_11">
        <property name="geometry">
         <rect>
-         <x>320</x>
-         <y>150</y>
+         <x>630</x>
+         <y>30</y>
          <width>92</width>
          <height>22</height>
         </rect>
@@ -653,8 +630,8 @@
       <widget class="QLineEdit" name="txtUsuarioIngresso">
        <property name="geometry">
         <rect>
-         <x>415</x>
-         <y>150</y>
+         <x>725</x>
+         <y>30</y>
          <width>51</width>
          <height>22</height>
         </rect>
@@ -663,23 +640,10 @@
         <string/>
        </property>
       </widget>
-      <widget class="QLabel" name="label_10">
-       <property name="geometry">
-        <rect>
-         <x>310</x>
-         <y>190</y>
-         <width>62</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Penalidade</string>
-       </property>
-      </widget>
       <widget class="QLabel" name="label_3">
        <property name="geometry">
         <rect>
-         <x>390</x>
+         <x>240</x>
          <y>30</y>
          <width>16</width>
          <height>22</height>
@@ -692,7 +656,7 @@
       <widget class="QLineEdit" name="txtUsuarioRa">
        <property name="geometry">
         <rect>
-         <x>410</x>
+         <x>260</x>
          <y>30</y>
          <width>51</width>
          <height>22</height>
@@ -708,14 +672,50 @@
        </property>
        <property name="geometry">
         <rect>
-         <x>380</x>
-         <y>190</y>
-         <width>86</width>
+         <x>722</x>
+         <y>110</y>
+         <width>51</width>
          <height>22</height>
         </rect>
        </property>
-       <property name="inputMask">
-        <string/>
+      </widget>
+      <widget class="QLabel" name="label_10">
+       <property name="geometry">
+        <rect>
+         <x>660</x>
+         <y>110</y>
+         <width>84</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Penalidade</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtUsuarioLivrosEmprestados">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>600</x>
+         <y>110</y>
+         <width>51</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_12">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>110</y>
+         <width>111</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Livros emprestados</string>
        </property>
       </widget>
      </widget>
@@ -723,7 +723,7 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>300</y>
+        <y>180</y>
         <width>791</width>
         <height>91</height>
        </rect>
@@ -782,9 +782,9 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>400</y>
+        <y>280</y>
         <width>781</width>
-        <height>241</height>
+        <height>371</height>
        </rect>
       </property>
       <property name="title">
@@ -796,7 +796,7 @@
          <x>20</x>
          <y>30</y>
          <width>741</width>
-         <height>191</height>
+         <height>331</height>
         </rect>
        </property>
        <property name="editTriggers">
@@ -1141,7 +1141,6 @@
   <tabstop>btnUsuarioExcluir</tabstop>
   <tabstop>btnUsuarioLimpar</tabstop>
   <tabstop>tblUsuarioUsuario</tabstop>
-  <tabstop>tblUsuarioLivro</tabstop>
   <tabstop>txtAcervoIdLivro</tabstop>
   <tabstop>txtAcervoTitulo</tabstop>
   <tabstop>txtAcervoAutor</tabstop>
