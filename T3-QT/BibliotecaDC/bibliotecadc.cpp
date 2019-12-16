@@ -20,7 +20,7 @@ using namespace std;
 #define EMPRESTIMO     2
 #define USUARIO_LIVROS 3
 
-void updateTableWiget(int widget, QTableWidget* table){
+void updateTableWiget(int widget, QTableWidget* table, Ui::BibliotecaDC* a){
 
     if( widget == USUARIO){
         table->setColumnCount(8);
@@ -47,7 +47,18 @@ void updateTableWiget(int widget, QTableWidget* table){
             table->setItem(0, 2, new QTableWidgetItem( vec[i].getNome() ) );
             table->setItem(0, 3, new QTableWidgetItem( vec[i].getEmail() ) );
             table->setItem(0, 4, new QTableWidgetItem( to_string( vec[i].getRa() ).c_str() ) );
-            table->setItem(0, 5, new QTableWidgetItem( to_string( vec[i].getPenalidade() ).c_str() ) );
+            if( vec[i].getPenalidade()[0] == 1 && vec[i].getPenalidade()[1] == 1 && vec[i].getPenalidade()[2] == 2000)
+                table->setItem(0, 5, new QTableWidgetItem( "NAO" ) );
+            else{
+                QString dia = to_string( vec[i].getPenalidade()[0] ).c_str();
+                QString mes = to_string( vec[i].getPenalidade()[1] ).c_str();
+                QString ano = to_string( vec[i].getPenalidade()[2] ).c_str();
+                if( dia.size() == 1) dia = "0" + dia;
+                if( mes.size() == 1) dia = "0" + mes;
+                if( ano.size() == 1) dia = "0" + ano;
+                table->setItem(0, 5, new QTableWidgetItem( dia + "/" + mes + "/" + ano ) );
+            }
+
             table->setItem(0, 6, new QTableWidgetItem( vec[i].getCurso() ) );
             table->setItem(0, 7, new QTableWidgetItem( to_string( vec[i].getAnoIngresso() ).c_str() ) );
         }
@@ -91,7 +102,7 @@ void updateTableWiget(int widget, QTableWidget* table){
 
     }else if( widget == EMPRESTIMO ){
         table->setColumnCount(6);
-        QStringList cabec = {"ID", "CPF", "ID Livro", "Emprestimo", "Devolução", "Devolvido"};
+        QStringList cabec = {"ID", "CPF", "Livro", "Emprestimo", "Devolução", "Devolvido"};
         table->setHorizontalHeaderLabels(cabec);
 
         table->setColumnWidth(0, 60);
@@ -108,10 +119,18 @@ void updateTableWiget(int widget, QTableWidget* table){
         for( unsigned int i = vec.size() - 2; i > 0; i--){
             table->insertRow(0);
             table->setItem(0, 0, new QTableWidgetItem( to_string( (int) round( vec[i].getId() ) ).c_str() ) );
-            table->setItem(0, 1, new QTableWidgetItem( to_string(  round(vec[i].getCpf() ) ).substr(0,11).c_str() ) );
-            table->setItem(0, 2, new QTableWidgetItem( to_string( (int) round(vec[i].getId_livro() ) ).c_str() ) );
+            table->setItem(0, 1, new QTableWidgetItem( to_string( (int) round(vec[i].getCpf() ) ).substr(0,11).c_str() ) );
+            DAO<Livro> dl(LIVRO);
+            vector<Livro> vecL = dl.getObjetos();
+            unsigned int j;
+            for(j = 0; j < vecL.size(); j++){
+                if( vecL[j].getId() == vec[i].getId_livro() ){
+                    break;
+                }
+            }
+            table->setItem(0, 2, new QTableWidgetItem( vecL[j].getTitulo() ) );
 
-
+            ///////data emprestimo
             string diaEmprestimo = to_string( vec[i].getDataEmprestimo()[0] );
             if( diaEmprestimo.length() == 1) diaEmprestimo = "0" + diaEmprestimo;
 
@@ -119,13 +138,68 @@ void updateTableWiget(int widget, QTableWidget* table){
             if( mesEmpresimo.length() == 1) mesEmpresimo = "0" + mesEmpresimo;
 
             string anoEmprestimo = to_string( vec[i].getDataEmprestimo()[2] );
-            if( anoEmprestimo.length() == 1) anoEmprestimo = "0" + anoEmprestimo;
 
             string dataEmprestimo = diaEmprestimo + "/" + mesEmpresimo + "/" + anoEmprestimo;
             table->setItem(0, 3, new QTableWidgetItem( dataEmprestimo.c_str() )  );
+
+            ////////data devolucao//////////
+            string diaDevolucao = to_string( vec[i].getDataDevolucao()[0] );
+            if( diaDevolucao.length() == 1) diaDevolucao= "0" + diaDevolucao;
+
+            string mesDevolucao = to_string( vec[i].getDataDevolucao()[1] );
+            if( mesDevolucao.length() == 1) mesDevolucao = "0" + mesDevolucao;
+
+            string anoDevolucao = to_string( vec[i].getDataDevolucao()[2] );
+
+            string dataDevolucao = diaDevolucao+ "/" + mesDevolucao+ "/" + anoDevolucao;
+            table->setItem(0, 4, new QTableWidgetItem( dataDevolucao.c_str() )  );
+
+            /////////data devolvido
+            string diaDevolvido= to_string( vec[i].getDataDevolvido()[0] );
+            if( diaDevolvido.length() == 1) diaDevolvido= "0" + diaDevolvido;
+
+            string mesDevolvido = to_string( vec[i].getDataDevolvido()[1] );
+            if( mesDevolvido.length() == 1) mesDevolvido = "0" + mesDevolvido;
+
+            string anoDevolvido = to_string( vec[i].getDataDevolvido()[2] );
+
+            string dataDevolvido;
+            if( vec[i].getDataDevolvido()[0] == 1 && vec[i].getDataDevolvido()[1] == 1 && vec[i].getDataDevolvido()[2] == 2000){
+                dataDevolvido = "NAO";
+            }else{
+                dataDevolvido = diaDevolvido + "/" + mesDevolvido+ "/" + anoDevolvido;
+            }
+            table->setItem(0, 5, new QTableWidgetItem( dataDevolvido.c_str() )  );
         }
     }else if( widget == USUARIO_LIVROS){
+        double cpf = a->txtUsuarioCPF->text().toDouble();
+        table->setColumnCount(2);
+        QStringList cabec = {"ID", "Titulo"};
+        table->setHorizontalHeaderLabels(cabec);
+
+        table->setColumnWidth(0, 60);
+        table->setColumnWidth(1, 100);
+
+        DAO<Pessoa> dp(PESSOA);
+        vector<Pessoa> vecP;
+        vecP = dp.getObjetos();
+        unsigned int q;
+        for( q = vecP.size() - 2; q > 0; q--){
+            if( vecP[q].getId() == cpf )
+                break;
+        }
+
+        vecP = dp.getObjetos();
+        vector<Livro> livros;
+        livros = vecP[q].getLivros();
+        for( unsigned int i = livros.size() - 2; i > 0; i--){
+                table->insertRow(0);
+                table->setItem(0, 0, new QTableWidgetItem( to_string( (long long int) round( livros[i].getId() ) ).c_str() ) );
+                table->setItem(0, 1, new QTableWidgetItem( livros[i].getTitulo() ) );
+
+        }
     }
+
 
 }
 
@@ -138,20 +212,10 @@ BibliotecaDC::BibliotecaDC(QWidget *parent)
     , ui(new Ui::BibliotecaDC)
 {
     ui->setupUi(this);
-    updateTableWiget(LIVRO, ui->tblAcervoLivros);
-    updateTableWiget(EMPRESTIMO, ui->tblEmprestimoEmprestimo);
-    updateTableWiget(USUARIO, ui->tblUsuarioUsuario);
+    updateTableWiget(LIVRO, ui->tblAcervoLivros, ui);
+    updateTableWiget(EMPRESTIMO, ui->tblEmprestimoEmprestimo, ui);
+    updateTableWiget(USUARIO, ui->tblUsuarioUsuario, ui);
     ui->txtAcervoIdLivro->setEnabled(false);
-
-    QRegExp re1("([A-Z ]{0,50})");
-    QRegExp re2("([A-Z ]{0,30})");
-    QRegExp re3("([A-Z]{0,30})");
-    QRegExpValidator *validator1 = new QRegExpValidator(re1, this);
-    QRegExpValidator *validator2 = new QRegExpValidator(re2, this);
-    QRegExpValidator *validator3 = new QRegExpValidator(re3, this);
-    ui->txtUsuarioNome->setValidator(validator1);
-    ui->txtUsuarioCurso->setValidator(validator2);
-    ui->txtUsuarioEmail->setValidator(validator3);
 
 
     time_t t = time(NULL);
@@ -159,7 +223,7 @@ BibliotecaDC::BibliotecaDC(QWidget *parent)
     int ano = tm.tm_year+1900;
     int mes = tm.tm_mon;
     int dia = tm.tm_mday;
-    QDate d(ano, mes, dia);
+    QDate d(ano, mes+1, dia);
     ui->dtAcervoDataAquiscao->setDate(d);
     ui->dtAcervoDataAquiscao->setEnabled(false);
     ui->btnAcervoExcluir->setEnabled(false);
@@ -172,6 +236,10 @@ BibliotecaDC::BibliotecaDC(QWidget *parent)
     ui->cmbUsuarioPerfil->addItem("Aluno", "aln");
     ui->btnUsuarioExcluir->setEnabled(false);
     ui->btnUsuarioEditar->setEnabled(false);
+    QPixmap pixmap("C:\\Users\\luizf\\Workspaces\\POO\\T3POO\\T3-QT\\BibliotecaDC\\lupa.png");
+    QIcon ButtonIcon(pixmap);
+    ui->btnEmprestimoPesquisarUsuario->setIcon(ButtonIcon);
+    ui->btnEmprestimoPesquisarLivro->setIcon(ButtonIcon);
 }
 
 BibliotecaDC::~BibliotecaDC()
@@ -223,10 +291,10 @@ void BibliotecaDC::on_btnAcervoCadastrar_clicked()
         strcpy(a, autor);
         strcpy(e, editora);
 
-        Livro l1(dl.getNextId(), t, a , e, ui->txtAcervoEdicao->text().toInt(), ui->dtAcervoDataAquiscao->date().day(), ui->dtAcervoDataAquiscao->date().month(), ui->dtAcervoDataAquiscao->date().year() );
+        Livro l1(dl.getNextId(), t, a , e, ui->txtAcervoEdicao->text().toInt(), ui->dtAcervoDataAquiscao->date().day(), ui->dtAcervoDataAquiscao->date().month(), ui->dtAcervoDataAquiscao->date().year() , false);
         dl.cadastrar(l1);
         deleteTableWidget(ui->tblAcervoLivros);
-        updateTableWiget(LIVRO, ui->tblAcervoLivros);
+        updateTableWiget(LIVRO, ui->tblAcervoLivros, ui);
         limparCamposAcervo(ui);
     }
 }
@@ -285,10 +353,18 @@ void BibliotecaDC::on_btnAcervoEditar_clicked()
     strcpy(a, autor);
     strcpy(e, editora);
 
-    Livro l1(ui->txtAcervoIdLivro->text().toInt(), t, a , e, ui->txtAcervoEdicao->text().toInt(), ui->dtAcervoDataAquiscao->date().day(), ui->dtAcervoDataAquiscao->date().month(), ui->dtAcervoDataAquiscao->date().year() );
+    vector<Livro> vecL = dl.getObjetos();
+    unsigned int i;
+    for(i = 0; i < vecL.size(); i++){
+        if( vecL[i].getId() == ui->txtAcervoIdLivro->text().toDouble() )
+            break;
+    }
+
+
+    Livro l1(ui->txtAcervoIdLivro->text().toDouble(), t, a , e, ui->txtAcervoEdicao->text().toInt(), ui->dtAcervoDataAquiscao->date().day(), ui->dtAcervoDataAquiscao->date().month(), ui->dtAcervoDataAquiscao->date().year(), vecL[i].getEstaEmprestado() );
     dl.editar(l1);
     deleteTableWidget(ui->tblAcervoLivros);
-    updateTableWiget(LIVRO, ui->tblAcervoLivros);
+    updateTableWiget(LIVRO, ui->tblAcervoLivros, ui);
 }
 
 void BibliotecaDC::on_btnAcervoLimpar_clicked()
@@ -304,7 +380,7 @@ void BibliotecaDC::on_btnAcervoExcluir_clicked()
     DAO<Livro> dl(LIVRO);
     dl.excluir(ui->txtAcervoIdLivro->text().toInt());
     deleteTableWidget(ui->tblAcervoLivros);
-    updateTableWiget(LIVRO, ui->tblAcervoLivros);
+    updateTableWiget(LIVRO, ui->tblAcervoLivros, ui);
     limparCamposAcervo(ui);
     ui->btnAcervoCadastrar->setEnabled(true);
 }
@@ -343,6 +419,7 @@ void BibliotecaDC::on_tblUsuarioUsuario_cellClicked(int row, int column)
     ui->btnUsuarioCadastrar->setEnabled(false);
     ui->btnUsuarioExcluir->setEnabled(true);
     ui->btnUsuarioEditar->setEnabled(true);
+    ui->txtUsuarioCPF->setEnabled(false);
 
     ui->txtUsuarioCPF->setText( ui->tblUsuarioUsuario->item(row, 0)->text() );
     if( ui->tblUsuarioUsuario->item(row, 1)->text() == "Admin" )
@@ -358,6 +435,7 @@ void BibliotecaDC::on_tblUsuarioUsuario_cellClicked(int row, int column)
     ui->txtUsuarioPenalidade->setText( ui->tblUsuarioUsuario->item(row, 5)->text() );
     ui->txtUsuarioCurso->setText( ui->tblUsuarioUsuario->item(row, 6)->text() );
     ui->txtUsuarioIngresso->setText( ui->tblUsuarioUsuario->item(row, 7)->text() );
+    updateTableWiget(USUARIO_LIVROS, ui->tblUsuarioLivro, ui);
 }
 
 void BibliotecaDC::on_btnUsuarioLimpar_clicked()
@@ -366,6 +444,7 @@ void BibliotecaDC::on_btnUsuarioLimpar_clicked()
     ui->btnUsuarioExcluir->setEnabled(false);
     ui->btnUsuarioEditar->setEnabled(false);
     ui->btnUsuarioCadastrar->setEnabled(true);
+    ui->txtUsuarioCPF->setEnabled(true);
 }
 
 void BibliotecaDC::on_btnUsuarioExcluir_clicked()
@@ -373,10 +452,11 @@ void BibliotecaDC::on_btnUsuarioExcluir_clicked()
     DAO<Pessoa> dl(USUARIO);
     dl.excluir( ui->txtUsuarioCPF->text().toDouble() );
     deleteTableWidget(ui->tblUsuarioUsuario);
-    updateTableWiget(USUARIO, ui->tblUsuarioUsuario);
+    updateTableWiget(USUARIO, ui->tblUsuarioUsuario, ui);
 
     limparCamposUsuario(ui);
     ui->btnUsuarioCadastrar->setEnabled(true);
+    ui->txtUsuarioCPF->setEnabled(true);
 }
 
 void BibliotecaDC::on_btnUsuarioCadastrar_clicked()
@@ -387,7 +467,25 @@ void BibliotecaDC::on_btnUsuarioCadastrar_clicked()
         const char* nome = ui->txtUsuarioNome->text().toUtf8().constData();
         const char* email = ui->txtUsuarioEmail->text().toUtf8().constData();
         int ra = ui->txtUsuarioRa->text().toInt();
-        int penalidade = 0;
+        string penalidade = ui->txtUsuarioPenalidade->text().toUtf8().constData();
+
+        int pDia, pMes, pAno;
+        if ( penalidade != "NAO" && penalidade != ""){
+
+            istringstream issDia(penalidade.substr(0,2));
+            issDia >> pDia;
+
+            istringstream issMes(penalidade.substr(3,2));
+            issMes >> pMes;
+
+            istringstream issAno(penalidade.substr(6,2));
+            issAno >> pAno;
+        }else{
+            pDia = 1;
+            pMes = 1;
+            pAno = 2000;
+        }
+
         const char* curso = ui->txtUsuarioCurso->text().toUtf8().constData();
         int anoIngresso = ui->txtUsuarioIngresso->text().toInt();
 
@@ -405,12 +503,11 @@ void BibliotecaDC::on_btnUsuarioCadastrar_clicked()
         vector<int> vec(0);
 
         DAO<Pessoa> dp(USUARIO);
-        Pessoa p(cpf, tip, nom, ema, ra, penalidade, cur, anoIngresso, vec);
+        Pessoa p(cpf, tip, nom, ema, ra, cur, anoIngresso, pDia, pMes, pAno, vec, 0);
         dp.cadastrar(p);
         deleteTableWidget(ui->tblUsuarioUsuario);
-        updateTableWiget(0, ui->tblUsuarioUsuario);
+        updateTableWiget(0, ui->tblUsuarioUsuario, ui);
         limparCamposUsuario(ui);
-
     }
 }
 
@@ -421,7 +518,24 @@ void BibliotecaDC::on_btnUsuarioEditar_clicked()
     const char* nome = ui->txtUsuarioNome->text().toUtf8().constData();
     const char* email = ui->txtUsuarioEmail->text().toUtf8().constData();
     int ra = ui->txtUsuarioRa->text().toInt();
-    int penalidade = 0;
+    string penalidade = ui->txtUsuarioPenalidade->text().toUtf8().constData();
+
+    int pDia, pMes, pAno;
+    if ( penalidade != "NAO"){
+
+        istringstream issDia(penalidade.substr(0,2));
+        issDia >> pDia;
+
+        istringstream issMes(penalidade.substr(3,2));
+        issMes >> pMes;
+
+        istringstream issAno(penalidade.substr(6,2));
+        issAno >> pAno;
+    }else{
+        pDia = 1;
+        pMes = 1;
+        pAno = 2000;
+    }
     const char* curso = ui->txtUsuarioCurso->text().toUtf8().constData();
     int anoIngresso = ui->txtUsuarioIngresso->text().toInt();
 
@@ -437,17 +551,261 @@ void BibliotecaDC::on_btnUsuarioEditar_clicked()
     strcpy(cur, curso);
 
     vector<int> vec(0);
+    vec.push_back(0);
+    vec.push_back(0);
+    vec.push_back(0);
+    vec.push_back(0);
+    vec.push_back(0);
 
     DAO<Pessoa> dp(USUARIO);
-    Pessoa p(cpf, tip, nom, ema, ra, penalidade, cur, anoIngresso, vec);
+    Pessoa p(cpf, tip, nom, ema, ra, cur, anoIngresso, pDia, pMes, pAno, vec, ui->tblUsuarioLivro->rowCount());
     dp.editar(p);
     deleteTableWidget(ui->tblUsuarioUsuario);
-    updateTableWiget(0, ui->tblUsuarioUsuario);
+    updateTableWiget(0, ui->tblUsuarioUsuario, ui);
     limparCamposUsuario(ui);
 
     ui->btnUsuarioCadastrar->setEnabled(true);
     ui->btnUsuarioExcluir->setEnabled(false);
     ui->btnUsuarioEditar->setEnabled(false);
+    ui->txtUsuarioCPF->setEnabled(true);
+
+}
+///////////////////////////////////EMPRESTIMO///////////////////////////////////
+void limpaCamposEmprestimo(Ui::BibliotecaDC* a){
+    a->txtEmprestimoCpf->setText("");
+    a->txtEmprestimoNome->setText("");
+    a->txtEmprestimoAutor->setText("");
+    a->txtEmprestimoEdicao->setText("");
+    a->txtEmprestimoTitulo->setText("");
+    a->txtEmprestimoEditora->setText("");
+    a->txtEmprestimoIdLivro->setText("");
+    QDate data(2000,1,1);
+    a->dtEmprestimoDataAq->setDate(data);
+}
+
+void BibliotecaDC::on_btnEmprestimoPesquisarUsuario_clicked(){
+    double cpf = ui->txtEmprestimoCpf->text().toDouble();
+    if( cpf != 0){
+        unsigned int i;
+        DAO<Pessoa> dp(USUARIO);
+        vector<Pessoa> p = dp.getObjetos();
+        for( i = 0; i < p.size(); i++){
+            if( cpf == p[i].getId() ){
+                ui->txtEmprestimoNome->setText( to_string(i).c_str() );
+                break;
+            }
+        }
+        if( i == p.size() ){
+            QMessageBox msg;
+            msg.setText("Usuário não encontrado!");
+            msg.setIcon(QMessageBox::Critical);
+            msg.setDefaultButton(QMessageBox::Ok);
+            msg.exec();
+        }
+    }else{
+        QMessageBox msg;
+        msg.setText("Digite um CPF para pesquisar uma pessoa!");
+        msg.setIcon(QMessageBox::Warning);
+        msg.setDefaultButton(QMessageBox::Ok);
+        msg.exec();
+    }
+
+}
+
+void BibliotecaDC::on_btnEmprestimoPesquisarLivro_clicked()
+{
+    double cpf = ui->txtEmprestimoIdLivro->text().toDouble();
+    if( cpf != 0){
+        unsigned int i;
+        DAO<Livro> dp(LIVRO);
+        vector<Livro> p = dp.getObjetos();
+        for( i = 0; i < p.size(); i++){
+            if( cpf == p[i].getId() ){
+                ui->txtEmprestimoTitulo->setText( p[i].getTitulo() );
+                ui->txtEmprestimoAutor->setText( p[i].getAutor() );
+                ui->txtEmprestimoEditora->setText( p[i].getEditora() );
+                ui->txtEmprestimoEdicao->setText( to_string( p[i].getEdicao() ).c_str() );
+                QDate data(p[i].getAnoAdquirido(), p[i].getMesAdquirido(), p[i].getDiaAdquirido());
+                ui->dtEmprestimoDataAq->setDate(data);
+
+
+                break;
+            }
+        }
+        if( i == p.size() ){
+            QMessageBox msg;
+            msg.setText("Livro não encontrado!");
+            msg.setIcon(QMessageBox::Critical);
+            msg.setDefaultButton(QMessageBox::Ok);
+            msg.exec();
+        }
+    }else{
+        QMessageBox msg;
+        msg.setText("Digite um ID para pesquisar um livro!");
+        msg.setIcon(QMessageBox::Warning);
+        msg.setDefaultButton(QMessageBox::Ok);
+        msg.exec();
+    }
+
+
+}
+
+
+void BibliotecaDC::on_btnEmprestimoLimpar_clicked()
+{
+    limpaCamposEmprestimo(ui);
+}
+
+void BibliotecaDC::on_btnEmprestimoEmprestar_clicked()
+{
+
+    unsigned int i;
+    double cpf = ui->txtEmprestimoCpf->text().toDouble();
+    double idLivro = ui->txtEmprestimoIdLivro->text().toDouble();
+    DAO<Pessoa> dp(PESSOA);
+    vector<Pessoa> vecP = dp.getObjetos();
+    for( i = 0; i < vecP.size(); i++){
+        if( cpf == vecP[i].getId() ){
+            break;
+        }
+    }
+    unsigned int j;
+    DAO<Livro> dl(LIVRO);
+    vector<Livro> vecL = dl.getObjetos();
+    for( j = 0; j < vecL.size(); j++){
+        if( idLivro == vecL[j].getId() ){
+            break;
+        }
+    }
+    if( !vecL[j].getEstaEmprestado() ){
+        if( vecP[i].emprestar(idLivro) == true){
+            dp.editar(vecP[i]);
+            vecL[j].setEstaEmprestado(true);
+            dl.editar(vecL[j]);
+
+            time_t t = time(NULL);
+            struct tm tm = *localtime(&t);
+            int dataEmprestimo[3];
+            dataEmprestimo[0] = tm.tm_mday;
+            dataEmprestimo[1] = tm.tm_mon;
+            dataEmprestimo[2] = tm.tm_year+1900;
+
+            int dataDevolucao[3];
+            dataDevolucao[0] = tm.tm_mday;
+            dataDevolucao[1] = tm.tm_mon;
+            dataDevolucao[2] = tm.tm_year;
+            somardias( &dataDevolucao[0], &dataDevolucao[1], &dataDevolucao[2], 10 );
+
+            int dataDevolvido[3];
+            dataDevolvido[0] = 1;
+            dataDevolvido[1] = 1;
+            dataDevolvido[2] = 2000;
+
+            DAO<Emprestimo> de(EMPRESTIMO);
+            Emprestimo e(de.getNextId(), cpf, idLivro, dataEmprestimo, dataDevolucao, dataDevolvido);
+            de.cadastrar(e);
+        }else{
+            QMessageBox msg;
+            msg.setText("O usuário atingiu o número máximo de emprestimos!");
+            msg.setIcon(QMessageBox::Warning);
+            msg.setDefaultButton(QMessageBox::Ok);
+            msg.exec();
+        }
+    }else{
+        QMessageBox msg;
+        msg.setText("O livro selecionado não esta disponível!");
+        msg.setIcon(QMessageBox::Warning);
+        msg.setDefaultButton(QMessageBox::Ok);
+        msg.exec();
+    }
+    deleteTableWidget(ui->tblEmprestimoEmprestimo);
+    updateTableWiget(EMPRESTIMO, ui->tblEmprestimoEmprestimo, ui);
+    limpaCamposEmprestimo(ui);
+}
+
+void BibliotecaDC::on_btnEmprestimoDevolver_clicked()
+{
+    unsigned int i;
+    double cpf = ui->txtEmprestimoCpf->text().toDouble();
+    double idLivro = ui->txtEmprestimoIdLivro->text().toDouble();
+    DAO<Pessoa> dp(PESSOA);
+    vector<Pessoa> vecP = dp.getObjetos();
+    for( i = 0; i < vecP.size(); i++){
+        if( cpf == vecP[i].getId() ){
+            break;
+        }
+    }
+    unsigned int j;
+    DAO<Livro> dl(LIVRO);
+    vector<Livro> vecL = dl.getObjetos();
+    for( j = 0; j < vecL.size(); j++){
+        if( idLivro == vecL[j].getId() ){
+            break;
+        }
+    }
+
+
+    unsigned int k;
+    DAO<Emprestimo> de(EMPRESTIMO);
+    vector<Emprestimo> vecE = de.getObjetos();
+    for( k = 0; k < vecE.size(); k++){
+        if( vecE[k].getId_livro() == idLivro && vecL[j].getEstaEmprestado() == true){
+            break;
+        }
+    }
+
+    vecP[i].devolver(vecL[j].getId(), vecE[k].getDataDevolucao()[0],vecE[k].getDataDevolucao()[1], vecE[k].getDataDevolucao()[2]);
+    dp.editar(vecP[i]);
+    vecL[j].setEstaEmprestado(false);
+    dl.editar(vecL[j]);
+    time_t t = time(NULL);
+    struct tm tm = *localtime(&t);
+    int data[3];
+    data[0] = tm.tm_mday;
+    data[1] = tm.tm_mon;
+    data[2] = tm.tm_year+1900;
+    vecE[k].setDataDevolvido(data[0], data[1], data[2]);
+    de.editar(vecE[k]);
+    limpaCamposEmprestimo(ui);
+}
+
+
+void BibliotecaDC::on_tblEmprestimoEmprestimo_cellClicked(int row, int column)
+{
+    double idEmprestimo = ui->tblEmprestimoEmprestimo->item(row,0 )->text().toDouble();
+    unsigned int k;
+    DAO<Emprestimo> de(EMPRESTIMO);
+    vector<Emprestimo> vecE = de.getObjetos();
+    for( k = 0; k < vecE.size(); k++){
+        if( vecE[k].getId() == idEmprestimo ){
+            break;
+        }
+    }
+    unsigned int i;
+    DAO<Pessoa> dp(PESSOA);
+    vector<Pessoa> vecP = dp.getObjetos();
+    for( i = 0; i < vecP.size(); i++){
+        if( vecE[k].getCpf() == vecP[i].getId() ){
+            break;
+        }
+    }
+    unsigned int j;
+    DAO<Livro> dl(LIVRO);
+    vector<Livro> vecL = dl.getObjetos();
+    for( j = 0; j < vecL.size(); j++){
+        if( vecE[k].getId_livro() == vecL[j].getId() ){
+            break;
+        }
+    }
+    ui->txtEmprestimoTitulo->setText( vecL[j].getTitulo() );
+    ui->txtEmprestimoAutor->setText( vecL[j].getAutor() );
+    ui->txtEmprestimoEditora->setText( vecL[j].getEditora() );
+    ui->txtEmprestimoEdicao->setText( to_string( vecL[j].getEdicao() ).c_str() );
+    QDate data(vecL[j].getAnoAdquirido(), vecL[j].getMesAdquirido(), vecL[j].getDiaAdquirido());
+    ui->dtEmprestimoDataAq->setDate(data);
+    ui->txtEmprestimoNome->setText( vecP[i].getNome() );
+    ui->txtEmprestimoCpf->setText( to_string((long long int )round(vecP[i].getId())).c_str() );
+    ui->txtEmprestimoIdLivro->setText( to_string((long long int) round(vecL[k].getId())).c_str());
 
 
 }

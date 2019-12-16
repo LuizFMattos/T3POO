@@ -2,6 +2,7 @@
 #define EMPRESTIMO_H
 
 #include <iostream>
+#include "calculadoradedias.h"
 
 using namespace std;
 
@@ -26,25 +27,22 @@ class Emprestimo{
             this->devolvido = 0;
 
         }
-        Emprestimo(double id, double cpf, double id_livro, int* dataEmprestimo){
+        Emprestimo(double id, double cpf, double id_livro, int* dataEmprestimo, int* dataDevolucao, int* dataDevolvido){
             this->id = id;
             this->cpf = cpf;
             this->id_livro = id_livro;
+
             this->dataEmprestimo[0] = dataEmprestimo[0];
             this->dataEmprestimo[1] = dataEmprestimo[1];
             this->dataEmprestimo[2] = dataEmprestimo[2];
 
-            this->dataDevolucao[0] = dataEmprestimo[0];
-            this->dataDevolucao[1] = dataEmprestimo[1]+1;
-            this->dataDevolucao[2] = dataEmprestimo[2];
-            if( this->dataEmprestimo[1] == 13 ){
-                this->dataEmprestimo[1] = 1;
-                (this->dataEmprestimo[2])++;
-            }
+            this->dataDevolucao[0] = dataDevolucao[0];
+            this->dataDevolucao[1] = dataDevolucao[1];
+            this->dataDevolucao[2] = dataDevolucao[2];
 
-            this->dataDevolvido[0] = 0;
-            this->dataDevolvido[1] = 0;
-            this->dataDevolvido[2] = 0;
+            this->dataDevolvido[0] = dataDevolvido[0];
+            this->dataDevolvido[1] = dataDevolvido[1];
+            this->dataDevolvido[2] = dataDevolvido[2];
 
             this->devolvido = 0;
 

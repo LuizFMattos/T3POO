@@ -12,23 +12,6 @@
 
 int main(int argc, char *argv[])
 {
-    DAO<Livro> d(LIVRO);
-    char titulo[30] = "3Sistemas digitais";
-    char autor[30] = "3Emerson";
-    char editora[30] = "3UFSCar";
-    Livro l1(d.getNextId(), titulo, autor, editora, 3, 3, 3, 3);
-    //d.cadastrar(l1);
-    //d.editar(2, l1);
-    //d.excluir(3);
-    //d.listar();
-
-    int data[3] = {13, 12, 2019};
-    DAO<Emprestimo> d2(EMPRESTIMO);
-    Emprestimo e1(d2.getNextId(), 44071481870, 1, data);
-    //d2.cadastrar(e1);
-    d2.listar();
-    Pessoa p();
-
     QApplication a(argc, argv);
     BibliotecaDC w;
     w.show();

@@ -16,6 +16,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    calculadoradedias.cpp \
     main.cpp \
     bibliotecadc.cpp
 
@@ -24,7 +25,8 @@ HEADERS += \
     Emprestimo.h \
     Livro.h \
     Pessoa.h \
-    bibliotecadc.h
+    bibliotecadc.h \
+    calculadoradedias.h
 
 FORMS += \
     bibliotecadc.ui

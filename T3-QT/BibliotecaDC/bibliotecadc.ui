@@ -51,7 +51,7 @@
      <bool>false</bool>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="Emprestimo">
      <attribute name="title">
@@ -124,13 +124,39 @@
         </item>
        </layout>
       </widget>
+      <widget class="QPushButton" name="btnEmprestimoPesquisarUsuario">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>33</y>
+         <width>22</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnEmprestimoPesquisarUsuario_2">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>70</y>
+         <width>22</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_5">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>160</x>
         <y>230</y>
-        <width>791</width>
+        <width>501</width>
         <height>61</height>
        </rect>
       </property>
@@ -140,8 +166,8 @@
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>11</x>
-         <y>21</y>
+         <x>20</x>
+         <y>20</y>
          <width>151</width>
          <height>30</height>
         </rect>
@@ -155,6 +181,38 @@
          </widget>
         </item>
        </layout>
+      </widget>
+      <widget class="QWidget" name="layoutWidget_2">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>20</y>
+         <width>151</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_12">
+        <item>
+         <widget class="QPushButton" name="btnEmprestimoDevolver">
+          <property name="text">
+           <string>Devolver</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QPushButton" name="btnEmprestimoLimpar">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>20</y>
+         <width>149</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Limpar</string>
+       </property>
       </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_15">
@@ -190,7 +248,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="txtAcervoIdLivro_2">
+         <widget class="QLineEdit" name="txtEmprestimoIdLivro">
           <property name="enabled">
            <bool>true</bool>
           </property>
@@ -228,7 +286,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="txtAcervoTitulo_2">
+         <widget class="QLineEdit" name="txtEmprestimoTitulo">
           <property name="enabled">
            <bool>false</bool>
           </property>
@@ -257,7 +315,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="txtAcervoEdicao_2">
+         <widget class="QLineEdit" name="txtEmprestimoEdicao">
           <property name="enabled">
            <bool>false</bool>
           </property>
@@ -283,7 +341,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="txtAcervoAutor_2">
+         <widget class="QLineEdit" name="txtEmprestimoAutor">
           <property name="enabled">
            <bool>false</bool>
           </property>
@@ -315,7 +373,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QDateEdit" name="dtAcervoDataAquiscao_2">
+         <widget class="QDateEdit" name="dtEmprestimoDataAq">
           <property name="enabled">
            <bool>false</bool>
           </property>
@@ -367,7 +425,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="txtAcervoEditora_2">
+         <widget class="QLineEdit" name="txtEmprestimoEditora">
           <property name="enabled">
            <bool>false</bool>
           </property>
@@ -375,7 +433,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QPushButton" name="pushButton_6">
+      <widget class="QPushButton" name="btnEmprestimoPesquisarLivro">
        <property name="geometry">
         <rect>
          <x>160</x>
@@ -386,11 +444,6 @@
        </property>
        <property name="text">
         <string/>
-       </property>
-       <property name="icon">
-        <iconset>
-         <normaloff>lupa.png</normaloff>
-         <normalon>lupa.png</normalon>lupa.png</iconset>
        </property>
       </widget>
      </widget>
@@ -421,262 +474,6 @@
        <attribute name="horizontalHeaderCascadingSectionResizes">
         <bool>true</bool>
        </attribute>
-      </widget>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="Devolucao">
-     <attribute name="title">
-      <string>Devolução</string>
-     </attribute>
-     <widget class="QGroupBox" name="groupBox_7">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>240</y>
-        <width>431</width>
-        <height>91</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string>Filtos de Reservas</string>
-      </property>
-     </widget>
-     <widget class="QGroupBox" name="groupBox_8">
-      <property name="geometry">
-       <rect>
-        <x>180</x>
-        <y>330</y>
-        <width>231</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string>Comandos</string>
-      </property>
-      <widget class="QWidget" name="layoutWidget_2">
-       <property name="geometry">
-        <rect>
-         <x>11</x>
-         <y>21</y>
-         <width>195</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_12">
-        <item>
-         <widget class="QPushButton" name="pushButton_7">
-          <property name="text">
-           <string>Devolver</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="pushButton_8">
-          <property name="text">
-           <string>Devolvidos</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </widget>
-     <widget class="QGroupBox" name="groupBox_9">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>20</y>
-        <width>431</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string>Nome</string>
-      </property>
-      <widget class="QWidget" name="layoutWidget_3">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>30</y>
-         <width>177</width>
-         <height>27</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_13">
-        <item>
-         <widget class="QLabel" name="label_14">
-          <property name="text">
-           <string>CPF</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="lineEdit_10"/>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="layoutWidget_4">
-       <property name="geometry">
-        <rect>
-         <x>200</x>
-         <y>30</y>
-         <width>192</width>
-         <height>27</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_14">
-        <item>
-         <widget class="QLabel" name="label_15">
-          <property name="text">
-           <string>Nome</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="lineEdit_11"/>
-        </item>
-       </layout>
-      </widget>
-     </widget>
-     <widget class="QGroupBox" name="groupBox_10">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>100</y>
-        <width>431</width>
-        <height>131</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string>Livro</string>
-      </property>
-      <widget class="QWidget" name="layoutWidget_5">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>30</y>
-         <width>129</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_15">
-        <property name="sizeConstraint">
-         <enum>QLayout::SetNoConstraint</enum>
-        </property>
-        <item>
-         <widget class="QLabel" name="label_16">
-          <property name="text">
-           <string>Cod. Livro</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="lineEdit_12">
-          <property name="enabled">
-           <bool>true</bool>
-          </property>
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777205</width>
-            <height>16777215</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="layoutWidget_6">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>60</y>
-         <width>178</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_16">
-        <item>
-         <widget class="QLabel" name="label_17">
-          <property name="text">
-           <string>Título</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="lineEdit_13"/>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="layoutWidget_7">
-       <property name="geometry">
-        <rect>
-         <x>150</x>
-         <y>30</y>
-         <width>219</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_17">
-        <item>
-         <widget class="QLabel" name="label_18">
-          <property name="text">
-           <string>Data da Devolução</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QDateEdit" name="dateEdit_3"/>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="layoutWidget_8">
-       <property name="geometry">
-        <rect>
-         <x>230</x>
-         <y>80</y>
-         <width>131</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_18">
-        <item>
-         <widget class="QLabel" name="label_19">
-          <property name="text">
-           <string>Editora</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="lineEdit_14"/>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="layoutWidget_9">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>90</y>
-         <width>141</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_19">
-        <item>
-         <widget class="QLabel" name="label_20">
-          <property name="text">
-           <string>Edição</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="lineEdit_15"/>
-        </item>
-       </layout>
       </widget>
      </widget>
     </widget>
@@ -844,7 +641,7 @@
        <property name="geometry">
         <rect>
          <x>320</x>
-         <y>190</y>
+         <y>150</y>
          <width>92</width>
          <height>22</height>
         </rect>
@@ -857,7 +654,7 @@
        <property name="geometry">
         <rect>
          <x>415</x>
-         <y>190</y>
+         <y>150</y>
          <width>51</width>
          <height>22</height>
         </rect>
@@ -869,27 +666,14 @@
       <widget class="QLabel" name="label_10">
        <property name="geometry">
         <rect>
-         <x>350</x>
-         <y>150</y>
+         <x>310</x>
+         <y>190</y>
          <width>62</width>
          <height>22</height>
         </rect>
        </property>
        <property name="text">
         <string>Penalidade</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="txtUsuarioPenalidade">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>415</x>
-         <y>150</y>
-         <width>51</width>
-         <height>22</height>
-        </rect>
        </property>
       </widget>
       <widget class="QLabel" name="label_3">
@@ -911,6 +695,22 @@
          <x>410</x>
          <y>30</y>
          <width>51</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtUsuarioPenalidade">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>380</x>
+         <y>190</y>
+         <width>86</width>
          <height>22</height>
         </rect>
        </property>
@@ -1321,13 +1121,12 @@
   <tabstop>Menu</tabstop>
   <tabstop>txtEmprestimoCpf</tabstop>
   <tabstop>txtEmprestimoNome</tabstop>
-  <tabstop>txtAcervoIdLivro_2</tabstop>
-  <tabstop>pushButton_6</tabstop>
-  <tabstop>txtAcervoTitulo_2</tabstop>
-  <tabstop>txtAcervoAutor_2</tabstop>
-  <tabstop>txtAcervoEditora_2</tabstop>
-  <tabstop>txtAcervoEdicao_2</tabstop>
-  <tabstop>dtAcervoDataAquiscao_2</tabstop>
+  <tabstop>txtEmprestimoIdLivro</tabstop>
+  <tabstop>txtEmprestimoTitulo</tabstop>
+  <tabstop>txtEmprestimoAutor</tabstop>
+  <tabstop>txtEmprestimoEditora</tabstop>
+  <tabstop>txtEmprestimoEdicao</tabstop>
+  <tabstop>dtEmprestimoDataAq</tabstop>
   <tabstop>btnEmprestimoEmprestar</tabstop>
   <tabstop>tblEmprestimoEmprestimo</tabstop>
   <tabstop>txtUsuarioCPF</tabstop>
@@ -1335,7 +1134,6 @@
   <tabstop>txtUsuarioNome</tabstop>
   <tabstop>txtUsuarioEmail</tabstop>
   <tabstop>txtUsuarioCurso</tabstop>
-  <tabstop>txtUsuarioPenalidade</tabstop>
   <tabstop>cmbUsuarioPerfil</tabstop>
   <tabstop>txtUsuarioIngresso</tabstop>
   <tabstop>btnUsuarioCadastrar</tabstop>
@@ -1355,15 +1153,6 @@
   <tabstop>btnAcervoExcluir</tabstop>
   <tabstop>btnAcervoLimpar</tabstop>
   <tabstop>tblAcervoLivros</tabstop>
-  <tabstop>lineEdit_15</tabstop>
-  <tabstop>pushButton_7</tabstop>
-  <tabstop>lineEdit_11</tabstop>
-  <tabstop>lineEdit_10</tabstop>
-  <tabstop>lineEdit_13</tabstop>
-  <tabstop>pushButton_8</tabstop>
-  <tabstop>lineEdit_14</tabstop>
-  <tabstop>lineEdit_12</tabstop>
-  <tabstop>dateEdit_3</tabstop>
  </tabstops>
  <resources/>
  <connections/>

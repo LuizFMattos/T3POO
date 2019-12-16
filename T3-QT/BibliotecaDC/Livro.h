@@ -23,7 +23,7 @@ class Livro{
             this->anoAdquirido = 2000;
             estaEmprestado = 0;
         }
-        Livro(double id, char* titulo, char* autor, char* editora, int edicao, int dia, int mes, int ano){
+        Livro(double id, char* titulo, char* autor, char* editora, int edicao, int dia, int mes, int ano, bool emprestado){
             this->id = id;
             strcpy(this->titulo, titulo);
             strcpy(this->autor , autor);
@@ -32,7 +32,7 @@ class Livro{
             this->diaAdquirido = dia;
             this->mesAdquirido = mes;
             this->anoAdquirido = ano;
-            this->estaEmprestado = 0;
+            this->estaEmprestado = emprestado;
         }
 
         //getters

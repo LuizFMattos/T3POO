@@ -36,6 +36,22 @@ private slots:
 
     void on_btnUsuarioEditar_clicked();
 
+    void on_btnEmprestimoPesquisarUsuario_clicked();
+
+    void on_btnEmprestimoPesquisarLivro_clicked();
+
+    void on_txtEmprestimoCpf_returnPressed();
+
+    void on_btnEmprestimoLimpar_clicked();
+
+    void on_btnEmprestimoEmprestar_clicked();
+
+    void on_btnEmprestimoDevolver_clicked();
+
+    void on_tblEmprestimoEmprestimo_cellActivated(int row, int column);
+
+    void on_tblEmprestimoEmprestimo_cellClicked(int row, int column);
+
 private:
     Ui::BibliotecaDC *ui;
 };
